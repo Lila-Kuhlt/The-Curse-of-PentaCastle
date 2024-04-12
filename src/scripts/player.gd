@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
+var frames_since_ground := 0
 @onready var sprite := $Sprite
 @onready var progress: ProgressBar = $LvlProgress
 
@@ -14,8 +15,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	if is_on_floor():
+		frames_since_ground = 0
+
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and ((frames_since_ground <= 3) or is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
