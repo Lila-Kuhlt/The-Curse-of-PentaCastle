@@ -1,13 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4ipwilu8782j"]
+[gd_scene load_steps=6 format=3 uid="uid://d4ipwilu8782j"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a4pjw"]
+[ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="2_g78bs"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_pkbaw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tkad"]
+texture = ExtResource("2_g78bs")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_3u8v1"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1tkad")
 
 [node name="World" type="Node2D"]
 scale = Vector2(10, 10)
 script = ExtResource("1_a4pjw")
 
+[node name="Map" type="TileMap" parent="."]
+scale = Vector2(1, 1)
+tile_set = SubResource("TileSet_3u8v1")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131072, 0, 1, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, 65545, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 1, 65560, 0, 1, 24, 0, 1, -131048, 0, 1, -65512, 0, 1, 65554, 0, 0)
+
 [node name="Player" parent="." instance=ExtResource("2_mli0p")]
-position = Vector2(41.8, 24.2)
-script = ExtResource("3_pkbaw")
+position = Vector2(14, 19.4)
