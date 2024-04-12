@@ -43,23 +43,19 @@ script = ExtResource("1_a4pjw")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
-scale = Vector2(10, 10)
 motion_scale = Vector2(0.4, 1)
 
 [node name="Background1" type="TileMap" parent="ParallaxBackground/ParallaxLayer1"]
-scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_848xu")
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 0, 0, 131073, 0, 0, 196611, 0, 0, 131077, 0, 0, 131079, 0, 0)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-scale = Vector2(10, 10)
 motion_scale = Vector2(0.8, 1)
 motion_offset = Vector2(9, 0)
 
 [node name="Background2" type="TileMap" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(0.1, 0)
-scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_848xu")
 format = 2
 layer_0/tile_data = PackedInt32Array(262143, 0, 0, 131073, 0, 0, 196611, 0, 0, 196614, 0, 0, 65541, 0, 0, 65538, 0, 0, 196608, 0, 0, 65539, 0, 0, 196613, 0, 0, 131076, 0, 0)
