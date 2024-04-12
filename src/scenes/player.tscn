@@ -26,7 +26,6 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(-1, 1)
 script = ExtResource("1_8i3nd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,6 +34,7 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_26xo2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_m263x")
 autoplay = "default"
 frame_progress = 0.694699
