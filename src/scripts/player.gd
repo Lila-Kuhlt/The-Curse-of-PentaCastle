@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
-const JUMP_VELOCITY = -600.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -200.0
 @onready var sprite := $Sprite
+@onready var progress: ProgressBar = $LvlProgress
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,10 +27,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	move_and_slide()
 	
-	if global_position.y > 400:
+	progress.value = position.x / 3.7
+	
+	if global_position.y > 200:
 			game_over()
 
 func game_over():

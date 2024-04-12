@@ -38,7 +38,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tkad")
 
 [node name="World" type="Node2D"]
-scale = Vector2(10, 10)
 script = ExtResource("1_a4pjw")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -68,7 +67,7 @@ layer_0/tile_data = PackedInt32Array(262143, 0, 0, 131073, 0, 0, 196611, 0, 0, 1
 [node name="Map" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3u8v1")
 format = 2
-layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131072, 0, 1, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, 65545, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 1, 65560, 0, 1, 24, 0, 1, -131048, 0, 1, -65512, 0, 1, 65554, 0, 0)
+layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 65536, 0, 131084, 0, 1, 131085, 0, 0, 131086, 65536, 0, 131072, 0, 1, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, 65545, 0, 0, 131094, 0, 1, 131095, 0, 0, 131096, 0, 1, 65560, 0, 1, 24, 0, 1, -131048, 0, 1, -65512, 0, 1, 65554, 65536, 0, 65553, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_mli0p")]
 position = Vector2(14, 19.4)
