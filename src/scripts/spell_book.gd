@@ -31,13 +31,22 @@ var _spell_scripts = [
 	preload("res://scripts/spells/speed.gd").new(),
 ]
 
+var _active_spells: Array[bool] = []
+
+func _ready():
+	for i in Spells.values().size():
+		_active_spells.append(false)
+
 func cast(spell: Spells, inventory_idx: int, player: CharacterBody2D):
+	if (_active_spells[spell]): return
+	player.add_ghost(inventory_idx, spell)
 	player.ui.mark_spell_item_panel(inventory_idx)
 	var spell_script = _spell_scripts[spell]
 	spell_script.cast(player)
 	var spell_item_script = get_spell_item_script(spell).new()
 	if (spell_item_script.type == SpellType.PASSIVE):
 		var timer := Timer.new()
+		_active_spells[spell] = true
 		add_child(timer)
 		timer.wait_time = spell_item_script.duration
 		timer.one_shot = true
@@ -45,9 +54,11 @@ func cast(spell: Spells, inventory_idx: int, player: CharacterBody2D):
 		timer.start()
 
 func _uncast(spell: Spells, inventory_idx: int, player: CharacterBody2D):
+	player.del_ghost(inventory_idx)
 	player.ui.unmark_spell_item_panel(inventory_idx)
 	var spell_script = _spell_scripts[spell]
 	spell_script.uncast(player)
+	_active_spells[spell] = false
 
 func get_spell_item_script(spell: Spells):
 	return spell_item_scripts[spell]
@@ -60,4 +71,4 @@ func find_spell(combo: String) -> Spells:
 		var spell_item = spell_item_script.new()
 		if (spell_item.cast == combo):
 			return spell_item.spell
-	return -1
+	return 0

@@ -116,7 +116,7 @@ func game_over():
 func _on_pentagram_layer_combo_done(combo: Array[int]):
 	var combo_str = "".join(combo)
 	var spell = SpellBook.find_spell(combo_str)
-	if ((spell >= 0)):
+	if ((spell > 0)):
 		var idx = spell_inventory.find(spell)
 		if (idx > -1):
 			SpellBook.cast(spell, idx, self)
