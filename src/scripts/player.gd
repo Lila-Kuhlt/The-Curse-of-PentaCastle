@@ -25,6 +25,20 @@ var jump_buffer := 0
 # Inventory
 var spell_inventory: Array[SpellBook.Spells] = []
 
+const Ghost = preload("res://scenes/ghost.tscn")
+
+var ghost_arr: Array[Node2D] = []
+
+func add_ghost(index: int, id: int):
+	var ghost: Node2D = Ghost.instantiate()
+	ghost.init(index, id)
+	ghost_arr.insert(index, ghost)
+	add_child(ghost)
+
+func del_ghost(index: int):
+	var ghost: Node2D = ghost_arr.pop_at(index)
+	remove_child(ghost)
+	ghost.queue_free()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -81,7 +95,11 @@ func _physics_process(delta):
 					movement_phase =  MovementPhase.ACCELERATING
 	is_turned_right = direction > 0
 
+	var old_pos := position
 	move_and_slide()
+	for ghost in ghost_arr:
+		ghost.position -= position - old_pos
+		ghost.flipped = sprite.flip_h
 
 	if global_position.y > 200:
 		game_over()
