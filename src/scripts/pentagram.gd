@@ -18,8 +18,6 @@ const PENTAGRAM_CORNERS: Array[Vector2] = [
 
 var combo: Array[int] = []
 
-var line_length = 0.0
-
 var is_active : bool :
 	get:
 		return visible
@@ -36,8 +34,6 @@ func show_pentagram(center_pos):
 	visible = true
 	image.position = center_pos - image.size * image.scale * 0.5
 	multiline.add_point(center_pos)
-	multiline.add_point(center_pos)
-	line_length = 0
 
 func hide_pentagram():
 	visible = false
@@ -82,18 +78,16 @@ func _input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event is InputEventMouseMotion or event is InputEventJoypadMotion:
-		multiline.remove_point(multiline.points.size() - 1)
-
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
 			if hits_corner(event, i):
+				for _i in range(multiline.points.size() - combo.size()):
+					multiline.remove_point(combo.size())
+
 				combo.append(i)
 
 				var corner_pos = calculate_corner_position(i)
-				if combo.size() == 1:
-					multiline.remove_point(multiline.points.size() - 1)
 				multiline.add_point(corner_pos)
-				line_length += multiline.points[multiline.points.size() - 1].distance_to(corner_pos)
 
 				var effect = clip_effect.instantiate()
 				effect.position = corner_pos
@@ -104,4 +98,8 @@ func _input(event: InputEvent) -> void:
 
 		var current_cursor_position = get_position_of_event(event)
 		multiline.add_point(current_cursor_position)
-		multiline.material.set_shader_parameter('line_length', line_length + multiline.points[multiline.points.size() - 1].distance_to(current_cursor_position))
+
+		var line_length = 0.0
+		for i in range(multiline.get_point_count() - 1):
+			line_length += multiline.get_point_position(i).distance_to(multiline.get_point_position(i + 1))
+		multiline.material.set_shader_parameter('line_length', line_length)
