@@ -2,18 +2,30 @@ shader_type canvas_item;
 
 uniform float line_length;
 uniform sampler2D noise;
+const float freq = 0.004;
+const float time_mult = 1.5;
+const float edge_gradient_mult = 2.0;
+const float min_width = 0.25;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	float t = (sin(TIME * 4.0) + 1.0) * 0.5;
-	vec2 p = vec2(UV.x * line_length * 0.02, min(abs(UV.y - 0.5) * 1.5, 0.7));
-	vec2 t_uv = vec2(p.x, t * 1.8) * 0.01;
-	float q = texture(noise, t_uv + vec2(texture(noise, t_uv).r, texture(noise, t_uv + vec2(5.0, 5.0)).r)).r + 0.1;
-	float dp = min(max(q - p.y, 0.0) * 1.5, 1.0);
-	COLOR = vec4(vec3(0.2, 0.0, 0.0) * (1.0 - texture(noise, t_uv).r * 0.6), dp);
-	COLOR.a = pow(COLOR.a, 0.2);
-	//COLOR = texture(noise, UV);
+	float d_mid = abs(UV.y - 0.5) * 2.0;
+
+	float line_coord = UV.x * line_length;
+	float sample_dist = line_coord * freq + (TIME * time_mult);
+	sample_dist = mod(sample_dist, 1.0);
+	float width = texture(noise, vec2(sample_dist)).r;
+	width = (1.0 - min_width) * width + min_width;
+
+	if (width > d_mid) {
+		//float alpha = 1.0;
+		float alpha = (1.0 - d_mid / width) * edge_gradient_mult;
+		alpha = pow(alpha, 5.0);
+		COLOR = vec4(0.2 * (1.0 - d_mid), 0.0, 0.0, alpha);
+	} else {
+		discard;
+	}
 }
