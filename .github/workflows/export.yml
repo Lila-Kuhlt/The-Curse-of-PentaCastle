@@ -7,6 +7,7 @@ on:
 jobs:
   export_game:
     runs-on: ubuntu-latest
+    environment: s1-deployment
     name: Export Game
     steps:
     - name: checkout
@@ -20,10 +21,29 @@ jobs:
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_export_templates.tpz
         relative_project_path: ./src
         use_preset_export_path: true
-        archive_output: true
+        archive_output: false
         
     - uses: actions/upload-artifact@v4
+      name: Upload build output
       with:
-        name: export
+        name: Full Export
+        path: ./out/
+        if-no-files-found: error
+          
+    - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          SOURCE: ${{ vars.BUILD_DIR }}
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: ${{ vars.DEPLOY_DIR }}web/
+          SCRIPT_AFTER: echo $RSYNC_STDOUT
+          REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
+
+    - uses: actions/upload-artifact@v4
+      name: Upload Web Version
+      with:
+        name: Full Export
         path: ./out/
         if-no-files-found: error
