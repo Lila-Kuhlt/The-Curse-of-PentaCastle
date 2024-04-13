@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccyv5pco4rcmb"]
+[gd_scene load_steps=6 format=3 uid="uid://cdhcbf0jvkfej"]
 
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="1_8ixcg"]
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_lkl5v"]
-[ext_resource type="PackedScene" uid="uid://tfuin1dyfk71" path="res://scenes/spellItem.tscn" id="3_dnulq"]
+[ext_resource type="PackedScene" path="res://scenes/spellItem.tscn" id="3_dnulq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gp2o"]
 size = Vector2(16, 14)
@@ -15,6 +15,8 @@ outline_color = Color(1, 0, 0.109804, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Chest" type="Area2D" node_paths=PackedStringArray("spell")]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_lkl5v")
 spell = NodePath("SpellItem")
 

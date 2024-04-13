@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d4ipwilu8782j"]
+[gd_scene load_steps=11 format=3 uid="uid://d4ipwilu8782j"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a4pjw"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="2_g78bs"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
 [ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="4_ndi36"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
-[ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="6_pbeck"]
+[ext_resource type="PackedScene" uid="uid://cdhcbf0jvkfej" path="res://scenes/chest.tscn" id="6_pbeck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
 texture = ExtResource("4_ndi36")
