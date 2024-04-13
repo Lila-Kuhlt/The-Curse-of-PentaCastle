@@ -15,8 +15,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Pentagram" type="TextureRect" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 609.0
+offset_bottom = 609.0
 texture = ExtResource("2_leh25")
 
 [node name="Multiline" type="Line2D" parent="."]

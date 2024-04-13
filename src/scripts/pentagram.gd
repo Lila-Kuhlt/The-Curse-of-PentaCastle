@@ -8,11 +8,11 @@ const CLIP_DISTANCE := 90.0
 @onready var clip_effect = preload("res://scenes/clip_particles_effect.tscn")
 
 const PENTAGRAM_CORNERS: Array[Vector2] = [
-	Vector2(0.5, 0.9),
-	Vector2(0.13, 0.62),
-	Vector2(0.27, 0.18),
-	Vector2(0.73, 0.18),
-	Vector2(0.87, 0.62)
+	Vector2(0.5, 0.885),
+	Vector2(0.134, 0.619),
+	Vector2(0.273, 0.188),
+	Vector2(0.727, 0.188),
+	Vector2(0.866, 0.619),
 ]
 
 var combo: Array[int] = []
