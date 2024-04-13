@@ -5,7 +5,7 @@ extends Node2D
 
 const Chest = preload("res://scenes/chest.tscn")
 
-var rooms = ["res://scenes/room.tscn"]
+var rooms = ["res://scenes/rooms/room_main.tscn"]
 
 func _ready():
 	var cells: Array[Vector2i] = $Map.get_used_cells(0)
