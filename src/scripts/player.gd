@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 const JUMP_VELOCITY = -200.0
 const AIR_JUMP_FRAMES := 3
+const JUMP_BUFFER_FRAMES := 5
 const ACCELERATION_SPEED := 200.0
 const DECELERATION_SPEED := 400.0
-const TURNING_SPEED := 800.0
+const TURNING_SPEED := 1000.0
 const MAX_SPEED = 100.0
 const EPSILON := 0.001
 var frames_since_ground := 0
 var is_turned_right := true
+var jump_buffer := 0
 
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
@@ -31,9 +33,14 @@ func _physics_process(delta):
 		frames_since_ground += 1
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and ((frames_since_ground <= AIR_JUMP_FRAMES) or is_on_floor()):
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer = JUMP_BUFFER_FRAMES
+	if jump_buffer > 0 and ((frames_since_ground <= AIR_JUMP_FRAMES) or is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 		frames_since_ground = AIR_JUMP_FRAMES
+		jump_buffer = 0
+	if jump_buffer > 0:
+		jump_buffer -= 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
