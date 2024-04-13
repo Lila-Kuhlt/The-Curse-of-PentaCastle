@@ -21,6 +21,7 @@ jobs:
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_export_templates.tpz
         relative_project_path: ./src
         archive_output: true
+        cache: true
         
     - uses: actions/upload-artifact@v4
       name: Upload raw
