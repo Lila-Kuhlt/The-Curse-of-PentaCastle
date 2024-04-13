@@ -46,14 +46,19 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: Raw Outputs
+        
     - name: Display structure of downloaded files
       run: ls -R
+    - name: Display structure of probably deployable files
+      run: ls -al ./Web
+    - name: Display structure of Deployable files
+      run: ls -al ${{ vars.BUILD_DIR_WEB }}
       
     - name: Deploy web-demo
       uses: easingthemes/ssh-deploy@main
       with:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-        SOURCE: ./Web/Web/
+        SOURCE: ${{ vars.BUILD_DIR_WEB }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         TARGET: ${{ vars.DEPLOY_DIR_WEB }}
