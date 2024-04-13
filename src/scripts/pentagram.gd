@@ -31,10 +31,16 @@ func _input(event: InputEvent) -> void:
 			combo = []
 		image.visible = is_drawing
 	if event is InputEventMouseMotion and is_drawing:
+		var added_point := false
+		var pos: Vector2 = event.position
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
 			var corner := image.position + image.size * image.scale * PENTAGRAM_CORNERS[i]
-			if corner.distance_to(event.position) <= CLIP_DISTANCE:
+			if corner.distance_to(pos) <= CLIP_DISTANCE:
+				while multiline.points.size() > combo.size():
+					multiline.remove_point(multiline.points.size() - 1)
 				combo.append(i)
-				multiline.add_point(corner)
+				pos = corner
+				added_point = true
 				break
+		multiline.add_point(pos)
