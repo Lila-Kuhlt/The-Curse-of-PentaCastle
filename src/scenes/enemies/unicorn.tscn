@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cqpdvqo52krf6" path="res://assets/unicorn-idle.png" id="3_loo3r"]
 [ext_resource type="Texture2D" uid="uid://b1xvv3scd4ve2" path="res://assets/unicorn-running.png" id="4_da15a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnhhh"]
-size = Vector2(29, 10)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3160"]
 atlas = ExtResource("3_loo3r")
 region = Rect2(0, 0, 54, 32)
@@ -107,6 +104,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnhhh"]
+size = Vector2(22, 10)
+
 [sub_resource type="Animation" id="Animation_xrf0f"]
 resource_name = "charge"
 length = 0.4
@@ -167,22 +167,20 @@ _data = {
 [node name="Unicorn" instance=ExtResource("1_0f2vi")]
 script = ExtResource("2_68sav")
 
-[node name="PhysicsCollider" parent="." index="0"]
-position = Vector2(-3, 2)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_8c74f")
 
-[node name="HitCollider" type="Area2D" parent="." index="1"]
+[node name="PhysicsCollider" parent="." index="1"]
+position = Vector2(-2.5, 5.5)
+
+[node name="HitCollider" type="Area2D" parent="." index="2"]
 position = Vector2(-2, -3.5)
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(-3, 0.5)
-rotation = 0.546288
+position = Vector2(-11, 5.5)
 shape = SubResource("RectangleShape2D_wnhhh")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
-sprite_frames = SubResource("SpriteFrames_8c74f")
-frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
