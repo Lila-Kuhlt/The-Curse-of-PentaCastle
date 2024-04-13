@@ -2,16 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="1_8ixcg"]
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_lkl5v"]
-[ext_resource type="PackedScene" uid="uid://tfuin1dyfk71" path="res://scenes/spell.tscn" id="3_dnulq"]
+[ext_resource type="PackedScene" uid="uid://tfuin1dyfk71" path="res://scenes/spellItem.tscn" id="3_dnulq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gp2o"]
 size = Vector2(16, 14)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q4vim"]
+[sub_resource type="LabelSettings" id="LabelSettings_opaiq"]
+line_spacing = 0.0
+font_size = 10
+outline_size = 1
+outline_color = Color(1, 0, 0.109804, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Chest" type="Area2D" node_paths=PackedStringArray("spell")]
 script = ExtResource("1_lkl5v")
-spell = NodePath("Spell")
+spell = NodePath("SpellItem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -20,13 +25,17 @@ shape = SubResource("RectangleShape2D_0gp2o")
 [node name="ChestSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_8ixcg")
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.282353)
-position = Vector2(0, -14)
-scale = Vector2(10, 10)
-texture = SubResource("PlaceholderTexture2D_q4vim")
+[node name="SpellItem" parent="." instance=ExtResource("3_dnulq")]
+position = Vector2(0, -16)
 
-[node name="Spell" parent="." instance=ExtResource("3_dnulq")]
+[node name="Use" type="Label" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 8.0
+text = "E"
+label_settings = SubResource("LabelSettings_opaiq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

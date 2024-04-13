@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
 [ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="4_ndi36"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
+[ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="6_pbeck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
 texture = ExtResource("4_ndi36")
@@ -65,6 +66,9 @@ layer_0/tile_data = PackedInt32Array(262143, 0, 0, 131073, 0, 0, 196611, 0, 0, 1
 tile_set = SubResource("TileSet_3u8v1")
 format = 2
 layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 65536, 0, 131084, 0, 1, 131085, 0, 0, 131086, 65536, 0, 131072, 0, 1, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, 65545, 0, 0, 131094, 0, 1, 131095, 0, 0, 131096, 0, 1, 65560, 0, 1, 24, 0, 1, -131048, 0, 1, -65512, 0, 1, 65554, 65536, 0, 65553, 0, 1)
+
+[node name="Chest" parent="." instance=ExtResource("6_pbeck")]
+position = Vector2(46, 24)
 
 [node name="Player" parent="." instance=ExtResource("2_mli0p")]
 position = Vector2(14, 19.4)

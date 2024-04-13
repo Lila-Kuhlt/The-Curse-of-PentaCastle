@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://tfuin1dyfk71"]
+
+[ext_resource type="Script" path="res://scripts/spells/spellItemBase.gd" id="1_xtmvt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rdc8c"]
+font_size = 12
+outline_size = 1
+outline_color = Color(1, 0, 0.254902, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ichm"]
+
+[node name="SpellItem" type="Node2D"]
+script = ExtResource("1_xtmvt")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -57.0
+offset_top = -27.0
+offset_right = 56.0
+offset_bottom = -4.0
+text = "PLACEHOLDER"
+label_settings = SubResource("LabelSettings_rdc8c")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, 5.96046e-08)
+scale = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_8ichm")
