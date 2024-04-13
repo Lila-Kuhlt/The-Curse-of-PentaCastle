@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo2s7bwwle81i"
-path="res://.godot/imported/pentagram.png-f21a2266bb8624c8de05967b31477d4d.ctex"
+uid="uid://bafju2xmbjbyj"
+path="res://.godot/imported/pentagram.svg-037e7159c1fe8212d9fb730f70f47cdd.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pentagram.png"
-dest_files=["res://.godot/imported/pentagram.png-f21a2266bb8624c8de05967b31477d4d.ctex"]
+source_file="res://assets/pentagram.svg"
+dest_files=["res://.godot/imported/pentagram.svg-037e7159c1fe8212d9fb730f70f47cdd.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=2.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=false
