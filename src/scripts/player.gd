@@ -24,10 +24,38 @@ var jump_buffer := 0
 
 # Inventory
 var spell_inventory: Array[SpellBook.Spells] = []
+var active_spells: Array[bool] = []
 
 const Ghost = preload("res://scenes/ghost.tscn")
 
 var ghost_arr: Array[Node2D] = []
+
+func _ready():
+	for i in SpellBook.Spells.values().size():
+		active_spells.append(false)
+
+func cast(spell: SpellBook.Spells, inventory_idx: int):
+	if (active_spells[spell]): return
+	add_ghost(inventory_idx, spell)
+	ui.mark_spell_item_panel(inventory_idx)
+	var spell_script = SpellBook.spell_scripts[spell]
+	spell_script.cast(self)
+	var spell_item_script = SpellBook.spell_item_scripts[spell].new()
+	if spell_item_script.type == SpellBook.SpellType.PASSIVE:
+		var timer := Timer.new()
+		active_spells[spell] = true
+		add_child(timer)
+		timer.wait_time = spell_item_script.duration
+		timer.one_shot = true
+		timer.timeout.connect(_uncast.bind(spell, inventory_idx))
+		timer.start()
+
+func _uncast(spell: SpellBook.Spells, inventory_idx: int):
+	del_ghost(inventory_idx)
+	ui.unmark_spell_item_panel(inventory_idx)
+	var spell_script = SpellBook.spell_scripts[spell]
+	spell_script.uncast(self)
+	active_spells[spell] = false
 
 func add_ghost(index: int, id: int):
 	var ghost: Node2D = Ghost.instantiate()
@@ -119,7 +147,7 @@ func _on_pentagram_layer_combo_done(combo: Array[int]):
 	if ((spell > 0)):
 		var idx = spell_inventory.find(spell)
 		if (idx > -1):
-			SpellBook.cast(spell, idx, self)
+			cast(spell, idx)
 			return
 
 	# TODO: negative feedback

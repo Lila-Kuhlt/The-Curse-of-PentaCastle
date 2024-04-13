@@ -16,7 +16,7 @@ func _ready():
 	set_sprite()
 
 func set_sprite():
-	sprite.texture = SpellBook.get_spell_item_sprite(spell)
+	sprite.texture = SpellBook.spell_item_sprites[spell]
 
 func set_title():
 	title_label.text = title

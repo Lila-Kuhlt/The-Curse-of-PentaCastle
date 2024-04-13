@@ -9,7 +9,7 @@ var player_entered: CharacterBody2D
 
 func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
-	spell_item.set_script(SpellBook.get_spell_item_script(spell))
+	spell_item.set_script(SpellBook.spell_item_scripts[spell])
 	spell_item.position.y -= 12
 	add_child(spell_item)
 
