@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c44q2u3nky1ek"]
+[gd_scene load_steps=2 format=3 uid="uid://c44q2u3nky1ek"]
+
+[ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3
@@ -7,3 +9,10 @@ offset_left = -58.0
 offset_top = -33.0
 offset_right = 58.0
 offset_bottom = 32.0
+script = ExtResource("1_qp3wb")
+
+[node name="SpellsHBox" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 95.0
+offset_right = 229.0
+offset_bottom = 107.0
