@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scenes/clip_particles_effect.gd" id="2_f7ln0"]
 
 [sub_resource type="Gradient" id="Gradient_kal6i"]
-offsets = PackedFloat32Array(0, 0.695447, 1)
-colors = PackedColorArray(0.427493, 0.427493, 0.427493, 1, 1, 1, 1, 1, 0.785542, 0.596695, 0.582439, 1)
+offsets = PackedFloat32Array(0, 0.70028, 0.885154, 1)
+colors = PackedColorArray(0.576471, 0.207843, 0.235294, 1, 0.576471, 0.207843, 0.235294, 1, 0.319597, 0.0314481, 0.0286256, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_8mmpy"]
 gradient = SubResource("Gradient_kal6i")
@@ -16,28 +16,30 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
 initial_velocity_max = 17.34
-orbit_velocity_min = -0.208
-orbit_velocity_max = 0.221
 radial_velocity_min = -11.56
 radial_velocity_max = 27.65
 gravity = Vector3(0, 0, 0)
-linear_accel_min = 2.31
-linear_accel_max = 11.56
-damping_min = 3.757
-damping_max = 17.021
-scale_max = 3.0
+damping_min = 30.941
+damping_max = 30.941
+scale_max = 5.0
 color_ramp = SubResource("GradientTexture1D_8mmpy")
-hue_variation_min = -0.07
-hue_variation_max = 0.07
+turbulence_enabled = true
+turbulence_noise_strength = 10.43
+turbulence_noise_scale = 10.135
+turbulence_noise_speed_random = 1.84
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.6
 
 [node name="ClipEffect" type="GPUParticles2D"]
 position = Vector2(177, 130)
 scale = Vector2(2, 2)
 emitting = false
-amount = 32
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_0fcou")
 texture = ExtResource("1_3c8s6")
+lifetime = 3.0
 one_shot = true
+speed_scale = 5.45
 explosiveness = 0.98
 script = ExtResource("2_f7ln0")
 
