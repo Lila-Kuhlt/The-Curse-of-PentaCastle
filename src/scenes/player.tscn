@@ -43,7 +43,7 @@ autoplay = "default"
 frame_progress = 0.694699
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(10, 10)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
