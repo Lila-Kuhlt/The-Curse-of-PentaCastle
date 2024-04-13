@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+const SUPPORT_CONTROLLERS = false
 const CLIP_DISTANCE := 90.0
 const CLIP_ANGLE := 0.5
 
@@ -78,7 +79,7 @@ func _input(event: InputEvent) -> void:
 
 	if not is_active:
 		return
-	if event is InputEventMouseMotion or event is InputEventJoypadMotion:
+	if event is InputEventMouseMotion or (event is InputEventJoypadMotion and SUPPORT_CONTROLLERS):
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
 			if hits_corner(event, i):
