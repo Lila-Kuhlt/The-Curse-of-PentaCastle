@@ -9,6 +9,7 @@ const MUL_SPEED := Vector2(0.05, 0.02)
 const MAX_SPEED := Vector2(80.0, 30.0)
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var frame_count := sprite.sprite_frames.get_frame_count('default')
 
 var ghost_nr : int = 0;  # the nr of the ghost in the chain
@@ -28,6 +29,7 @@ func _process(delta):
 	t1 += delta
 	if init_frame_nr:
 		sprite.frame = init_frame_nr_val
+		particles.texture.region.position.x = init_frame_nr_val
 		init_frame_nr = false
 	while t1 >= ANIMATION_DELTA:
 		t1 -= ANIMATION_DELTA

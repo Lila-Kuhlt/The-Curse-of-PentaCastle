@@ -1,7 +1,29 @@
-[gd_scene load_steps=20 format=3 uid="uid://baikad74my2xc"]
+[gd_scene load_steps=24 format=3 uid="uid://baikad74my2xc"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_0mrnm"]
 [ext_resource type="Texture2D" uid="uid://dxot4j2smfrbe" path="res://assets/geister.png" id="2_20a8m"]
+
+[sub_resource type="Curve" id="Curve_l66ae"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.129577, 0.293633), -0.810538, -0.810538, 0, 0, Vector2(0.490141, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_urka4"]
+curve = SubResource("Curve_l66ae")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5jgb4"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2.5, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_over_velocity_max = 450.26
+alpha_curve = SubResource("CurveTexture_urka4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nosyo"]
+atlas = ExtResource("2_20a8m")
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pithy"]
 atlas = ExtResource("2_20a8m")
@@ -125,6 +147,12 @@ animations = [{
 
 [node name="Ghost" type="Node2D"]
 script = ExtResource("1_0mrnm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 3)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_5jgb4")
+texture = SubResource("AtlasTexture_nosyo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_th8ld")
