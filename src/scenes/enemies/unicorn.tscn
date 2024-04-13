@@ -1,30 +1,28 @@
-[gd_scene load_steps=12 format=3 uid="uid://deubs1dn8622u"]
+[gd_scene load_steps=12 format=3 uid="uid://b1ja2yahh5jug"]
 
-[ext_resource type="Script" path="res://scripts/enemies/unicorn.gd" id="1_2f0gf"]
-[ext_resource type="Texture2D" uid="uid://cipj3rbxkrfhp" path="res://assets/unicorn.png" id="1_f5n73"]
+[ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_0f2vi"]
+[ext_resource type="Script" path="res://scripts/enemies/unicorn.gd" id="2_68sav"]
+[ext_resource type="Texture2D" uid="uid://cipj3rbxkrfhp" path="res://assets/unicorn.png" id="3_03tiu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vap3j"]
-size = Vector2(21, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mkmp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnhhh"]
 size = Vector2(25, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qurr1"]
-atlas = ExtResource("1_f5n73")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnr17"]
+atlas = ExtResource("3_03tiu")
 region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8j3t"]
-atlas = ExtResource("1_f5n73")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7vll"]
+atlas = ExtResource("3_03tiu")
 region = Rect2(32, 0, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pvfqi"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c74f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qurr1")
+"texture": SubResource("AtlasTexture_mnr17")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y8j3t")
+"texture": SubResource("AtlasTexture_a7vll")
 }],
 "loop": true,
 "name": &"default",
@@ -84,28 +82,25 @@ _data = {
 "walk": SubResource("Animation_0i3sn")
 }
 
-[node name="Unicorn" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 24
-script = ExtResource("1_2f0gf")
+[node name="Unicorn" instance=ExtResource("1_0f2vi")]
+script = ExtResource("2_68sav")
 
-[node name="PhysicsCollider" type="CollisionShape2D" parent="."]
+[node name="PhysicsCollider" parent="." index="0"]
 position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_vap3j")
 
-[node name="HitCollider" type="Area2D" parent="."]
+[node name="HitCollider" type="Area2D" parent="." index="1"]
 position = Vector2(-2, -3.5)
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" index="0"]
 position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_1mkmp")
+shape = SubResource("RectangleShape2D_wnhhh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_pvfqi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_8c74f")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_fc3oy")
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://diavj2u7qfxyg"]
 
 [ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_ustoa"]
-[ext_resource type="PackedScene" uid="uid://deubs1dn8622u" path="res://scenes/unicorn.tscn" id="2_4tdqm"]
+[ext_resource type="PackedScene" uid="uid://deubs1dn8622u" path="res://scenes/enemies/unicorn.tscn" id="2_4tdqm"]
 [ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="3_avhg6"]
 
 [node name="Room" instance=ExtResource("1_ustoa")]
