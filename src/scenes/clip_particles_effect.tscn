@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://wm8nndmsi6if"]
+
+[ext_resource type="Texture2D" uid="uid://ddif83w6y12ps" path="res://assets/dust.png" id="1_3c8s6"]
+[ext_resource type="Script" path="res://scenes/clip_particles_effect.gd" id="2_f7ln0"]
+
+[sub_resource type="Gradient" id="Gradient_kal6i"]
+offsets = PackedFloat32Array(0, 0.695447, 1)
+colors = PackedColorArray(0.427493, 0.427493, 0.427493, 1, 1, 1, 1, 1, 0.785542, 0.596695, 0.582439, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mmpy"]
+gradient = SubResource("Gradient_kal6i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0fcou"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_max = 17.34
+orbit_velocity_min = -0.208
+orbit_velocity_max = 0.221
+radial_velocity_min = -11.56
+radial_velocity_max = 27.65
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 2.31
+linear_accel_max = 11.56
+damping_min = 3.757
+damping_max = 17.021
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_8mmpy")
+hue_variation_min = -0.07
+hue_variation_max = 0.07
+
+[node name="ClipEffect" type="GPUParticles2D"]
+position = Vector2(177, 130)
+scale = Vector2(2, 2)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_0fcou")
+texture = ExtResource("1_3c8s6")
+one_shot = true
+explosiveness = 0.98
+script = ExtResource("2_f7ln0")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

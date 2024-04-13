@@ -5,6 +5,8 @@ const CLIP_DISTANCE := 90.0
 @onready var image: TextureRect = $Pentagram
 @onready var multiline: Line2D = $Multiline
 
+@onready var clip_effect = preload("res://scenes/clip_particles_effect.tscn")
+
 const PENTAGRAM_CORNERS: Array[Vector2] = [
 	Vector2(0.5, 1.0),
 	Vector2(0.0, 0.65),
@@ -31,7 +33,6 @@ func _input(event: InputEvent) -> void:
 			combo = []
 		image.visible = is_drawing
 	if event is InputEventMouseMotion and is_drawing:
-		var added_point := false
 		var pos: Vector2 = event.position
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
@@ -41,6 +42,9 @@ func _input(event: InputEvent) -> void:
 					multiline.remove_point(multiline.points.size() - 1)
 				combo.append(i)
 				pos = corner
-				added_point = true
+				var effect = clip_effect.instantiate()
+				effect.position = pos
+				effect.emitting = true
+				add_child(effect)
 				break
 		multiline.add_point(pos)
