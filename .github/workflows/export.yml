@@ -5,9 +5,8 @@ on:
       - main
 
 jobs:
-  export_game:
+  export:
     runs-on: ubuntu-latest
-    environment: isiko404.dev Deployment
     name: Export Game
     steps:
     - name: checkout
@@ -36,7 +35,18 @@ jobs:
         name: Archives
         path: ${{ steps.export.outputs.archive_directory }}/*
         if-no-files-found: error
-          
+        
+  deploy-web:
+    name: Deploy Web Demo
+    environment: isiko404.dev Deployment
+    runs-on: ubuntu-latest
+    needs: export
+    steps:
+    
+    - uses: actions/download-artifact@v4
+      with:
+        name: Raw Outputs
+      
     - name: Deploy web-demo
       uses: easingthemes/ssh-deploy@main
       with:
