@@ -53,7 +53,7 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       with:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-        SOURCE: ./Web
+        SOURCE: ./Web/Web/
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         TARGET: ${{ vars.DEPLOY_DIR_WEB }}
