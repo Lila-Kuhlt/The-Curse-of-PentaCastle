@@ -1,6 +1,10 @@
 class_name SpellBase extends Node2D
 
-enum type {
-	ACTIVE,
-	PASSIVE
-}
+var counter_seconds = 0
+
+func cast(player: CharacterBody2D):
+	pass
+
+func uncast(player: CharacterBody2D):
+	pass
+

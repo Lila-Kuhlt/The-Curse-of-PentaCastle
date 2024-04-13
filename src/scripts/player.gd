@@ -5,15 +5,15 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Movement
-const JUMP_VELOCITY := -250.0
-const ADDITIONAL_FALLING_GRAVITY := -200.0
-const COYOTE_TIME := 5
-const JUMP_BUFFER_FRAMES := 5
-const ACCELERATION_SPEED := 200.0
-const DECELERATION_SPEED := 400.0
-const TURNING_SPEED := 1000.0
-const MAX_SPEED := 100.0
-const EPSILON := 0.001
+var JUMP_VELOCITY := -250.0
+var ADDITIONAL_FALLING_GRAVITY := -200.0
+var COYOTE_TIME := 5
+var JUMP_BUFFER_FRAMES := 5
+var ACCELERATION_SPEED := 200.0
+var DECELERATION_SPEED := 400.0
+var TURNING_SPEED := 1000.0
+var MAX_SPEED := 100.0
+var EPSILON := 0.001
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
 
@@ -116,8 +116,10 @@ func game_over():
 func _on_pentagram_layer_combo_done(combo: Array[int]):
 	var combo_str = "".join(combo)
 	var spell = SpellBook.find_spell(combo_str)
-	print("cast " + str(spell))
-	if ((spell >= 0) and spell_inventory.has(spell)):
-		pass # TODO: cast spell
-	else:
-		pass # TODO: negative feedback
+	if ((spell >= 0)):
+		var idx = spell_inventory.find(spell)
+		if (idx > -1):
+			SpellBook.cast(spell, idx, self)
+			return
+
+	# TODO: negative feedback
