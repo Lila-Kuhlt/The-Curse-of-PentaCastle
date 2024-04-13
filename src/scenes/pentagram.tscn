@@ -18,11 +18,11 @@ shader_parameter/line_length = 1.0
 shader_parameter/noise = SubResource("NoiseTexture2D_jwc4q")
 
 [node name="PentagramContainer" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_8g2uc")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pentagram" type="TextureRect" parent="."]
-visible = false
 offset_right = 609.0
 offset_bottom = 609.0
 texture = ExtResource("2_leh25")
