@@ -66,7 +66,7 @@ func get_position_of_event(event: InputEvent):
 	if event is InputEventMouseMotion:
 		return event.position
 	elif event is InputEventJoypadMotion:
-		var joystick_input := Input.get_vector("summon_left", "summon_right", "summon_up", "summon_down")
+		var joystick_input := Input.get_vector("summon_left", "summon_right", "summon_up", "summon_down", 0.0)
 		var pentagram_center = image.position + image.size * image.scale * 0.5
 		return pentagram_center + joystick_input * image.size * 0.5
 	else:
