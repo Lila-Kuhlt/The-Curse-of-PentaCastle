@@ -18,6 +18,8 @@ const PENTAGRAM_CORNERS: Array[Vector2] = [
 
 var combo: Array[int] = []
 
+var line_length = 0.0
+
 var is_active : bool :
 	get:
 		return visible
@@ -27,13 +29,15 @@ func activate_combo() -> void:
 	# reset combo
 	combo = []
 
-func calculate_position(event: InputEvent):
-	var pos = event.position if "position" in event else get_viewport().get_visible_rect().size / 2
-	return pos - image.size * image.scale * 0.5
+func calculate_center_position(event: InputEvent):
+	return event.position if "position" in event else get_viewport().get_visible_rect().size / 2
 
-func show_pentagram(pos):
+func show_pentagram(center_pos):
 	visible = true
-	image.position = pos
+	image.position = center_pos - image.size * image.scale * 0.5
+	multiline.add_point(center_pos)
+	multiline.add_point(center_pos)
+	line_length = 0
 
 func hide_pentagram():
 	visible = false
@@ -70,15 +74,14 @@ func get_position_of_event(event: InputEvent):
 func _input(event: InputEvent) -> void:
 	if event.is_action("summon") and event.is_pressed() != is_active:
 		if event.is_pressed():
-			show_pentagram(calculate_position(event))
+			show_pentagram(calculate_center_position(event))
 		else:
 			hide_pentagram()
 
 	if not is_active:
 		return
 	if event is InputEventMouseMotion or event is InputEventJoypadMotion:
-		while multiline.points.size() > combo.size():
-			multiline.remove_point(multiline.points.size() - 1)
+		multiline.remove_point(multiline.points.size() - 1)
 
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
@@ -86,7 +89,10 @@ func _input(event: InputEvent) -> void:
 				combo.append(i)
 
 				var corner_pos = calculate_corner_position(i)
+				if combo.size() == 1:
+					multiline.remove_point(multiline.points.size() - 1)
 				multiline.add_point(corner_pos)
+				line_length += multiline.points[multiline.points.size() - 1].distance_to(corner_pos)
 
 				var effect = clip_effect.instantiate()
 				effect.position = corner_pos
@@ -95,8 +101,6 @@ func _input(event: InputEvent) -> void:
 
 				break
 
-		multiline.add_point(get_position_of_event(event))
-		var line_length = 0.0
-		for j in range(multiline.points.size() - 1):
-			line_length += multiline.points[j].distance_to(multiline.points[j + 1])
-		multiline.material.set_shader_parameter('line_length', line_length)
+		var current_cursor_position = get_position_of_event(event)
+		multiline.add_point(current_cursor_position)
+		multiline.material.set_shader_parameter('line_length', line_length + multiline.points[multiline.points.size() - 1].distance_to(current_cursor_position))
