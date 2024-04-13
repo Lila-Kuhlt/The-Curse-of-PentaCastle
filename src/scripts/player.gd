@@ -22,7 +22,7 @@ var is_turned_right := true
 var jump_buffer := 0
 
 # Inventory
-var spell_id_inventory: Array[int] = []
+var spell_inventory: Array[SpellBook.Spells] = []
 
 
 func _physics_process(delta):
@@ -85,8 +85,8 @@ func _physics_process(delta):
 	if global_position.y > 200:
 		game_over()
 
-func give_spell_item(spell_id: int):
-	spell_id_inventory.append(spell_id)
+func give_spell_item(spell: SpellBook.Spells):
+	spell_inventory.append(spell)
 
 
 func game_over():

@@ -49,6 +49,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="PlayerUI" parent="Camera2D" instance=ExtResource("5_w4gtq")]
+visible = false
 script = ExtResource("6_htwfw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/PlayerUI"]

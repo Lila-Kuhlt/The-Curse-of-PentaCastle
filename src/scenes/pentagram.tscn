@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/pentagram.gd" id="1_8g2uc"]
 [ext_resource type="Texture2D" uid="uid://bafju2xmbjbyj" path="res://assets/pentagram.svg" id="2_leh25"]
-[ext_resource type="Shader" path="res://scripts/pentagram.gdshader" id="3_b0qdf"]
+[ext_resource type="Shader" path="res://shader/pentagram.gdshader" id="3_b0qdf"]
+
 
 [sub_resource type="Gradient" id="Gradient_cjuh7"]
 

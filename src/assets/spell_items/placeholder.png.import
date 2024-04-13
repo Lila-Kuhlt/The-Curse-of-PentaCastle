@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gtcja4inle0d"
-path="res://.godot/imported/speed.png-aafe3670eb0a30fabf99ea75f9d58c55.ctex"
+uid="uid://dhkhn1pyjanh8"
+path="res://.godot/imported/placeholder.png-f3d436753c45f30e0b46960c1c525cfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spellitems/speed.png"
-dest_files=["res://.godot/imported/speed.png-aafe3670eb0a30fabf99ea75f9d58c55.ctex"]
+source_file="res://assets/spell_items/placeholder.png"
+dest_files=["res://.godot/imported/placeholder.png-f3d436753c45f30e0b46960c1c525cfb.ctex"]
 
 [params]
 

@@ -1,18 +1,15 @@
 extends Area2D
 
-const spell_item_scene = preload("res://scenes/spell_item.tscn")
-@export var spell_item_id: int = -1
 @onready var use_label := $Use
+@export var spell: SpellBook.Spells = SpellBook.Spells.PLACEHOLDER
+const spell_item_scene = preload("res://scenes/spell_item.tscn")
+
 var is_player_entered: bool = false
 var player_entered: CharacterBody2D
 
 func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
-	if (spell_item_id == 0):
-		print("load speed")
-		spell_item.script = preload("res://scripts/spells/spell_item_speed.gd")
-	else:
-		spell_item.script = preload("res://scripts/spells/spell_item_base.gd")
+	spell_item.script = SpellBook.get_spell_item_script(spell)
 	spell_item.position.y -= 12
 	add_child(spell_item)
 
@@ -23,7 +20,7 @@ func _process(_delta):
 
 
 func use_chest():
-	player_entered.give_spell_item(spell_item_id)
+	player_entered.give_spell_item(spell)
 	queue_free()
 
 

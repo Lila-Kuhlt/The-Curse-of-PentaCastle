@@ -15,6 +15,10 @@ run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SpellBook="*res://scripts/spell_book.gd"
+
 [editor]
 
 movie_writer/movie_file="C:/Users/elias/Desktop/LudumDare55/art/vid.avi"
