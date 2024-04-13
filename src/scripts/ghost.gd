@@ -20,9 +20,9 @@ var flipped := false
 var t1 := 0.0
 var t2 := 0.0
 
-func init(index: int, id: int):
-	ghost_nr = index
-	init_frame_nr_val = id
+func init(spell: SpellBook.Spells, idx: int):
+	ghost_nr = idx
+	init_frame_nr_val = spell
 	init_frame_nr = true
 
 func _process(delta):

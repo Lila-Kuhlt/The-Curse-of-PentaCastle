@@ -33,10 +33,11 @@ var ghost_arr: Array[Node2D] = []
 func _ready():
 	for i in SpellBook.Spells.values().size():
 		active_spells.append(false)
+		ghost_arr.append(null)
 
 func cast(spell: SpellBook.Spells, inventory_idx: int):
 	if (active_spells[spell]): return
-	add_ghost(inventory_idx, spell)
+	add_ghost(spell)
 	ui.mark_spell_item_panel(inventory_idx)
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.cast(self, get_tree().get_nodes_in_group('enemies'))
@@ -51,20 +52,26 @@ func cast(spell: SpellBook.Spells, inventory_idx: int):
 		timer.start()
 
 func _uncast(spell: SpellBook.Spells, inventory_idx: int):
-	del_ghost(inventory_idx)
+	del_ghost(spell)
 	ui.unmark_spell_item_panel(inventory_idx)
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.uncast(self, get_tree().get_nodes_in_group('enemies'))
 	active_spells[spell] = false
 
-func add_ghost(index: int, id: int):
+func add_ghost(spell: SpellBook.Spells):
 	var ghost: Node2D = Ghost.instantiate()
-	ghost.init(index, id)
-	ghost_arr.insert(index, ghost)
+	ghost_arr[spell] = ghost
+	var num_ghosts = ghost_arr.reduce(func(accum, ghost):
+		if (ghost != null): accum += 1
+		else: accum
+		return accum, 0)
+	print(num_ghosts)
+	ghost.init(spell, num_ghosts - 1)
 	add_child(ghost)
 
-func del_ghost(index: int):
-	var ghost: Node2D = ghost_arr.pop_at(index)
+func del_ghost(spell: SpellBook.Spells):
+	var ghost: Node2D = ghost_arr[spell]
+	ghost_arr[spell] = null
 	remove_child(ghost)
 	ghost.queue_free()
 
@@ -126,6 +133,7 @@ func _physics_process(delta):
 	var old_pos := position
 	move_and_slide()
 	for ghost in ghost_arr:
+		if (ghost == null): continue
 		ghost.position -= position - old_pos
 		ghost.flipped = sprite.flip_h
 
