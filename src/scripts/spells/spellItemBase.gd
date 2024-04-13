@@ -1,15 +1,18 @@
-extends Node2D
+class_name SpellItemBase extends Node2D
 
-const cast := '6'
-const title := "PLACEHOLDER"
-const desc := "PLACEHOLDER"
-const spell: Node2D = null
+var cast := '6'
+var title := "PLACEHOLDER"
+var desc := "PLACEHOLDER"
+var spell_id: int = -1
 
 @onready var sprite := $Sprite
 @onready var title_label: Label = $Title
 
 func _ready():
-	title_label.text = title
+	set_title()
 
 func set_sprite(path: String):
-	sprite.texture = load(path)
+	sprite.texture = load('res://assets/spellitems/' + path)
+
+func set_title():
+	title_label.text = title

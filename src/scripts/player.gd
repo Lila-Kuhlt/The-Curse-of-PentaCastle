@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var sprite := $Sprite
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+# Movement
 const JUMP_VELOCITY := -250.0
 const ADDITIONAL_FALLING_GRAVITY := -200.0
 const COYOTE_TIME := 5
@@ -9,18 +13,16 @@ const DECELERATION_SPEED := 400.0
 const TURNING_SPEED := 1000.0
 const MAX_SPEED := 100.0
 const EPSILON := 0.001
+enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
+var movement_phase := MovementPhase.STANDING
 
+# Juice
 var frames_since_ground := 0
 var is_turned_right := true
 var jump_buffer := 0
 
-enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
-var movement_phase := MovementPhase.STANDING
-
-@onready var sprite := $Sprite
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+# Inventory
+var spell_id_inventory: Array[int] = []
 
 
 func _physics_process(delta):
@@ -82,6 +84,9 @@ func _physics_process(delta):
 
 	if global_position.y > 200:
 		game_over()
+
+func give_spell_item(spell_id: int):
+	spell_id_inventory.append(spell_id)
 
 func game_over():
 	get_tree().reload_current_scene()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdhcbf0jvkfej"]
+[gd_scene load_steps=5 format=3 uid="uid://ccyv5pco4rcmb"]
 
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="1_8ixcg"]
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_lkl5v"]
-[ext_resource type="PackedScene" path="res://scenes/spellItem.tscn" id="3_dnulq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gp2o"]
 size = Vector2(16, 14)
@@ -14,11 +13,10 @@ outline_size = 1
 outline_color = Color(1, 0, 0.109804, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Chest" type="Area2D" node_paths=PackedStringArray("spell")]
+[node name="Chest" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_lkl5v")
-spell = NodePath("SpellItem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -26,9 +24,6 @@ shape = SubResource("RectangleShape2D_0gp2o")
 
 [node name="ChestSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_8ixcg")
-
-[node name="SpellItem" parent="." instance=ExtResource("3_dnulq")]
-position = Vector2(0, -16)
 
 [node name="Use" type="Label" parent="."]
 visible = false
