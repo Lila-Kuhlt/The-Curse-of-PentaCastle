@@ -86,7 +86,7 @@ _data = {
 
 [node name="Unicorn" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 25
+collision_mask = 24
 script = ExtResource("1_2f0gf")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]

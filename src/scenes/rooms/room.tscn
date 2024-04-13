@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d4ipwilu8782j"]
+[gd_scene load_steps=15 format=3 uid="uid://d4ipwilu8782j"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_76usc"]
 [ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="1_kb4yy"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="7_wbye2"]
-[ext_resource type="PackedScene" uid="uid://deubs1dn8622u" path="res://scenes/unicorn.tscn" id="8_licl6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
 texture = ExtResource("2_7guxk")
@@ -23,19 +22,15 @@ texture = ExtResource("4_k1mjy")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xn0r"]
 texture = ExtResource("1_kb4yy")
@@ -108,7 +103,8 @@ texture = ExtResource("2_srol8")
 0:0/0/custom_data_0 = "chest"
 
 [sub_resource type="TileSet" id="TileSet_3u8v1"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 17
+physics_layer_0/collision_mask = 17
 custom_data_layer_0/name = "name"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_1tkad")
@@ -144,11 +140,6 @@ layer_0/tile_data = PackedInt32Array(262143, 0, 0, 131073, 0, 0, 196611, 0, 0, 1
 tile_set = SubResource("TileSet_3u8v1")
 format = 2
 
-[node name="Player" parent="." instance=ExtResource("3_v55sc")]
-position = Vector2(14, 23.4)
-
-[node name="PentagramLayer" parent="." instance=ExtResource("7_wbye2")]
-
 [node name="Door" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -156,5 +147,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(102, -10)
 shape = SubResource("RectangleShape2D_8q2dr")
+
+[node name="Player" parent="." instance=ExtResource("3_v55sc")]
+position = Vector2(14, 23.4)
+
+[node name="PentagramLayer" parent="." instance=ExtResource("7_wbye2")]
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

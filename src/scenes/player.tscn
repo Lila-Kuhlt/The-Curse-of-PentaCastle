@@ -57,8 +57,3 @@ offset_left = -56.0
 offset_top = 75.0
 offset_right = 172.0
 offset_bottom = 87.0
-
-[node name="Panel0" type="Panel" parent="Camera2D/PlayerUI/SpellsHBox"]
-visible = false
-custom_minimum_size = Vector2(9, 0)
-layout_mode = 2
