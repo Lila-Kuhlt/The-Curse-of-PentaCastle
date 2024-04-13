@@ -18,13 +18,14 @@ const PENTAGRAM_CORNERS: Array[Vector2] = [
 
 var combo: Array[int] = []
 
+signal combo_done(combo: Array[int])
+
 var is_active : bool :
 	get:
 		return visible
 
 func activate_combo() -> void:
-	print('combo: ', combo)
-	# reset combo
+	combo_done.emit(combo)
 	combo = []
 
 func calculate_center_position(event: InputEvent):
