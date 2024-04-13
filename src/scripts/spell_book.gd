@@ -3,32 +3,32 @@ extends Node
 enum SpellRank {
 	COMMON,
 	RARE,
-	ULTRA
+	ULTRA,
 }
 
 enum SpellType {
 	ACTIVE,
-	PASSIVE
+	PASSIVE,
 }
 
 enum Spells {
 	PLACEHOLDER,
-	SPEED
+	SPEED,
 }
 
 var spell_item_scripts = [
 	preload("res://scripts/spell_items/base.gd"),
-	preload("res://scripts/spell_items/speed.gd")
+	preload("res://scripts/spell_items/speed.gd"),
 ]
 
 var spell_item_sprites = [
 	preload("res://assets/spell_items/placeholder.png"),
-	preload("res://assets/spell_items/speed.png")
+	preload("res://assets/spell_items/speed.png"),
 ]
 
 var _spell_scripts = [
 	preload("res://scripts/spells/base.gd").new(),
-	preload("res://scripts/spells/speed.gd").new()
+	preload("res://scripts/spells/speed.gd").new(),
 ]
 
 func cast(spell: Spells, inventory_idx: int, player: CharacterBody2D):
