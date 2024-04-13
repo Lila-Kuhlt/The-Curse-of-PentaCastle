@@ -1,13 +1,14 @@
 extends Enemy
 
-enum UnicornMode { CHARGE, STAND, WALK }
+enum UnicornMode { CHARGE, CHARGE_START, STAND, WALK }
 
 const MIN_WALK_COOLDOWN := 100
 const MAX_WALK_COOLDOWN := 300
-const MIN_STAND_COOLDOWN := 100
-const MAX_STAND_COOLDOWN := 400
+const MIN_STAND_COOLDOWN := 30
+const MAX_STAND_COOLDOWN := 200
+const CHARGE_COOLDOWN := 50
 const WALK_MULT := 0.6
-const CHARGE_MULT := 4.0
+const CHARGE_MULT := 7.0
 const VIEW_RAY_WIDTH := 10.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -36,7 +37,11 @@ func _physics_process(delta):
 		UnicornMode.STAND:
 			velocity.x = 0
 			if mode_cooldown <= 0:
-				goto_walk_mode(false)
+				if randi() & 1:
+					goto_walk_mode(false)
+				else:
+					goto_stand_mode()
+					sprite.flip_h = not sprite.flip_h
 			else:
 				mode_cooldown -= delta
 		UnicornMode.WALK:
@@ -49,8 +54,13 @@ func _physics_process(delta):
 				goto_stand_mode()
 			else:
 				mode_cooldown -= delta
+		UnicornMode.CHARGE_START:
+			mode_cooldown -= delta
+			if mode_cooldown <= 0:
+				mode = UnicornMode.CHARGE
+				anim.play('walk')
 		UnicornMode.CHARGE:
-			if is_on_wall():
+			if is_on_wall() and (get_wall_normal().x > 0.0) != sprite.flip_h:
 				was_on_wall_cooldown = 100.0
 				goto_walk_mode(true)
 			else:
@@ -59,6 +69,9 @@ func _physics_process(delta):
 					velocity.x = -velocity.x
 	if (sprite.flip_h != (global_position.x > player.global_position.x)
 			and abs(player.global_position.y - global_position.y) <= VIEW_RAY_WIDTH):
-		mode = UnicornMode.CHARGE
+		if mode != UnicornMode.CHARGE_START and mode != UnicornMode.CHARGE:
+			mode = UnicornMode.CHARGE_START
+			mode_cooldown = CHARGE_COOLDOWN
+			anim.play('charge')
 	do_physics(delta)
 	move_and_slide()
