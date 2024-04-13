@@ -29,7 +29,7 @@ func _process(delta):
 	t1 += delta
 	if init_frame_nr:
 		sprite.frame = init_frame_nr_val
-		particles.texture.region.position.x = init_frame_nr_val
+		particles.texture.region.position.x = init_frame_nr_val * 8.0
 		init_frame_nr = false
 	while t1 >= ANIMATION_DELTA:
 		t1 -= ANIMATION_DELTA
