@@ -5,8 +5,6 @@ extends Node2D
 
 const Chest = preload("res://scenes/chest.tscn")
 
-var rooms = ["res://scenes/rooms/room_main.tscn"]
-
 func _ready():
 	var cells: Array[Vector2i] = $Map.get_used_cells(0)
 	var chests: Array[Vector2i] = []
@@ -35,10 +33,3 @@ func _ready():
 	monsters.slice(0, MONSTERS)
 	# TODO
 
-## Spawn a new room.
-func new_room():
-	var room = rooms.pick_random()
-	get_tree().call_deferred("change_scene_to_file", room)
-
-func _on_door_body_entered(_body):
-	new_room()

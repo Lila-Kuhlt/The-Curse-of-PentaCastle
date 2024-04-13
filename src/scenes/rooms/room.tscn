@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="2_srol8"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
+[ext_resource type="PackedScene" uid="uid://dp07gqihbqh3h" path="res://scenes/door.tscn" id="6_3bgge"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="7_wbye2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
@@ -115,8 +116,6 @@ sources/0 = SubResource("TileSetAtlasSource_1tkad")
 sources/1 = SubResource("TileSetAtlasSource_0xn0r")
 sources/2 = SubResource("TileSetAtlasSource_numti")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q2dr"]
-
 [node name="Room" type="Node2D"]
 script = ExtResource("1_76usc")
 
@@ -144,17 +143,9 @@ layer_0/tile_data = PackedInt32Array(262143, 0, 0, 131073, 0, 0, 196611, 0, 0, 1
 tile_set = SubResource("TileSet_3u8v1")
 format = 2
 
-[node name="Door" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(102, -10)
-shape = SubResource("RectangleShape2D_8q2dr")
+[node name="Door" parent="." instance=ExtResource("6_3bgge")]
 
 [node name="Player" parent="." instance=ExtResource("3_v55sc")]
 position = Vector2(14, 23.4)
 
 [node name="PentagramLayer" parent="." instance=ExtResource("7_wbye2")]
-
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
