@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
+const AIR_JUMP_FRAMES := 4
 var frames_since_ground := 0
 @onready var sprite := $Sprite
 @onready var progress: ProgressBar = $LvlProgress
@@ -17,10 +18,13 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		frames_since_ground = 0
+	else:
+		frames_since_ground += 1
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and ((frames_since_ground <= 3) or is_on_floor()):
+	if Input.is_action_just_pressed("ui_accept") and ((frames_since_ground <= AIR_JUMP_FRAMES) or is_on_floor()):
 		velocity.y = JUMP_VELOCITY
+		frames_since_ground = AIR_JUMP_FRAMES
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
