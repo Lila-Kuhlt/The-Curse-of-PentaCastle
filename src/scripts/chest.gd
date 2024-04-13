@@ -1,6 +1,6 @@
 extends Area2D
 
-const spell_item_scene = preload("res://scenes/spellItem.tscn")
+const spell_item_scene = preload("res://scenes/spell_item.tscn")
 @export var spell_item_id: int = -1
 @onready var use_label := $Use
 var is_player_entered: bool = false
@@ -10,9 +10,9 @@ func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
 	if (spell_item_id == 0):
 		print("load speed")
-		spell_item.script = preload("res://scripts/spells/spellItemSpeed.gd")
+		spell_item.script = preload("res://scripts/spells/spell_item_speed.gd")
 	else:
-		spell_item.script = preload("res://scripts/spells/spellItemBase.gd")
+		spell_item.script = preload("res://scripts/spells/spell_item_base.gd")
 	spell_item.position.y -= 12
 	add_child(spell_item)
 

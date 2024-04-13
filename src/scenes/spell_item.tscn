@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://tfuin1dyfk71"]
 
-[ext_resource type="Script" path="res://scripts/spells/spellItemBase.gd" id="1_a5cey"]
+[ext_resource type="Script" path="res://scripts/spells/spell_item_base.gd" id="1_a5cey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rdc8c"]
 font_size = 12

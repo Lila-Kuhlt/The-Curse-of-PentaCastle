@@ -88,5 +88,6 @@ func _physics_process(delta):
 func give_spell_item(spell_id: int):
 	spell_id_inventory.append(spell_id)
 
+
 func game_over():
 	get_tree().reload_current_scene()

@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a4pjw"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="2_g78bs"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
-[ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="4_ndi36"]
-[ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="4_qsmix"]
 [ext_resource type="Texture2D" uid="uid://bm6o3sxwdsuqr" path="res://assets/uglytree.png" id="4_ndi36"]
+[ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="4_qsmix"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
 [ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="6_pbeck"]
 
