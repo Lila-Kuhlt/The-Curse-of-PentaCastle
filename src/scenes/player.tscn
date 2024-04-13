@@ -48,7 +48,3 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="PlayerUI" parent="Camera2D" instance=ExtResource("5_w4gtq")]
-offset_left = -115.0
-offset_top = -65.0
-offset_right = 115.0
-offset_bottom = 65.0

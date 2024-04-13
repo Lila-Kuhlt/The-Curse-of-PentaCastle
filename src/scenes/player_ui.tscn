@@ -2,18 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
 
-[node name="PlayerUI" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -58.0
-offset_top = -33.0
-offset_right = 58.0
-offset_bottom = 32.0
+[node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_qp3wb")
 
 [node name="SpellsHBox" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 95.0
-offset_right = 229.0
-offset_bottom = 107.0
+offset_left = 29.0
+offset_top = 18.0
+offset_right = 1099.0
+offset_bottom = 75.0
+scale = Vector2(8, 8)
