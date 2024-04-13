@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="4_qsmix"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
 [ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="6_pbeck"]
+[ext_resource type="PackedScene" uid="uid://deubs1dn8622u" path="res://scenes/unicorn.tscn" id="8_vfbon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
 texture = ExtResource("4_ndi36")
@@ -150,5 +151,8 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(102, -10)
 shape = SubResource("RectangleShape2D_8q2dr")
+
+[node name="Unicorn" parent="." instance=ExtResource("8_vfbon")]
+position = Vector2(78, 22)
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
