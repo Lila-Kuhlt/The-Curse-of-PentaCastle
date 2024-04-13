@@ -27,16 +27,16 @@ jobs:
       name: Upload build output
       with:
         name: Full Export
-        path: ./out/
+        path: ./out/*/*/
         if-no-files-found: error
           
-    - name: Deploy to Server
+    - name: Deploy web-demo
       uses: easingthemes/ssh-deploy@main
       with:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-        SOURCE: ./out/web/Web/
+        SOURCE: ${{ secrets.BUILD_DIR_WEB }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-        TARGET: ${{ vars.DEPLOY_DIR }}
+        TARGET: ${{ vars.DEPLOY_DIR_WEB }}
         SCRIPT_AFTER: echo $RSYNC_STDOUT
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
