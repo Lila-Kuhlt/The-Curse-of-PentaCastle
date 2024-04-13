@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4ipwilu8782j"]
+[gd_scene load_steps=14 format=3 uid="uid://d4ipwilu8782j"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a4pjw"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="2_g78bs"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
-[ext_resource type="Texture2D" uid="uid://bm6o3sxwdsuqr" path="res://assets/uglytree.png" id="4_ndi36"]
+[ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="4_ndi36"]
 [ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="4_qsmix"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
 [ext_resource type="PackedScene" uid="uid://cdhcbf0jvkfej" path="res://scenes/chest.tscn" id="6_pbeck"]
@@ -104,6 +104,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tkad")
 sources/1 = SubResource("TileSetAtlasSource_0xn0r")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q2dr"]
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_a4pjw")
 
@@ -139,3 +141,13 @@ position = Vector2(46, 24)
 position = Vector2(14, 19.4)
 
 [node name="PentagramLayer" parent="." instance=ExtResource("5_hdd1m")]
+
+[node name="Door" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-86, -106)
+shape = SubResource("RectangleShape2D_8q2dr")
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
