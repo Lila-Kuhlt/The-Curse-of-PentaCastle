@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -200.0
-const AIR_JUMP_FRAMES := 3
+const AIR_JUMP_FRAMES := 5
 const JUMP_BUFFER_FRAMES := 5
 const ACCELERATION_SPEED := 200.0
 const DECELERATION_SPEED := 400.0
@@ -45,8 +45,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
-	if (Input.is_action_pressed("right") && sprite.scale.x >= 0): sprite.scale.x *= -1
-	elif (Input.is_action_pressed("left") && sprite.scale.x <= 0): sprite.scale.x *= -1
+	if direction: sprite.flip_h = direction < 0
 
 	if movement_phase == MovementPhase.STANDING:
 		velocity.x = 0

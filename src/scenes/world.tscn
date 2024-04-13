@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4ipwilu8782j"]
+[gd_scene load_steps=10 format=3 uid="uid://d4ipwilu8782j"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a4pjw"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="2_g78bs"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="2_mli0p"]
 [ext_resource type="Texture2D" uid="uid://bm6o3sxwdsuqr" path="res://assets/uglytree.png" id="4_ndi36"]
+[ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="5_hdd1m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
 texture = ExtResource("4_ndi36")
@@ -67,3 +68,5 @@ layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 1
 
 [node name="Player" parent="." instance=ExtResource("2_mli0p")]
 position = Vector2(14, 19.4)
+
+[node name="PentagramLayer" parent="." instance=ExtResource("5_hdd1m")]

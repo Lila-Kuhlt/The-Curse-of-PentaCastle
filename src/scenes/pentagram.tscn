@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8prldrgvch2u"]
+
+[ext_resource type="Script" path="res://scripts/pentagram.gd" id="1_8g2uc"]
+[ext_resource type="Texture2D" uid="uid://bo2s7bwwle81i" path="res://assets/pentagram.png" id="1_eu82k"]
+
+[sub_resource type="Gradient" id="Gradient_0tnug"]
+interpolation_mode = 2
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.899471, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.979475, 0.979475, 0.979475, 0.979475, 1, 1, 1, 1)
+
+[node name="PentagramContainer" type="CanvasLayer"]
+script = ExtResource("1_8g2uc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pentagram" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(10, 10)
+texture = ExtResource("1_eu82k")
+
+[node name="Multiline" type="Line2D" parent="."]
+width = 18.0
+gradient = SubResource("Gradient_0tnug")
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
