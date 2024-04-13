@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_76usc"]
 [ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="1_kb4yy"]
-[ext_resource type="Texture2D" uid="uid://bm6o3sxwdsuqr" path="res://assets/uglytree.png" id="2_7guxk"]
+[ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="2_7guxk"]
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="2_srol8"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
@@ -22,15 +22,19 @@ texture = ExtResource("4_k1mjy")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xn0r"]
 texture = ExtResource("1_kb4yy")
