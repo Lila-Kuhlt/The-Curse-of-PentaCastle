@@ -41,10 +41,6 @@ frame_progress = 0.694699
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(10, 10)
-
-[node name="LvlProgress" type="ProgressBar" parent="."]
-offset_left = -58.0
-offset_top = -33.0
-offset_right = 58.0
-offset_bottom = -29.0
-show_percentage = false
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
