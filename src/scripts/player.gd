@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite := $Sprite
 @onready var ui := $Camera2D/PlayerUI
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var LIFE = 100
 
 # Movement
 var JUMP_VELOCITY := -250.0
@@ -14,8 +15,10 @@ var DECELERATION_SPEED := 400.0
 var TURNING_SPEED := 1000.0
 var MAX_SPEED := 100.0
 var EPSILON := 0.001
+const KNOCKBACK_ENVELOPE: float = 0.86
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
+var knockback := Vector2(0, 0)
 
 # Juice
 var frames_since_ground := 0
@@ -26,8 +29,8 @@ var jump_buffer := 0
 var spell_inventory: Array[SpellBook.Spells] = []
 var active_spells: Array[bool] = []
 
+# Ghosts
 const Ghost = preload("res://scenes/ghost.tscn")
-
 var ghost_arr: Array[Node2D] = []
 
 func _ready():
@@ -129,21 +132,22 @@ func _physics_process(delta):
 				if abs(velocity.x) <= EPSILON:
 					movement_phase =  MovementPhase.ACCELERATING
 	is_turned_right = direction > 0
-
 	var old_pos := position
+
+	velocity += knockback
+	knockback *= KNOCKBACK_ENVELOPE
 	move_and_slide()
 	for ghost in ghost_arr:
 		if (ghost == null): continue
 		ghost.position -= position - old_pos
 		ghost.flipped = sprite.flip_h
 
-	if global_position.y > 200:
+	if global_position.y > 200 or LIFE <= 0:
 		game_over()
 
 func give_spell_item(spell: SpellBook.Spells):
 	spell_inventory.append(spell)
 	ui.add_spell_item_panel(spell)
-
 
 func game_over():
 	get_tree().reload_current_scene()

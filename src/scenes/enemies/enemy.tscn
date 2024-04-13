@@ -7,7 +7,7 @@ size = Vector2(21, 16)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 32
-collision_mask = 24
+collision_mask = 16
 script = ExtResource("1_4befo")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
