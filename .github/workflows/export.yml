@@ -64,3 +64,30 @@ jobs:
         TARGET: ${{ vars.DEPLOY_DIR_WEB }}
         SCRIPT_AFTER: echo $RSYNC_STDOUT
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
+  deploy-downloads:
+    name: Deploy Game Downloads
+    environment: isiko404.dev Deployment
+    runs-on: ubuntu-latest
+    needs: export
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: Archives
+        
+    - name: Display structure of downloaded files
+      run: ls -R
+    - name: Display structure of probably deployable files
+      run: ls -al ./*
+    - name: Display structure of Deployable files
+      run: ls -al ${{ vars.BUILD_DIR_DOWNLOADS }}
+      
+    - name: Deploy web-demo
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        SOURCE: ${{ vars.BUILD_DIR_DOWNLOADS }}
+        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+        TARGET: ${{ vars.DEPLOY_DIR_DOWNLOADS }}
+        SCRIPT_AFTER: echo $RSYNC_STDOUT
+        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
