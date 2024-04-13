@@ -17,6 +17,7 @@ shadow_color = Color(0, 0, 0, 1)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_lkl5v")
+spell_item_id = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
