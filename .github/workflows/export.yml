@@ -20,14 +20,14 @@ jobs:
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_export_templates.tpz
         relative_project_path: ./src
-        use_preset_export_path: true
+        #use_preset_export_path: true
         archive_output: false
         
     - uses: actions/upload-artifact@v4
       name: Upload build output
       with:
         name: Full Export
-        path: ./out/*/*/
+        path: ./out/
         if-no-files-found: error
           
     - name: Deploy web-demo
@@ -38,5 +38,16 @@ jobs:
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         TARGET: ${{ vars.DEPLOY_DIR_WEB }}
+        SCRIPT_AFTER: echo $RSYNC_STDOUT
+        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
+        
+    - name: Upload to Downloads
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        SOURCE: ./out/*/*/
+        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+        TARGET: /var/www/downloads/ldjam/55/
         SCRIPT_AFTER: echo $RSYNC_STDOUT
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
