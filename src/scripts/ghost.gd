@@ -33,7 +33,7 @@ func _process(delta):
 		init_frame_nr = false
 	while t1 >= ANIMATION_DELTA:
 		t1 -= ANIMATION_DELTA
-		sprite.frame = (sprite.frame + frame_count / 2) % frame_count
+		sprite.frame = (sprite.frame + frame_count >> 1) % frame_count
 	var target := OFFSET + Vector2(CHAIN_LEN * ghost_nr, 0.0)
 	t2 += delta
 	target.y += sin(t2 * FLOATING_SPEED) * FLOATING_AMP
