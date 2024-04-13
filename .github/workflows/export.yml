@@ -31,15 +31,15 @@ jobs:
         if-no-files-found: error
           
     - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          SOURCE: ${{ vars.BUILD_DIR }}
-          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: ${{ vars.DEPLOY_DIR }}web/
-          SCRIPT_AFTER: echo $RSYNC_STDOUT
-          REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        SOURCE: ${{ vars.BUILD_DIR }}
+        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+        TARGET: ${{ vars.DEPLOY_DIR }}web/
+        SCRIPT_AFTER: echo $RSYNC_STDOUT
+        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
 
     - uses: actions/upload-artifact@v4
       name: Upload Web Version
