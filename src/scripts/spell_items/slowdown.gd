@@ -1,11 +1,10 @@
-extends Node
+extends SpellItemBase
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _init():
+	spell = SpellBook.Spells.SLOWDOWN
+	type = SpellBook.SpellType.PASSIVE
+	rank = SpellBook.SpellRank.RARE
+	title = "Slowdown"
+	desc = "Enemy slowdown for 5s"
+	cast = "24132"
+	duration = 5

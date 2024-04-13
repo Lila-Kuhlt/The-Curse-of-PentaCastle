@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="2_srol8"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="6_3bgge"]
+[ext_resource type="PackedScene" uid="uid://c3jip4j07l64c" path="res://scenes/door.tscn" id="6_3bgge"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="7_wbye2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]
