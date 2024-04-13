@@ -36,4 +36,4 @@ func find_spell(combo: String) -> Spells:
 		var spell_item = spell_item_script.new()
 		if (spell_item.cast == combo):
 			return spell_item.spell
-	return Spells.PLACEHOLDER
+	return 0

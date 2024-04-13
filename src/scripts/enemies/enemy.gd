@@ -1,6 +1,6 @@
-class_name Enemy
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
+@export var LIVE := 100
 @export var MOVEMENT_SPEED := 10.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
