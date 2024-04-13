@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite := $Sprite
+@onready var ui := $Camera2D/PlayerUI
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Movement
@@ -87,6 +88,7 @@ func _physics_process(delta):
 
 func give_spell_item(spell: SpellBook.Spells):
 	spell_inventory.append(spell)
+	ui.add_spell_item_panel(spell)
 
 
 func game_over():
