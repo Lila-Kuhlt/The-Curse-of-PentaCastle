@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_76usc"]
 [ext_resource type="Texture2D" uid="uid://dkrmvokmlfcmi" path="res://assets/walls9patch.png" id="1_kb4yy"]
-[ext_resource type="Texture2D" uid="uid://bm6o3sxwdsuqr" path="res://assets/uglytree.png" id="2_7guxk"]
+[ext_resource type="Texture2D" uid="uid://beleqk41el1oh" path="res://assets/uglytree.png" id="2_7guxk"]
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="2_srol8"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
-[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="6_3bgge"]
+[ext_resource type="PackedScene" uid="uid://dp07gqihbqh3h" path="res://scenes/door.tscn" id="6_3bgge"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="7_wbye2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v44fu"]

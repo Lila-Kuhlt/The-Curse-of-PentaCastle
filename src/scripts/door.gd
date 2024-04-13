@@ -1,6 +1,9 @@
 extends Area2D
 
-var rooms = ["res://scenes/rooms/room_main.tscn"]
+var rooms = [
+	"res://scenes/rooms/room_main.tscn",
+	"res://scenes/rooms/room1.tscn",
+]
 
 ## Spawn a new room.
 func new_room():
