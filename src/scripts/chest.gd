@@ -7,7 +7,7 @@ var player_entered: CharacterBody2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (is_player_entered && Input.is_action_just_pressed("ui_accept")):
+	if is_player_entered && Input.is_action_just_pressed("use"):
 		use_chest()
 
 
