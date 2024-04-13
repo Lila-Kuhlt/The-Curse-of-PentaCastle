@@ -18,6 +18,7 @@ const PENTAGRAM_CORNERS: Array[Vector2] = [
 var combo: Array[int] = []
 
 var is_drawing := false
+var line_length := 0.0
 
 func activate_combo() -> void:
 	print('combo: ', combo)
@@ -40,6 +41,9 @@ func _input(event: InputEvent) -> void:
 			if corner.distance_to(pos) <= CLIP_DISTANCE:
 				while multiline.points.size() > combo.size():
 					multiline.remove_point(multiline.points.size() - 1)
+				line_length = 0.0
+				for j in range(multiline.points.size() - 1):
+					line_length += multiline.points[j].distance_to(multiline.points[j + 1])
 				combo.append(i)
 				pos = corner
 				var effect = clip_effect.instantiate()
@@ -47,4 +51,7 @@ func _input(event: InputEvent) -> void:
 				effect.emitting = true
 				add_child(effect)
 				break
+		if multiline.points.size():
+			line_length += pos.distance_to(multiline.points[multiline.points.size() - 1])
 		multiline.add_point(pos)
+		multiline.material.set_shader_parameter('line_length', line_length)
