@@ -149,3 +149,6 @@ format = 2
 position = Vector2(14, 23.4)
 
 [node name="PentagramLayer" parent="." instance=ExtResource("7_wbye2")]
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]

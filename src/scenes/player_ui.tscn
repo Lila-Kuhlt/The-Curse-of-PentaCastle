@@ -12,6 +12,7 @@ offset_bottom = 32.0
 script = ExtResource("1_qp3wb")
 
 [node name="SpellsHBox" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 95.0
 offset_right = 229.0

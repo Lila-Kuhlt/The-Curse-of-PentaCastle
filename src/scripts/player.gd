@@ -93,3 +93,13 @@ func give_spell_item(spell: SpellBook.Spells):
 
 func game_over():
 	get_tree().reload_current_scene()
+
+
+func _on_pentagram_layer_combo_done(combo: Array[int]):
+	var combo_str = "".join(combo)
+	var spell = SpellBook.find_spell(combo_str)
+	print("cast " + str(spell))
+	if ((spell >= 0) and spell_inventory.has(spell)):
+		pass # TODO: cast spell
+	else:
+		pass # TODO: negative feedback
