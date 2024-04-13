@@ -1,9 +1,18 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
 const AIR_JUMP_FRAMES := 3
+const ACCELERATION_SPEED := 200.0
+const DECELERATION_SPEED := 400.0
+const TURNING_SPEED := 800.0
+const MAX_SPEED = 100.0
+const EPSILON := 0.001
 var frames_since_ground := 0
+var is_turned_right := true
+
+enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
+var movement_phase := MovementPhase.STANDING
+
 @onready var sprite := $Sprite
 @onready var progress: ProgressBar = $LvlProgress
 
@@ -31,17 +40,41 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if (Input.is_action_pressed("right") && sprite.scale.x >= 0): sprite.scale.x *= -1
 	elif (Input.is_action_pressed("left") && sprite.scale.x <= 0): sprite.scale.x *= -1
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	if movement_phase == MovementPhase.STANDING:
+		velocity.x = 0
+		if direction:
+			movement_phase = MovementPhase.ACCELERATING
+	elif movement_phase == MovementPhase.ACCELERATING:
+		if not direction:
+			movement_phase = MovementPhase.DECELERATING
+		elif (direction > 0) == is_turned_right:
+			velocity.x = move_toward(velocity.x, MAX_SPEED * sign(direction),
+				delta * abs(direction) * ACCELERATION_SPEED)
+		else:
+			movement_phase = MovementPhase.TURNING
+	elif movement_phase == MovementPhase.DECELERATING:
+		if direction:
+			movement_phase = MovementPhase.ACCELERATING if sign(direction) == sign(velocity.x) else MovementPhase.TURNING
+		else:
+			velocity.x = move_toward(velocity.x, 0, delta * DECELERATION_SPEED)
+			if abs(velocity.x) <= EPSILON:
+				movement_phase = MovementPhase.STANDING
+	elif movement_phase == MovementPhase.TURNING:
+		if not direction:
+			movement_phase = MovementPhase.DECELERATING
+		else:
+			velocity.x = move_toward(velocity.x, 0, delta * TURNING_SPEED)
+			if abs(velocity.x) <= EPSILON:
+				movement_phase =  MovementPhase.ACCELERATING
+	is_turned_right = direction > 0
 
 	move_and_slide()
 
 	progress.value = position.x / 3.7
 
 	if global_position.y > 200:
-			game_over()
+		game_over()
 
 func game_over():
 	get_tree().reload_current_scene()
