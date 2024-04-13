@@ -168,7 +168,7 @@ _data = {
 script = ExtResource("2_68sav")
 
 [node name="PhysicsCollider" parent="." index="0"]
-position = Vector2(-1.5, 3)
+position = Vector2(-3, 2)
 
 [node name="HitCollider" type="Area2D" parent="." index="1"]
 position = Vector2(-2, -3.5)
@@ -176,7 +176,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(-1.5, -0.5)
+position = Vector2(-3, 0.5)
 rotation = 0.546288
 shape = SubResource("RectangleShape2D_wnhhh")
 

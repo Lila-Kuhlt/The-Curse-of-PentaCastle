@@ -18,4 +18,4 @@ position = Vector2(28, 24)
 spell = 2
 
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_4tdqm")]
-position = Vector2(79, 16)
+position = Vector2(81, 18)
