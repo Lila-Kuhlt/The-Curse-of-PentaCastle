@@ -6,9 +6,6 @@
 
 [node name="Long Room" instance=ExtResource("1_kr3jf")]
 
-[node name="Background1" parent="ParallaxBackground/ParallaxLayer1" index="0"]
-layer_0/tile_data = PackedInt32Array()
-
 [node name="Background2" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 layer_0/tile_data = PackedInt32Array()
 
@@ -26,4 +23,4 @@ spell = 1
 position = Vector2(274, -14)
 
 [node name="Player" parent="." index="5"]
-position = Vector2(10, -8)
+position = Vector2(13, -16)
