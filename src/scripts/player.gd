@@ -28,6 +28,7 @@ var movement_phase := MovementPhase.STANDING
 var knockback := Vector2(0, 0)
 var direction := 0.0
 var walk_vel := 0.0
+var lookahead := 0.0
 
 # Juice
 var frames_since_ground := 0
@@ -104,10 +105,12 @@ func _physics_process(delta):
 		jump_buffer -= 1
 
 	# Get the input direction and handle the movement/deceleration.
+	var old_dir := direction
 	direction = Input.get_axis("left", "right")
-	if direction: _set_flip(direction < 0)
-	var look_ahead = direction * LOOK_AHEAD_MAX
-	cam.offset.x = move_toward(cam.offset.x, look_ahead, LOOK_AHEAD_SPEED * delta)
+	if direction:
+		_set_flip(direction < 0)
+		lookahead = direction * LOOK_AHEAD_MAX
+	cam.offset.x = move_toward(cam.offset.x, lookahead, LOOK_AHEAD_SPEED * delta)
 
 	match movement_phase:
 		MovementPhase.STANDING:
