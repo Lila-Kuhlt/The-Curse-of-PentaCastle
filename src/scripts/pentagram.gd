@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const SUPPORT_CONTROLLERS = false
+const SUPPORT_CONTROLLERS := false
 const CLIP_DISTANCE := 90.0
 const CLIP_ANGLE := 0.5
 
