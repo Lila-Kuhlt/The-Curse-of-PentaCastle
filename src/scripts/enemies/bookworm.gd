@@ -1,7 +1,8 @@
 extends Enemy
 
 const VIEW_DISTANCE := 70.0
-const IDLE_COOLDOWN := 100.0
+const IDLE_COOLDOWN_MIN := 1.5
+const IDLE_COOLDOWN_MAX := 4.0
 const HIDE_COOLDOWN_MIN := 1
 const HIDE_COOLDOWN_MAX := 3
 const ATTACK_COOLDOWN := 2
@@ -41,7 +42,7 @@ func goto_idle_mode():
 	position = find_teleport_pos()
 	mode = BookwormMode.IDLE
 	shape.disabled = false
-	mode_cooldown = IDLE_COOLDOWN
+	mode_cooldown = randf_range(IDLE_COOLDOWN_MIN, IDLE_COOLDOWN_MAX)
 	anim.queue('idle')
 
 func find_teleport_pos() -> Vector2:
