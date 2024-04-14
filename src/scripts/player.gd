@@ -21,6 +21,7 @@ enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING =
 var movement_phase := MovementPhase.STANDING
 var knockback := Vector2(0, 0)
 var direction := 0.0
+var walk_vel := 0.0
 
 # Juice
 var frames_since_ground := 0
@@ -105,36 +106,39 @@ func _physics_process(delta):
 
 	match movement_phase:
 		MovementPhase.STANDING:
-			velocity.x = 0
+			walk_vel = 0
 			if direction != 0:
 				movement_phase = MovementPhase.ACCELERATING
 		MovementPhase.ACCELERATING:
 			if direction == 0:
 				movement_phase = MovementPhase.DECELERATING
 			elif (direction > 0) == is_turned_right:
-				velocity.x = move_toward(velocity.x, MAX_SPEED * sign(direction),
+				walk_vel = move_toward(walk_vel, MAX_SPEED * sign(direction),
 					delta * abs(direction) * ACCELERATION_SPEED)
 			else:
 				movement_phase = MovementPhase.TURNING
 		MovementPhase.DECELERATING:
 			if direction != 0:
-				movement_phase = MovementPhase.ACCELERATING if sign(direction) == sign(velocity.x) else MovementPhase.TURNING
+				movement_phase = MovementPhase.ACCELERATING if sign(direction) == sign(walk_vel) else MovementPhase.TURNING
 			else:
-				velocity.x = move_toward(velocity.x, 0, delta * DECELERATION_SPEED)
-				if abs(velocity.x) <= EPSILON:
+				walk_vel = move_toward(walk_vel, 0, delta * DECELERATION_SPEED)
+				if abs(walk_vel) <= EPSILON:
 					movement_phase = MovementPhase.STANDING
 		MovementPhase.TURNING:
 			if direction == 0:
 				movement_phase = MovementPhase.DECELERATING
 			else:
-				velocity.x = move_toward(velocity.x, 0, delta * TURNING_SPEED)
-				if abs(velocity.x) <= EPSILON:
+				walk_vel = move_toward(walk_vel, 0, delta * TURNING_SPEED)
+				if abs(walk_vel) <= EPSILON:
 					movement_phase =  MovementPhase.ACCELERATING
 	is_turned_right = direction > 0
+	velocity.x = walk_vel
+
+	velocity += knockback * delta
+	knockback *= KNOCKBACK_ENVELOPE
+
 	var old_pos := position
 
-	velocity += knockback
-	knockback *= KNOCKBACK_ENVELOPE
 	move_and_slide()
 	for ghost in ghost_arr:
 		if ghost == null: continue
