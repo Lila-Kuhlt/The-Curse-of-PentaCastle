@@ -21,7 +21,9 @@ enum Spells {
 	SHIELD,
 	MAGIC_BOOST,
 	STRIKE,
-	LIGHTNING
+	LIGHTNING,
+	RAIN_OF_BLOOD,
+	FISH
 }
 
 const spell_item_scripts = [
@@ -35,6 +37,8 @@ const spell_item_scripts = [
 	preload("res://scripts/spell_items/magic_boost.gd"),
 	preload("res://scripts/spell_items/strike.gd"),
 	preload("res://scripts/spell_items/lightning.gd"),
+	preload("res://scripts/spell_items/rain_of_blood.gd"),
+	preload("res://scripts/spell_items/fish.gd"),
 ]
 
 const spell_item_sprites = [
@@ -48,6 +52,8 @@ const spell_item_sprites = [
 	preload("res://assets/spell_items/magic_boost.png"),
 	preload("res://assets/spell_items/strike.png"),
 	preload("res://assets/spell_items/lightning.png"),
+	preload("res://assets/spell_items/rain_of_blood.png"),
+	preload("res://assets/spell_items/fish.png"),
 ]
 
 var spell_scripts = [
@@ -61,6 +67,8 @@ var spell_scripts = [
 	preload("res://scripts/spells/magic_boost.gd").new(),
 	preload("res://scripts/spells/strike.gd").new(),
 	preload("res://scripts/spells/lightning.gd").new(),
+	preload("res://scripts/spells/rain_of_blood.gd").new(),
+	preload("res://scripts/spells/fish.gd").new(),
 ]
 
 func find_spell(combo: Array[int]) -> Spells:

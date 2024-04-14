@@ -46,10 +46,18 @@ spell = 8
 position = Vector2(72, -104)
 spell = 9
 
-[node name="Unicorn" parent="." index="11" instance=ExtResource("2_4tdqm")]
+[node name="Chest10" parent="." index="11" instance=ExtResource("3_avhg6")]
+position = Vector2(112, -72)
+spell = 10
+
+[node name="Chest11" parent="." index="12" instance=ExtResource("3_avhg6")]
+position = Vector2(-88, -104)
+spell = 11
+
+[node name="Unicorn" parent="." index="13" instance=ExtResource("2_4tdqm")]
 position = Vector2(149, 18)
 
-[node name="Bookworm" parent="." index="12" instance=ExtResource("4_t6w6d")]
+[node name="Bookworm" parent="." index="14" instance=ExtResource("4_t6w6d")]
 position = Vector2(89, -23)
 
 [node name="Player" parent="." index="14"]

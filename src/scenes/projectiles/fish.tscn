@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3tegvnd7if4x"]
+
+[ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_hvx3w"]
+
+[node name="Fish" instance=ExtResource("1_hvx3w")]
+speed = 150.0
+ATTACK_DAMAGE = 4.0
+REMOVE_AFTER = 0.2
