@@ -1,5 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd8uqi10n7il4"]
+[gd_scene load_steps=3 format=3 uid="uid://bd8uqi10n7il4"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_bb8xt"]
+[ext_resource type="Script" path="res://scripts/projectile/fireball.gd" id="2_v8k5h"]
 
 [node name="Fireball" instance=ExtResource("1_bb8xt")]
+script = ExtResource("2_v8k5h")
+speed = 60.0
+ATTACK_DAMAGE = 18.0
+KNOCKBACK_STRENGTH = 30.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfa18tc8snad3"]
+
+[ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_gf3ie"]
+[ext_resource type="Script" path="res://scripts/projectile/strike.gd" id="2_85fsj"]
+
+[node name="Projectile" instance=ExtResource("1_gf3ie")]
+script = ExtResource("2_85fsj")
+speed = 20.0
+ATTACK_DAMAGE = 5.0
+REMOVE_AFTER = 10

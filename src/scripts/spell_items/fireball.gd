@@ -5,6 +5,6 @@ func _init():
 	type = SpellBook.SpellType.ACTIVE
 	rank = SpellBook.SpellRank.ULTRA
 	title = "Fireball"
-	desc = "Damages near enemies"
+	desc = "High fire damage"
 	cast = [1, 2, 0, 3, 4]
 	duration = 0.0

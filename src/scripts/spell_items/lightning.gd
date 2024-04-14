@@ -5,6 +5,6 @@ func _init():
 	type = SpellBook.SpellType.ACTIVE
 	rank = SpellBook.SpellRank.RARE
 	title = "Lightning"
-	desc = "Lightning Damage"
+	desc = "Medium lightning damage"
 	cast = [3, 1, 4, 0]
 	duration = 0.0
