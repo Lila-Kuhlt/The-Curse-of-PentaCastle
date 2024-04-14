@@ -27,3 +27,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	fg.visible = false
 	bg.visible = false
+
+func set_texture(tex: Texture):
+	$Margin/TextureRect.texture = tex
