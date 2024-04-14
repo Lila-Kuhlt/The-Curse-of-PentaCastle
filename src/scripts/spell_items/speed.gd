@@ -6,5 +6,5 @@ func _init():
 	rank = SpellBook.SpellRank.COMMON
 	title = "Speed"
 	desc = "Double speed for 10s"
-	cast = "1401"
+	cast = [1, 4, 0, 1]
 	duration = 10

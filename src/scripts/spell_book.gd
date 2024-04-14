@@ -47,42 +47,24 @@ var spell_scripts = [
 	preload("res://scripts/spells/ultimate.gd").new(),
 ]
 
-func find_spell(combo: String) -> Spells:
+func find_spell(combo: Array[int]) -> Spells:
 	for spell_item_script in spell_item_scripts:
 		var spell_item = spell_item_script.new()
 		var cast = spell_item.cast
-		if (check_combo(combo, cast)):
+		if check_combo(combo, cast):
 			return spell_item.spell
 	return Spells.PLACEHOLDER
 
-func check_combo(combo: String, cast: String) -> bool:
-	if (combo.length() != cast.length()): return false
+func check_combo(combo: Array[int], cast: Array[int]) -> bool:
+	if cast.size() <= 1: return combo == cast
+	return _get_lines(combo) == _get_lines(cast)
 
-	var cast_cylic = _is_cylic(cast)
-	if (cast_cylic):
-		if (_is_cylic(combo)):
-			cast = _remove_last_char(cast)
-			combo = _remove_last_char(combo)
-		else:
-			return false
-
-	var last_cast_idx = -1
-	var cast_idx = -1
-	var idx_diff = -1
-	for number in combo:
-		cast_idx = cast.find(number)
-		if (cast_idx == -1): return false
-
-		idx_diff = abs(last_cast_idx - cast_idx)
-		if (last_cast_idx == -1):
-			last_cast_idx = cast_idx
-			continue
-		elif (idx_diff != 1 and idx_diff != cast.length() - 1): return false
-		last_cast_idx = cast_idx
-	return true
-
-func _is_cylic(text: String):
-	return text[0] == text[text.length() - 1]
-
-func _remove_last_char(text: String):
-	return text.erase(text.length() - 1, 1)
+func _get_lines(combo: Array[int]) -> Dictionary:
+	var lines := {}
+	var last = null
+	for n in combo:
+		if last != null:
+			var line = {last: null, n: null} if last <= n else {n: null, last: null}
+			lines[line] = null
+		last = n
+	return lines

@@ -40,7 +40,7 @@ func _ready():
 		ghost_arr.append(null)
 
 func cast(spell: SpellBook.Spells, inventory_idx: int):
-	if (active_spells[spell]): return
+	if active_spells[spell]: return
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.cast(self, get_tree().get_nodes_in_group('enemies'))
 	var spell_item_script = SpellBook.spell_item_scripts[spell].new()
@@ -135,7 +135,7 @@ func _physics_process(delta):
 	knockback *= KNOCKBACK_ENVELOPE
 	move_and_slide()
 	for ghost in ghost_arr:
-		if (ghost == null): continue
+		if ghost == null: continue
 		ghost.position -= position - old_pos
 		ghost.flipped = sprite.flip_h
 
@@ -151,9 +151,8 @@ func game_over():
 
 
 func _on_pentagram_layer_combo_done(combo: Array[int]):
-	var combo_str = "".join(combo)
-	var spell = SpellBook.find_spell(combo_str)
-	if ((spell > 0)):
+	var spell = SpellBook.find_spell(combo)
+	if spell > 0:
 		var idx = spell_inventory.find(spell)
 		if (idx > -1):
 			cast(spell, idx)

@@ -6,5 +6,5 @@ func _init():
 	rank = SpellBook.SpellRank.RARE
 	title = "Slowdown"
 	desc = "Enemy slowdown for 5s"
-	cast = "24132"
+	cast = [2, 4, 1, 3, 2]
 	duration = 5

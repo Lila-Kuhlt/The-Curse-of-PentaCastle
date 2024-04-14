@@ -6,5 +6,5 @@ func _init():
 	rank = SpellBook.SpellRank.ULTRA
 	title = "Ultimate"
 	desc = "Kills all Enemies"
-	cast = "024130"
+	cast = [0, 2, 4, 1, 3, 0]
 	duration = 50

@@ -1,6 +1,6 @@
 class_name SpellItemBase extends Node2D
 
-var cast := '6'
+var cast: Array[int] = [6]
 var title := "PLACEHOLDER"
 var desc := "PLACEHOLDER"
 var duration := 0.0 # only for passive spells (in seconds)

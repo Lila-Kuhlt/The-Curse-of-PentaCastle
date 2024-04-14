@@ -6,5 +6,5 @@ func _init():
 	rank = SpellBook.SpellRank.COMMON
 	title = "Fireball"
 	desc = "Damages near enemies"
-	cast = "12034"
+	cast = [1, 2, 0, 3, 4]
 	duration = 0.0
