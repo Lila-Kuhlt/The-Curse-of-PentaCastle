@@ -1,5 +1,7 @@
 extends SpellBase
 
-func cast(_player: Player, _enemies: Array[Node]):
-	pass
+var Pushback_Projectile = preload("res://scenes/projectiles/pushback.tscn")
 
+func cast(player: Player, enemies: Array[Node]):
+	var projectile = Pushback_Projectile.instantiate()
+	spawn_projectile(player, projectile)

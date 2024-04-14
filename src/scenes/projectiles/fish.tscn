@@ -8,7 +8,6 @@ radius = 3.0
 
 [node name="Fish" instance=ExtResource("1_hvx3w")]
 speed = 150.0
-ATTACK_DAMAGE = 4.0
 REMOVE_AFTER = 0.2
 
 [node name="CollisionShape2D" parent="." index="0"]

@@ -5,6 +5,6 @@ func _init():
 	type = SpellBook.SpellType.ACTIVE
 	rank = SpellBook.SpellRank.RARE
 	title = "Fish"
-	desc = "Enemy gets 4 damage and effect wet"
-	cast = [3, 0, 1, 4]
+	desc = "Medium fish attack"
+	cast = [3, 0, 2, 4]
 	duration = 30.0

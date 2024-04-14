@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5512kvsldk7f"]
+[gd_scene load_steps=10 format=3 uid="uid://dgq84b2uq6wcc"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_4crrr"]
 [ext_resource type="Texture2D" uid="uid://c2kg4efmhgd0j" path="res://assets/lemon.png" id="2_32o2o"]
