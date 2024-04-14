@@ -3,7 +3,7 @@ extends SpellItemBase
 func _init():
 	spell = SpellBook.Spells.FIREBALL
 	type = SpellBook.SpellType.ACTIVE
-	rank = SpellBook.SpellRank.COMMON
+	rank = SpellBook.SpellRank.ULTRA
 	title = "Fireball"
 	desc = "Damages near enemies"
 	cast = [1, 2, 0, 3, 4]
