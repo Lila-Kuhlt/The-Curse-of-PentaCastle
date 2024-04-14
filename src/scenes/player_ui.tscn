@@ -1,13 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://c44q2u3nky1ek"]
+[gd_scene load_steps=4 format=3 uid="uid://c44q2u3nky1ek"]
 
 [ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
+[ext_resource type="Script" path="res://scripts/item-panel.gd" id="2_hsw3b"]
+[ext_resource type="Texture2D" uid="uid://dhkhn1pyjanh8" path="res://assets/spell_items/placeholder.png" id="2_lbgva"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_qp3wb")
 
-[node name="SpellsHBox" type="HBoxContainer" parent="."]
-offset_left = 29.0
-offset_top = 18.0
-offset_right = 1099.0
-offset_bottom = 75.0
-scale = Vector2(8, 8)
+[node name="SpellsHBox" type="HFlowContainer" parent="."]
+layout_direction = 2
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.074
+anchor_right = 0.701
+anchor_bottom = 0.627
+offset_left = -17.752
+offset_top = -17.952
+offset_right = -414.552
+offset_bottom = -165.296
+scale = Vector2(4, 4)
+
+[node name="MarginContainer" type="MarginContainer" parent="SpellsHBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="SpellsHBox/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+script = ExtResource("2_hsw3b")
+
+[node name="TextureRect" type="TextureRect" parent="SpellsHBox/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_left = 3.75
+offset_top = 4.0
+offset_right = 11.75
+offset_bottom = 4.0
+grow_vertical = 2
+texture = ExtResource("2_lbgva")
+
+[node name="Line2DBG" type="Line2D" parent="SpellsHBox/MarginContainer/Panel"]
+visible = false
+width = 1.0
+
+[node name="Line2DFG" type="Line2D" parent="SpellsHBox/MarginContainer/Panel"]
+visible = false
+width = 1.0
+default_color = Color(0.576471, 0.137255, 0.113725, 1)
+
+[connection signal="mouse_entered" from="SpellsHBox/MarginContainer/Panel" to="SpellsHBox/MarginContainer/Panel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpellsHBox/MarginContainer/Panel" to="SpellsHBox/MarginContainer/Panel" method="_on_mouse_exited"]
