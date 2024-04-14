@@ -13,11 +13,15 @@ void vertex() {
 
 void fragment() {
 	float d_mid = abs(UV.y - 0.5) * 2.0;
+	float y_offset = 0.25;
+	if (UV.y > 0.5) {
+		y_offset += 0.5;
+	}
 
 	float line_coord = UV.x * line_length;
 	float sample_dist = line_coord * freq + (TIME * time_mult);
 	sample_dist = mod(sample_dist, 1.0);
-	float width = texture(noise, vec2(sample_dist)).r;
+	float width = texture(noise, vec2(sample_dist, y_offset)).r;
 	width = (1.0 - min_width) * width + min_width;
 
 	if (width > d_mid) {
