@@ -4,6 +4,7 @@ class_name Projectile extends CharacterBody2D
 @export var ATTACK_DAMAGE := 10.0
 @export var KNOCKBACK_STRENGTH := 10.0
 @export var REMOVE_AFTER := 10.0
+@export var PIERCING := false
 var direction: Vector2 = Vector2(1, 0)
 
 func _ready():
@@ -16,7 +17,8 @@ func _physics_process(delta: float):
 		var collider = collision.get_collider()
 		if collider is CharacterBody2D:
 			hit_body(collider)
-		queue_free()
+		if not PIERCING:
+			queue_free()
 
 func hit_body(body: CharacterBody2D):
 	body.take_damage(ATTACK_DAMAGE)

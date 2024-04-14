@@ -1,6 +1,6 @@
 extends Enemy
 
-const VIEW_DISTANCE := 40.0
+const VIEW_DISTANCE := 70.0
 const IDLE_COOLDOWN := 100.0
 const HIDE_COOLDOWN_MIN := 1
 const HIDE_COOLDOWN_MAX := 3

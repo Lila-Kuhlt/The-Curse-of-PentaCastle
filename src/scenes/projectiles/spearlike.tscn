@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgq84b2uq6wcc"]
+[gd_scene load_steps=20 format=3 uid="uid://b5512kvsldk7f"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_4crrr"]
 [ext_resource type="Texture2D" uid="uid://c2kg4efmhgd0j" path="res://assets/lemon.png" id="2_32o2o"]
 [ext_resource type="Script" path="res://scripts/spearlike.gd" id="2_rga45"]
+[ext_resource type="Texture2D" uid="uid://ca6yk4v42d5pu" path="res://assets/spear.png" id="4_3bxd2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j74m0"]
 size = Vector2(8, 5)
@@ -23,6 +24,42 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("2_32o2o")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mj4b"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(0, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6smy"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(41, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7bra"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(82, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f70e"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(123, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_417i6"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(164, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2cjg"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(205, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3matk"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(246, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63854"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(287, 0, 41, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jttmp"]
+atlas = ExtResource("4_3bxd2")
+region = Rect2(328, 0, 41, 7)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbbgu"]
 animations = [{
 "frames": [{
@@ -41,21 +78,55 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mj4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6smy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7bra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f70e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_417i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2cjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3matk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63854")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jttmp")
+}],
+"loop": false,
+"name": &"spear",
+"speed": 5.0
 }]
 
 [node name="Spearlike" instance=ExtResource("1_4crrr")]
 scale = Vector2(2, 2)
-collision_mask = 80
+collision_mask = 64
 script = ExtResource("2_rga45")
+speed = 0.0
+PIERCING = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_j74m0")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(8, 0)
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_pbbgu")
+animation = &"spear"
 autoplay = ""
-frame = 2
-frame_progress = 0.956845
+centered = false
 flip_h = true
