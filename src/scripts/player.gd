@@ -19,6 +19,7 @@ const KNOCKBACK_ENVELOPE: float = 0.86
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
 var knockback := Vector2(0, 0)
+var direction := 0.0
 
 # Juice
 var frames_since_ground := 0
@@ -97,7 +98,7 @@ func _physics_process(delta):
 		jump_buffer -= 1
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("left", "right")
+	direction = Input.get_axis("left", "right")
 	if direction: sprite.flip_h = direction < 0
 
 	match movement_phase:
