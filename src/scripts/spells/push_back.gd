@@ -1,5 +1,5 @@
 extends SpellBase
 
-func cast(_player: CharacterBody2D, _enemies: Array[Node]):
+func cast(_player: Player, _enemies: Array[Node]):
 	pass
 
