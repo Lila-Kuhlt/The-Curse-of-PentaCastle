@@ -163,7 +163,7 @@ func game_over():
 
 func take_damage(dmg: int):
 	life -= dmg
-	get_tree().get_first_node_in_group('hp-bar').value = life
+	get_tree().get_first_node_in_group('hp-bar').set_value(life)
 	hit_indicator.play('hit')
 
 func _on_pentagram_layer_combo_done(combo: Array[int]):

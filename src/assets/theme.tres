@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bojb73eb2ihfo"]
+
+[ext_resource type="Texture2D" uid="uid://bjd302kmn2k4g" path="res://assets/hp-bar-fill.png" id="1_7kxux"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d28x1"]
+bg_color = Color(0.498039, 0.105882, 0.101961, 0.705882)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.329412, 0.0901961, 0.0470588, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ivu"]
+atlas = ExtResource("1_7kxux")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sodlk"]
+texture = SubResource("AtlasTexture_n0ivu")
+
+[resource]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_d28x1")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_sodlk")
