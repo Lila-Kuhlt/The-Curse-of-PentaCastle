@@ -146,6 +146,7 @@ animations = [{
 }]
 
 [node name="Ghost" type="Node2D"]
+process_priority = 1
 script = ExtResource("1_0mrnm")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

@@ -70,6 +70,12 @@ func add_ghost(spell: SpellBook.Spells, duration, inventory_idx):
 	timer.timeout.connect(_uncast.bind(spell, ghost, inventory_idx))
 	ghost.add_child(timer)
 
+func _set_flip(val: bool):
+	if sprite.flip_h == val:
+		return
+	sprite.flip_h = val
+	ghost_inventory.flip()
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -94,7 +100,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
-	if direction: sprite.flip_h = direction < 0
+	if direction: _set_flip(direction < 0)
 
 	match movement_phase:
 		MovementPhase.STANDING:
@@ -134,7 +140,6 @@ func _physics_process(delta):
 	move_and_slide()
 	for ghost in ghost_inventory.get_children():
 		ghost.position -= position - old_pos
-		ghost.flipped = sprite.flip_h
 
 	if global_position.y > 200 or life <= 0:
 		game_over()
