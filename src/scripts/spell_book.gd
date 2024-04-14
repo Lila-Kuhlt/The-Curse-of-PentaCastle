@@ -16,7 +16,8 @@ enum Spells {
 	SPEED,
 	SLOWDOWN,
 	PUSH_BACK,
-	FIREBALL
+	FIREBALL,
+	ULTIMATE
 }
 
 var spell_item_scripts = [
@@ -25,6 +26,7 @@ var spell_item_scripts = [
 	preload("res://scripts/spell_items/slowdown.gd"),
 	preload("res://scripts/spell_items/push_back.gd"),
 	preload("res://scripts/spell_items/fireball.gd"),
+	preload("res://scripts/spell_items/ultimate.gd"),
 ]
 
 var spell_item_sprites = [
@@ -33,6 +35,7 @@ var spell_item_sprites = [
 	preload("res://assets/spell_items/slowdown.png"),
 	preload("res://assets/spell_items/push_back.png"),
 	preload("res://assets/spell_items/fireball.png"),
+	preload("res://assets/spell_items/ultimate.png"),
 ]
 
 var spell_scripts = [
@@ -41,6 +44,7 @@ var spell_scripts = [
 	preload("res://scripts/spells/slowdown.gd").new(),
 	preload("res://scripts/spells/push_back.gd").new(),
 	preload("res://scripts/spells/fireball.gd").new(),
+	preload("res://scripts/spells/ultimate.gd").new(),
 ]
 
 func find_spell(combo: String) -> Spells:
