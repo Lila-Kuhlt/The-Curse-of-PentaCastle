@@ -1,7 +1,6 @@
 extends SpellBase
 
-const PROJECTILE = preload("res://scenes/projectiles/lightning.tscn")
+const Lightning = preload("res://scenes/projectiles/lightning.tscn")
 
 func cast(player: Player, _enemies: Array[Node]):
-	var projectile = PROJECTILE.instantiate()
-	spawn_projectile(player, projectile)
+	spawn_projectile(player, Lightning.instantiate())
