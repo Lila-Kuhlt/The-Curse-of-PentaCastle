@@ -35,13 +35,11 @@ var active_spells: Array[bool] = []
 
 # Ghosts
 const Ghost = preload("res://scenes/ghost.tscn")
-var ghost_arr: Array[Node2D] = []
 
 func _ready():
 	hit_indicator.play("RESET")
 	for i in SpellBook.Spells.values().size():
 		active_spells.append(false)
-		ghost_arr.append(null)
 
 func cast(spell: SpellBook.Spells, inventory_idx: int):
 	if active_spells[spell]: return
@@ -53,31 +51,24 @@ func cast(spell: SpellBook.Spells, inventory_idx: int):
 		ui.mark_spell_item_panel(inventory_idx)
 		active_spells[spell] = true
 
-func _uncast(spell: SpellBook.Spells, inventory_idx: int):
+func _uncast(spell: SpellBook.Spells, ghost, inventory_idx: int):
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.uncast(self, get_tree().get_nodes_in_group('enemies'))
-	del_ghost(spell)
+	ghost_inventory.erase(ghost)
 	ui.unmark_spell_item_panel(inventory_idx)
 	active_spells[spell] = false
 
 func add_ghost(spell: SpellBook.Spells, duration, inventory_idx):
 	var ghost: Node2D = Ghost.instantiate()
-	ghost_arr[spell] = ghost
-	var num_ghosts: int = ghost_arr.reduce(func(accum, elem): return accum + 1 if elem != null else accum, 0)
-	ghost.init(spell, num_ghosts - 1)
+	ghost.init(spell)
 	ghost_inventory.append(ghost)
 
 	var timer := Timer.new()
 	timer.wait_time = duration
 	timer.one_shot = true
 	timer.autostart = true
-	timer.timeout.connect(_uncast.bind(spell, inventory_idx))
+	timer.timeout.connect(_uncast.bind(spell, ghost, inventory_idx))
 	ghost.add_child(timer)
-
-func del_ghost(spell: SpellBook.Spells):
-	var ghost: Node2D = ghost_arr[spell]
-	ghost_arr[spell] = null
-	ghost_inventory.erase(ghost)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -141,8 +132,7 @@ func _physics_process(delta):
 	var old_pos := position
 
 	move_and_slide()
-	for ghost in ghost_arr:
-		if ghost == null: continue
+	for ghost in ghost_inventory.get_children():
 		ghost.position -= position - old_pos
 		ghost.flipped = sprite.flip_h
 

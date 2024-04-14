@@ -20,8 +20,7 @@ var flipped := false
 var t1 := 0.0
 var t2 := 0.0
 
-func init(spell: SpellBook.Spells, idx: int):
-	ghost_nr = idx
+func init(spell: SpellBook.Spells):
 	init_frame_nr_val = spell
 	init_frame_nr = true
 
