@@ -8,7 +8,11 @@ var rooms = [
 
 ## Spawn a new room.
 func new_room():
-	var room = rooms.pick_random()
+	var current_room := get_tree().current_scene.scene_file_path
+	var available_rooms = rooms.duplicate()
+	# avoid picking the same room again
+	available_rooms.erase(current_room)
+	var room = available_rooms.pick_random()
 	get_tree().call_deferred("change_scene_to_file", room)
 
 func _on_door_body_entered(_body):
