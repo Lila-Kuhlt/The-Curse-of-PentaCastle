@@ -1,10 +1,9 @@
 extends SpellBase
 
-var Projectile = preload("res://scenes/projectiles/fish.tscn")
+const PROJECTILE = preload("res://scenes/projectiles/fish.tscn")
 
 func cast(player: CharacterBody2D, _enemies: Array[Node]):
-	var projectile = Projectile.instantiate()
+	var projectile = PROJECTILE.instantiate()
 	spawn_projectile(player, projectile)
-	var idx = SpellBook.Spells.FISH
 	var status = player.status
 	status.visible = true

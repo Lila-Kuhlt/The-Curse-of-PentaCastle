@@ -35,6 +35,3 @@ func _process(delta: float) -> void:
 		else: anim.frame -= 1
 	shape.position = Vector2(hitbox_rect[anim.frame].position) + OFFSET
 	shape.shape.size = hitbox_rect[anim.frame].size
-
-func _physics_process(delta: float) -> void:
-	pass
