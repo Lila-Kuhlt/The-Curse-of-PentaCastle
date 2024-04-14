@@ -1,6 +1,6 @@
 class_name Enemy extends CharacterBody2D
 
-@export var LIFE := 50.0
+@export var life := 50.0
 @export var MOVEMENT_SPEED := 10.0
 @export var ATTACK_DAMAGE := 10.0
 @export var KNOCKBACK_STRENGTH := 800.0
@@ -10,18 +10,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
 
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
+@onready var health_bar: ProgressBar = $HealthBar
 
 func _ready():
 	hit_indicator.play('RESET')
+	health_bar.max_value = life
+	health_bar.value = life
 
 func do_physics(delta):
-	if LIFE <= 0:
+	if life <= 0:
 		i_am_gonna_kill_myself()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	velocity += knockback
 	knockback *= KNOCKBACK_ENVELOPE
-
 
 func hit_player(player: CharacterBody2D):
 	var direction = velocity
@@ -31,8 +33,8 @@ func hit_player(player: CharacterBody2D):
 	player.take_damage(ATTACK_DAMAGE)
 
 func take_damage(dmg: int):
-	LIFE -= dmg
-	get_tree().get_first_node_in_group('hp-bar').value = LIFE
+	life -= dmg
+	health_bar.value = life
 	hit_indicator.play('hit')
 
 func i_am_gonna_kill_myself():
