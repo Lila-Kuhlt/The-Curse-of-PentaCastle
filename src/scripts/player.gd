@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite := $Sprite
 @onready var ui := $Camera2D/PlayerUI
+@onready var hit_indicator := $HitIndicationAnimationPlayer
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var LIFE = 100
 
@@ -35,6 +36,7 @@ const Ghost = preload("res://scenes/ghost.tscn")
 var ghost_arr: Array[Node2D] = []
 
 func _ready():
+	hit_indicator.play("RESET")
 	for i in SpellBook.Spells.values().size():
 		active_spells.append(false)
 		ghost_arr.append(null)
@@ -152,6 +154,7 @@ func game_over():
 func take_damage(dmg: int):
 	LIFE -= dmg
 	get_tree().get_first_node_in_group('hp-bar').value = LIFE
+	hit_indicator.play('hit')
 
 func _on_pentagram_layer_combo_done(combo: Array[int]):
 	var spell = SpellBook.find_spell(combo)
