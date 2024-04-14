@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ui := $Camera2D/PlayerUI
 @onready var hit_indicator := $HitIndicationAnimationPlayer
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var LIFE = 100
+var life = 100
 
 # Movement
 var JUMP_VELOCITY := -250.0
@@ -145,7 +145,7 @@ func _physics_process(delta):
 		ghost.position -= position - old_pos
 		ghost.flipped = sprite.flip_h
 
-	if global_position.y > 200 or LIFE <= 0:
+	if global_position.y > 200 or life <= 0:
 		game_over()
 
 func give_spell_item(spell: SpellBook.Spells):
@@ -156,8 +156,8 @@ func game_over():
 	get_tree().reload_current_scene()
 
 func take_damage(dmg: int):
-	LIFE -= dmg
-	get_tree().get_first_node_in_group('hp-bar').value = LIFE
+	life -= dmg
+	get_tree().get_first_node_in_group('hp-bar').value = life
 	hit_indicator.play('hit')
 
 func _on_pentagram_layer_combo_done(combo: Array[int]):
