@@ -3,6 +3,7 @@ extends Area2D
 var rooms = [
 	"res://scenes/rooms/room_main.tscn",
 	"res://scenes/rooms/room1.tscn",
+	"res://scenes/rooms/room2.tscn",
 ]
 
 ## Spawn a new room.
