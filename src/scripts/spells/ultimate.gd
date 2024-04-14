@@ -1,6 +1,6 @@
 extends SpellBase
 
-func cast(player: CharacterBody2D, enemies: Array[Node]):
-	for enemie in enemies:
-		enemie.LIFE = 0.0
+func cast(_player: CharacterBody2D, enemies: Array[Node]):
+	for enemy in enemies:
+		enemy.LIFE = 0.0
 

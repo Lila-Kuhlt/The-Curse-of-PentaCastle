@@ -64,11 +64,7 @@ func _uncast(spell: SpellBook.Spells, inventory_idx: int):
 func add_ghost(spell: SpellBook.Spells):
 	var ghost: Node2D = Ghost.instantiate()
 	ghost_arr[spell] = ghost
-	var num_ghosts = ghost_arr.reduce(func(accum, ghost):
-		if (ghost != null): accum += 1
-		else: accum
-		return accum, 0)
-	print(num_ghosts)
+	var num_ghosts: int = ghost_arr.reduce(func(accum, elem): return accum + 1 if elem != null else accum, 0)
 	ghost.init(spell, num_ghosts - 1)
 	add_child(ghost)
 

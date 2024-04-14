@@ -1,6 +1,6 @@
 extends SpellBase
 
-func cast(player: CharacterBody2D, enemies: Array[Node]):
+func cast(player: CharacterBody2D, _enemies: Array[Node]):
 	var Projectile = load("res://scenes/projectiles/fireball.tscn")
 	var projectile = Projectile.instantiate()
 	if (player.velocity.x >= 0):
