@@ -24,7 +24,7 @@ enum Spells {
 	LIGHTNING
 }
 
-var spell_item_scripts = [
+const spell_item_scripts = [
 	preload("res://scripts/spell_items/base.gd"),
 	preload("res://scripts/spell_items/speed.gd"),
 	preload("res://scripts/spell_items/slowdown.gd"),
@@ -37,7 +37,7 @@ var spell_item_scripts = [
 	preload("res://scripts/spell_items/lightning.gd"),
 ]
 
-var spell_item_sprites = [
+const spell_item_sprites = [
 	preload("res://assets/spell_items/placeholder.png"),
 	preload("res://assets/spell_items/speed.png"),
 	preload("res://assets/spell_items/slowdown.png"),
