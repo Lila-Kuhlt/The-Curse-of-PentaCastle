@@ -12,5 +12,13 @@ func do_physics(delta):
 
 func hit_player(player: CharacterBody2D):
 	player.LIFE -= ATTACK_DAMAGE
-	player.knockback = velocity.normalized() * KNOCKBACK_STRENGTH
+	var direction = (player.velocity * -1).normalized()
+	player.knockback = direction * KNOCKBACK_STRENGTH
 	print(player.LIFE)
+
+func _process(delta):
+	if (LIFE <= 0):
+		i_am_gonna_kill_myself()
+
+func i_am_gonna_kill_myself():
+	queue_free()

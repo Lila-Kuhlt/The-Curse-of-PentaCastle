@@ -9,6 +9,10 @@ size = Vector2(21, 16)
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_4befo")
+LIFE = null
+MOVEMENT_SPEED = null
+ATTACK_DAMAGE = null
+KNOCKBACK_STRENGTH = null
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0chb3")

@@ -166,10 +166,6 @@ _data = {
 
 [node name="Unicorn" instance=ExtResource("1_0f2vi")]
 script = ExtResource("2_68sav")
-LIFE = null
-MOVEMENT_SPEED = null
-ATTACK_DAMAGE = null
-KNOCKBACK = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_8c74f")

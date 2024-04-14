@@ -20,6 +20,6 @@ spell = 2
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_4tdqm")]
 position = Vector2(81, 18)
 collision_mask = 24
-LIFE = null
-MOVEMENT_SPEED = null
-ATTACK_DAMAGE = null
+LIFE = 50.0
+MOVEMENT_SPEED = 10.0
+ATTACK_DAMAGE = 10.0
