@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
 
 func do_physics(delta):
-	if (LIFE <= 0):
+	if LIFE <= 0:
 		i_am_gonna_kill_myself()
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -19,7 +19,7 @@ func do_physics(delta):
 
 func hit_player(player: CharacterBody2D):
 	player.LIFE -= ATTACK_DAMAGE
-	var direction = (player.velocity * -1).normalized()
+	var direction = (-player.velocity).normalized()
 	player.knockback = direction * KNOCKBACK_STRENGTH
 	print(player.LIFE)
 

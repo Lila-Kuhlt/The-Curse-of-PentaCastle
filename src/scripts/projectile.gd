@@ -9,8 +9,9 @@ func _physics_process(delta: float):
 	velocity = direction * speed
 	var collision := move_and_collide(velocity * delta)
 	if collision:
-		print(collision.get_collider())
-		hit_body(collision.get_collider())
+		var collider = collision.get_collider()
+		if collider is CharacterBody2D:
+			hit_body(collider)
 		queue_free()
 
 func hit_body(body: CharacterBody2D):

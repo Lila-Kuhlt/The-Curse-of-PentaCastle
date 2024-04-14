@@ -166,16 +166,13 @@ _data = {
 
 [node name="Unicorn" instance=ExtResource("1_0f2vi")]
 script = ExtResource("2_68sav")
-LIFE = 50.0
-MOVEMENT_SPEED = 10.0
-ATTACK_DAMAGE = 10.0
-KNOCKBACK_STRENGTH = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_8c74f")
+frame = 12
 
 [node name="PhysicsCollider" parent="." index="1"]
-position = Vector2(-2.5, 5.5)
+position = Vector2(1, 4)
 
 [node name="HitCollider" type="Area2D" parent="." index="2"]
 position = Vector2(-2, -3.5)
@@ -183,7 +180,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(-11, 5.5)
+position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_wnhhh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
