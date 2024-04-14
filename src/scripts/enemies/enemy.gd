@@ -9,6 +9,11 @@ const KNOCKBACK_VECOCITY_SCALING := 0.4
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
 
+@onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
+
+func _ready():
+	hit_indicator.play('RESET')
+
 func do_physics(delta):
 	if LIFE <= 0:
 		i_am_gonna_kill_myself()
@@ -24,6 +29,11 @@ func hit_player(player: CharacterBody2D):
 	direction = direction.normalized() + direction * KNOCKBACK_VECOCITY_SCALING
 	player.knockback = direction * KNOCKBACK_STRENGTH
 	player.take_damage(ATTACK_DAMAGE)
+
+func take_damage(dmg: int):
+	LIFE -= dmg
+	get_tree().get_first_node_in_group('hp-bar').value = LIFE
+	hit_indicator.play('hit')
 
 func i_am_gonna_kill_myself():
 	queue_free()

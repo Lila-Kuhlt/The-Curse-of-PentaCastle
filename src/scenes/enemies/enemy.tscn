@@ -1,8 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbej72vi5osrq"]
+[gd_scene load_steps=6 format=3 uid="uid://cbej72vi5osrq"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sem4h"]
+
+[sub_resource type="Animation" id="Animation_mnwau"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kopw6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bg74g"]
+_data = {
+"RESET": SubResource("Animation_kopw6"),
+"hit": SubResource("Animation_mnwau")
+}
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 32
@@ -11,3 +47,9 @@ script = ExtResource("1_4befo")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sem4h")
+
+[node name="HitIndicatorAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bg74g")
+}
+speed_scale = 3.0

@@ -15,5 +15,5 @@ func _physics_process(delta: float):
 		queue_free()
 
 func hit_body(body: CharacterBody2D):
-	body.LIFE -= ATTACK_DAMAGE
+	body.take_damage(ATTACK_DAMAGE)
 	body.knockback = direction.normalized() * KNOCKBACK_STRENGTH
