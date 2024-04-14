@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5512kvsldk7f"]
+
+[ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_4crrr"]
+[ext_resource type="Texture2D" uid="uid://c2kg4efmhgd0j" path="res://assets/lemon.png" id="2_32o2o"]
+[ext_resource type="Script" path="res://scripts/spearlike.gd" id="2_rga45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j74m0"]
+size = Vector2(8, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oktyp"]
+atlas = ExtResource("2_32o2o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t4dt"]
+atlas = ExtResource("2_32o2o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vufvr"]
+atlas = ExtResource("2_32o2o")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofvd5"]
+atlas = ExtResource("2_32o2o")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbbgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oktyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t4dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vufvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofvd5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Spearlike" instance=ExtResource("1_4crrr")]
+scale = Vector2(2, 2)
+collision_mask = 80
+script = ExtResource("2_rga45")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_j74m0")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_pbbgu")
+autoplay = ""
+frame = 2
+frame_progress = 0.956845
+flip_h = true

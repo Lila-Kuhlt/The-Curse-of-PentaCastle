@@ -16,6 +16,7 @@ var attack_target := Vector2(0, 0)
 @onready var shape: CollisionShape2D = $PhysicsCollider
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var map: TileMap = get_tree().current_scene.find_child('Map')
+@onready var Spear = preload("res://scenes/projectiles/spearlike.tscn")
 
 func _ready() -> void:
 	super._ready()
@@ -25,6 +26,10 @@ func goto_attack_mode():
 	attack_target = player.position
 	mode_cooldown = ATTACK_COOLDOWN
 	anim.queue('attack')
+	var spear := Spear.instantiate()
+	var local_target := to_local(attack_target)
+	spear.look_at(local_target)
+	add_child(spear)
 
 func goto_hide_mode():
 	mode = BookwormMode.HIDING
@@ -49,7 +54,6 @@ func find_teleport_pos() -> Vector2:
 		if top_tile != null and top_tile.get_collision_polygons_count(0): continue
 		coords.append(coord)
 	var coord := coords[randi_range(0, coords.size() - 1)]
-	print('t to ', coord)
 	return map.map_to_local(coord)
 
 func _physics_process(delta: float) -> void:
@@ -71,3 +75,4 @@ func _physics_process(delta: float) -> void:
 				goto_hide_mode()
 	if mode != BookwormMode.HIDING:
 		super._physics_process(delta)
+	sprite.flip_h = position.x < player.position.x
