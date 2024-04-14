@@ -22,6 +22,7 @@ var is_facing_right := false:
 
 func _flip_direction():
 	sprite.flip_h = not sprite.flip_h
+	$PhysicsCollider.scale.x *= -1
 	$GroundRay.position.x *= -1
 	$ViewRay.target_position.x *= -1
 

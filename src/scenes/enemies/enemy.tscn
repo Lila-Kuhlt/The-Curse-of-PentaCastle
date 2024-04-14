@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sem4h"]
+resource_local_to_scene = true
 
 [sub_resource type="Animation" id="Animation_kopw6"]
 length = 0.001
