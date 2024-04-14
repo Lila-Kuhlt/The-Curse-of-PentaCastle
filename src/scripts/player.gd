@@ -149,6 +149,9 @@ func give_spell_item(spell: SpellBook.Spells):
 func game_over():
 	get_tree().reload_current_scene()
 
+func take_damage(dmg: int):
+	LIFE -= dmg
+	get_tree().get_first_node_in_group('hp-bar').value = LIFE
 
 func _on_pentagram_layer_combo_done(combo: Array[int]):
 	var spell = SpellBook.find_spell(combo)

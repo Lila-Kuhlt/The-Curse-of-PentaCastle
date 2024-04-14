@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var spellsBox = $SpellsHBox
-@onready var inPanel = $SpellsHBox/MarginContainer
+@onready var spellsBox = $MarginContainer/VBoxContainer/SpellsHBox
+@onready var inPanel = $MarginContainer/VBoxContainer/SpellsHBox/MarginContainer
 
 var dflt_box := StyleBoxFlat.new()
 var ovrride_box := StyleBoxFlat.new()
@@ -10,7 +10,7 @@ func _ready() -> void:
 	dflt_box.bg_color = Color(0.3, 0.3, 0.3)
 	ovrride_box.bg_color = Color(0.4, 0.5, 0.4)
 	for box in [dflt_box, ovrride_box]:
-		box.set_border_width_all(2.0)
+		box.set_border_width_all(8.0)
 		box.border_color = Color(0.2, 0.15, 0.2)
 
 func add_spell_item_panel(spell: SpellBook.Spells):

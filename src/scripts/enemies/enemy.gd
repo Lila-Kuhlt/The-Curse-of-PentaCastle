@@ -18,10 +18,9 @@ func do_physics(delta):
 
 
 func hit_player(player: CharacterBody2D):
-	player.LIFE -= ATTACK_DAMAGE
 	var direction = (-player.velocity).normalized()
 	player.knockback = direction * KNOCKBACK_STRENGTH
-	print(player.LIFE)
+	player.take_damage(ATTACK_DAMAGE)
 
 func i_am_gonna_kill_myself():
 	queue_free()

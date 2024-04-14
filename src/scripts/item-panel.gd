@@ -3,8 +3,8 @@ extends Panel
 @onready var bg: Line2D = $Line2DBG
 @onready var fg: Line2D = $Line2DFG
 
-const SCALE := 25.0
-const OFFSET := Vector2(-4.0, -4.0)
+const SCALE := 80.0
+const OFFSET := Vector2(-8.0, -8.0)
 
 const PENTAGRAM_CORNERS: Array[Vector2] = [
 	Vector2(0.5, 0.885),

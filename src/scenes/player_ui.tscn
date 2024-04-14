@@ -7,20 +7,22 @@
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_qp3wb")
 
-[node name="SpellsHBox" type="HFlowContainer" parent="."]
-layout_direction = 2
-anchors_preset = -1
-anchor_left = 0.051
-anchor_top = 0.074
-anchor_right = 0.701
-anchor_bottom = 0.627
-offset_left = -17.752
-offset_top = -17.952
-offset_right = -414.552
-offset_bottom = -165.296
-scale = Vector2(4, 4)
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="SpellsHBox"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SpellsHBox" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SpellsHBox"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 2
@@ -28,30 +30,39 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="SpellsHBox/MarginContainer"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 script = ExtResource("2_hsw3b")
 
-[node name="TextureRect" type="TextureRect" parent="SpellsHBox/MarginContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.5
-offset_left = 3.75
-offset_top = 4.0
-offset_right = 11.75
-offset_bottom = 4.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lbgva")
+expand_mode = 3
 
-[node name="Line2DBG" type="Line2D" parent="SpellsHBox/MarginContainer/Panel"]
+[node name="Line2DBG" type="Line2D" parent="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel"]
 visible = false
-width = 1.0
+width = 5.0
 
-[node name="Line2DFG" type="Line2D" parent="SpellsHBox/MarginContainer/Panel"]
+[node name="Line2DFG" type="Line2D" parent="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel"]
 visible = false
-width = 1.0
+width = 5.0
 default_color = Color(0.576471, 0.137255, 0.113725, 1)
 
-[connection signal="mouse_entered" from="SpellsHBox/MarginContainer/Panel" to="SpellsHBox/MarginContainer/Panel" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="SpellsHBox/MarginContainer/Panel" to="SpellsHBox/MarginContainer/Panel" method="_on_mouse_exited"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer" groups=["hp-bar"]]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel" to="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel" to="MarginContainer/VBoxContainer/SpellsHBox/MarginContainer/Panel" method="_on_mouse_exited"]
