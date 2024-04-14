@@ -4,6 +4,7 @@ extends Projectile
 @onready var shape: CollisionShape2D = $CollisionShape2D
 
 const ANIM_TIME := 0.2
+const OFFSET := Vector2(4.0, -6.0)
 
 var time := 0.0
 var frame_count: int
@@ -18,7 +19,9 @@ func _ready() -> void:
 	frame_count = anim.sprite_frames.get_frame_count(anim.animation)
 	for i in frame_count:
 		var tex := anim.sprite_frames.get_frame_texture(anim.animation, i)
-		hitbox_rect.append(tex.get_image().get_used_rect())
+		var rect := tex.get_image().get_used_rect()
+		rect.position.x = tex.get_width() - rect.position.x - rect.size.x
+		hitbox_rect.append(rect)
 	backwards = false
 
 func _process(delta: float) -> void:
@@ -30,7 +33,7 @@ func _process(delta: float) -> void:
 		if not backwards: anim.frame += 1
 		elif anim.frame == 0: queue_free()
 		else: anim.frame -= 1
-	shape.position = hitbox_rect[anim.frame].position
+	shape.position = Vector2(hitbox_rect[anim.frame].position) + OFFSET
 	shape.shape.size = hitbox_rect[anim.frame].size
 
 func _physics_process(delta: float) -> void:
