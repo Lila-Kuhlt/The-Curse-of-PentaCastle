@@ -48,6 +48,8 @@ collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_4befo")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sem4h")
 
@@ -64,3 +66,9 @@ offset_right = 10.0
 offset_bottom = -10.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_yg5kl")
 show_percentage = false
+
+[node name="GroundRay" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+
+[node name="ViewRay" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)

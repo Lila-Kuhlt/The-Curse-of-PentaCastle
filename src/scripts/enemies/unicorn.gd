@@ -11,7 +11,6 @@ const WALK_MULT := 0.6
 const CHARGE_MULT := 7.0
 const VIEW_RAY_WIDTH := 10.0
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
@@ -27,12 +26,23 @@ func goto_stand_mode():
 func goto_walk_mode(toggle: bool):
 	mode = UnicornMode.WALK
 	if toggle or (randi() & 1):
-		sprite.flip_h = not sprite.flip_h
+		_flip_direction()
 	anim.play('walk')
 	mode_cooldown = randi_range(MIN_WALK_COOLDOWN, MAX_WALK_COOLDOWN)
 
-
 func _physics_process(delta):
+	# player detection
+	var collider = $ViewRay.get_collider()
+	if collider == get_tree().get_first_node_in_group("player"):
+		if mode != UnicornMode.CHARGE_START and mode != UnicornMode.CHARGE:
+			mode = UnicornMode.CHARGE_START
+			mode_cooldown = CHARGE_COOLDOWN
+			anim.play('charge')
+
+	if is_on_floor() and !$GroundRay.is_colliding():
+		# about to fall down
+		goto_walk_mode(true)
+
 	match mode:
 		UnicornMode.STAND:
 			velocity.x = 0
@@ -41,14 +51,14 @@ func _physics_process(delta):
 					goto_walk_mode(false)
 				else:
 					goto_stand_mode()
-					sprite.flip_h = not sprite.flip_h
+					_flip_direction()
 			else:
 				mode_cooldown -= delta
 		UnicornMode.WALK:
 			if is_on_wall():
-				sprite.flip_h = get_wall_normal().x > 0.0
+				is_facing_right = get_wall_normal().x > 0.0
 			velocity.x = MOVEMENT_SPEED * WALK_MULT
-			if not sprite.flip_h:
+			if not is_facing_right:
 				velocity.x = -velocity.x
 			if mode_cooldown <= 0:
 				goto_stand_mode()
@@ -60,19 +70,14 @@ func _physics_process(delta):
 				mode = UnicornMode.CHARGE
 				anim.play('walk')
 		UnicornMode.CHARGE:
-			if is_on_wall() and (get_wall_normal().x > 0.0) != sprite.flip_h:
+			if is_on_wall() and (get_wall_normal().x > 0.0) != is_facing_right:
 				was_on_wall_cooldown = 100.0
 				goto_walk_mode(true)
 			else:
 				velocity.x = MOVEMENT_SPEED * CHARGE_MULT
-				if not sprite.flip_h:
+				if not is_facing_right:
 					velocity.x = -velocity.x
-	if (sprite.flip_h != (global_position.x > player.global_position.x)
-			and abs(player.global_position.y - global_position.y) <= VIEW_RAY_WIDTH):
-		if mode != UnicornMode.CHARGE_START and mode != UnicornMode.CHARGE:
-			mode = UnicornMode.CHARGE_START
-			mode_cooldown = CHARGE_COOLDOWN
-			anim.play('charge')
+
 	do_physics(delta)
 	move_and_slide()
 
