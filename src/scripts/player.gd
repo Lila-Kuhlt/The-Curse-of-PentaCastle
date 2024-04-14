@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var ui := $Camera2D/PlayerUI
 @onready var hit_indicator := $HitIndicationAnimationPlayer
 @onready var ghost_inventory := $GhostInventory
+@onready var cam := $Camera2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
 
@@ -20,6 +21,8 @@ var TURNING_SPEED := 1000.0
 var MAX_SPEED := 100.0
 var EPSILON := 0.001
 const KNOCKBACK_ENVELOPE: float = 0.86
+const LOOK_AHEAD_MAX := 20.0
+const LOOK_AHEAD_SPEED := 60.0
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
 var knockback := Vector2(0, 0)
@@ -103,6 +106,8 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
 	if direction: _set_flip(direction < 0)
+	var look_ahead = direction * LOOK_AHEAD_MAX
+	cam.offset.x = move_toward(cam.offset.x, look_ahead, LOOK_AHEAD_SPEED * delta)
 
 	match movement_phase:
 		MovementPhase.STANDING:
