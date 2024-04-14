@@ -25,5 +25,9 @@ spell = 4
 position = Vector2(232, -24)
 spell = 5
 
-[node name="Unicorn" parent="." index="6" instance=ExtResource("2_4tdqm")]
+[node name="Chest5" parent="." index="6" instance=ExtResource("3_avhg6")]
+position = Vector2(296, 8)
+spell = 3
+
+[node name="Unicorn" parent="." index="7" instance=ExtResource("2_4tdqm")]
 position = Vector2(149, 18)

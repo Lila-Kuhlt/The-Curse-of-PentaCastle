@@ -6,5 +6,5 @@ func _init():
 	rank = SpellBook.SpellRank.COMMON
 	title = "PushBack"
 	desc = "Knockbacks enemies"
-	cast = "15"
+	cast = "13"
 	duration = 0.0
