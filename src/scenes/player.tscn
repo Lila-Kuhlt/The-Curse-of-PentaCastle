@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvjqv326igmk0"]
+[gd_scene load_steps=14 format=3 uid="uid://cvjqv326igmk0"]
 
 [ext_resource type="Shader" path="res://shaders/hit-indicator.gdshader" id="1_4eijp"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_8i3nd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d17wms2ondogs" path="res://assets/character2.png" id="2_ssmtj"]
 [ext_resource type="Texture2D" uid="uid://2rnmjq44n3fe" path="res://assets/character3.png" id="3_vv8aa"]
 [ext_resource type="PackedScene" uid="uid://c44q2u3nky1ek" path="res://scenes/player_ui.tscn" id="5_w4gtq"]
+[ext_resource type="Script" path="res://scripts/ghost_inventory.gd" id="6_4ximd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26xo2"]
 size = Vector2(12, 15)
@@ -83,6 +84,9 @@ scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_m263x")
 autoplay = "default"
 frame_progress = 0.694699
+
+[node name="GhostInventory" type="Node2D" parent="."]
+script = ExtResource("6_4ximd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)

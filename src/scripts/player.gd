@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite := $Sprite
 @onready var ui := $Camera2D/PlayerUI
 @onready var hit_indicator := $HitIndicationAnimationPlayer
+@onready var ghost_inventory := $GhostInventory
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
 
@@ -48,35 +49,35 @@ func cast(spell: SpellBook.Spells, inventory_idx: int):
 	spell_script.cast(self, get_tree().get_nodes_in_group('enemies'))
 	var spell_item_script = SpellBook.spell_item_scripts[spell].new()
 	if spell_item_script.type == SpellBook.SpellType.PASSIVE:
-		add_ghost(spell)
+		add_ghost(spell, spell_item_script.duration, inventory_idx)
 		ui.mark_spell_item_panel(inventory_idx)
-		var timer := Timer.new()
 		active_spells[spell] = true
-		add_child(timer)
-		timer.wait_time = spell_item_script.duration
-		timer.one_shot = true
-		timer.timeout.connect(_uncast.bind(spell, inventory_idx))
-		timer.start()
 
 func _uncast(spell: SpellBook.Spells, inventory_idx: int):
-	del_ghost(spell)
-	ui.unmark_spell_item_panel(inventory_idx)
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.uncast(self, get_tree().get_nodes_in_group('enemies'))
+	del_ghost(spell)
+	ui.unmark_spell_item_panel(inventory_idx)
 	active_spells[spell] = false
 
-func add_ghost(spell: SpellBook.Spells):
+func add_ghost(spell: SpellBook.Spells, duration, inventory_idx):
 	var ghost: Node2D = Ghost.instantiate()
 	ghost_arr[spell] = ghost
 	var num_ghosts: int = ghost_arr.reduce(func(accum, elem): return accum + 1 if elem != null else accum, 0)
 	ghost.init(spell, num_ghosts - 1)
-	add_child(ghost)
+	ghost_inventory.append(ghost)
+
+	var timer := Timer.new()
+	timer.wait_time = duration
+	timer.one_shot = true
+	timer.autostart = true
+	timer.timeout.connect(_uncast.bind(spell, inventory_idx))
+	ghost.add_child(timer)
 
 func del_ghost(spell: SpellBook.Spells):
 	var ghost: Node2D = ghost_arr[spell]
 	ghost_arr[spell] = null
-	remove_child(ghost)
-	ghost.queue_free()
+	ghost_inventory.erase(ghost)
 
 func _physics_process(delta):
 	# Add the gravity.

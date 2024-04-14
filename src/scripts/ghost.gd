@@ -12,7 +12,7 @@ const MAX_SPEED := Vector2(80.0, 30.0)
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var frame_count := sprite.sprite_frames.get_frame_count('default')
 
-var ghost_nr : int = 0;  # the nr of the ghost in the chain
+@export var ghost_nr : int = 0;  # the nr of the ghost in the chain
 var init_frame_nr := false
 var init_frame_nr_val := 0
 var flipped := false
