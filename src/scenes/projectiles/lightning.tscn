@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2mkwkl8mrwhf"]
+[gd_scene load_steps=3 format=3 uid="uid://d2mkwkl8mrwhf"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_w1h7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p8obe"]
+resource_local_to_scene = true
+radius = 3.0
 
 [node name="Lightning" instance=ExtResource("1_w1h7g")]
 speed = 150.0
 ATTACK_DAMAGE = 8.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_p8obe")

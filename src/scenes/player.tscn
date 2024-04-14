@@ -166,9 +166,3 @@ libraries = {
 "": SubResource("AnimationLibrary_8mlmo")
 }
 speed_scale = 3.0
-
-[node name="Status" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -10)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_qh5jy")

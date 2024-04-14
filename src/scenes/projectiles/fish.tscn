@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3tegvnd7if4x"]
+[gd_scene load_steps=3 format=3 uid="uid://c3tegvnd7if4x"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_hvx3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kv7fu"]
+resource_local_to_scene = true
+radius = 3.0
 
 [node name="Fish" instance=ExtResource("1_hvx3w")]
 speed = 150.0
 ATTACK_DAMAGE = 4.0
 REMOVE_AFTER = 0.2
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_kv7fu")

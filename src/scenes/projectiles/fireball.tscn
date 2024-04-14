@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd8uqi10n7il4"]
+[gd_scene load_steps=3 format=3 uid="uid://bd8uqi10n7il4"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_bb8xt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlco6"]
+resource_local_to_scene = true
+radius = 3.0
 
 [node name="Fireball" instance=ExtResource("1_bb8xt")]
 speed = 80.0
 ATTACK_DAMAGE = 18.0
 KNOCKBACK_STRENGTH = 30.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_dlco6")
