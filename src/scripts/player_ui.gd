@@ -18,8 +18,8 @@ func add_spell_item_panel(spell: SpellBook.Spells):
 	panel.visible = true
 	spellsBox.add_child(panel)
 	var lst: Array[int] = []
-	for c in SpellBook.spell_item_scripts[spell].new().cast:
-		lst.append(int(c))
+	for n in SpellBook.spell_item_scripts[spell].new().cast:
+		lst.append(n)
 	var child: Panel = panel.get_child(0)
 	child.init_lines(lst)
 	child.add_theme_stylebox_override('panel', dflt_box)

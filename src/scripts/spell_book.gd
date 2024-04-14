@@ -55,6 +55,7 @@ func find_spell(combo: Array[int]) -> Spells:
 			return spell_item.spell
 	return Spells.PLACEHOLDER
 
+## Check if two combos represent the same lines.
 func check_combo(combo: Array[int], cast: Array[int]) -> bool:
 	if cast.size() <= 1: return combo == cast
 	return _get_lines(combo) == _get_lines(cast)
