@@ -127,6 +127,6 @@ shape = SubResource("RectangleShape2D_j74m0")
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_pbbgu")
 animation = &"spear"
-autoplay = ""
+autoplay = "spear"
 centered = false
 flip_h = true

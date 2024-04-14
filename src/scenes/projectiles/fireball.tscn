@@ -13,3 +13,7 @@ KNOCKBACK_STRENGTH = 30.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_dlco6")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+animation = &"fireball"
+autoplay = "fireball"

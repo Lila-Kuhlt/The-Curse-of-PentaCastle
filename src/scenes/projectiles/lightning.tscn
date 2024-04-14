@@ -12,3 +12,6 @@ ATTACK_DAMAGE = 8.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_p8obe")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+autoplay = "lightning"
