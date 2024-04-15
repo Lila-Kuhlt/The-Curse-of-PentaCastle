@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0g24cuh0jra3"]
+[gd_scene load_steps=31 format=3 uid="uid://c4nhecstcuara"]
 
 [ext_resource type="Script" path="res://scripts/title-screen.gd" id="1_w6h7c"]
 [ext_resource type="Texture2D" uid="uid://ytwuf5qyh06j" path="res://assets/bg-illuminati.png" id="2_h1hxg"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://5llk6vkqaa1v" path="res://assets/bg-simple.png" id="12_bc604"]
 [ext_resource type="Texture2D" uid="uid://m731s13d1xpl" path="res://assets/bg-torch.png" id="13_7ik51"]
 [ext_resource type="Texture2D" uid="uid://glbsi3atxqjp" path="res://assets/bg-window.png" id="14_7s6mh"]
-[ext_resource type="Theme" uid="uid://dsm52s8wnxyxa" path="res://assets/button-theme.tres" id="15_ewjrv"]
+[ext_resource type="Theme" uid="uid://cvd7d4s2gqghh" path="res://assets/button-theme.tres" id="15_ewjrv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c6af"]
 texture = ExtResource("2_h1hxg")
