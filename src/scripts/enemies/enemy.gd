@@ -89,6 +89,7 @@ func i_am_gonna_kill_myself():
 	var world = get_tree().get_first_node_in_group("world")
 	world.add_score(score)
 	world.check_room_cleared()
+	get_tree().get_first_node_in_group('player').heal_enemy_die()
 	queue_free()
 
 

@@ -10,6 +10,7 @@ const LOOK_AHEAD_MAX := 20.0
 const LOOK_AHEAD_SPEED := 60.0
 const MAX_LIFE: float = 100
 const HEAL_ON_ROOM_CHANGE: float = MAX_LIFE / 2
+const ENEMY_DIE_HEAL_AMOUNT = 10
 
 # Ghosts
 const Ghost = preload("res://scenes/ghost.tscn")
@@ -210,6 +211,9 @@ func heal(amount: int):
 	life += amount
 	life = min(life, MAX_LIFE)
 	life_changed.emit(life)
+
+func heal_enemy_die() -> void:
+	heal(ENEMY_DIE_HEAL_AMOUNT)
 
 func enable_shield(strength: float):
 	shield_multiplier = strength
