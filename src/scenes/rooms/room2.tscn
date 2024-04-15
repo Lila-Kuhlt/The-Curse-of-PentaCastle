@@ -7,6 +7,7 @@
 
 [node name="Long Room" instance=ExtResource("1_kr3jf")]
 MONSTERS = 5
+score = 150
 
 [node name="Background2" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 layer_0/tile_data = PackedInt32Array()
