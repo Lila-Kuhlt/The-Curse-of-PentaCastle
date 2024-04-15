@@ -280,7 +280,7 @@ script = ExtResource("2_rc7d1")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmjvu")
 
-[node name="PhysicsCollider" parent="." index="1"]
+[node name="PhysicsCollider" parent="." index="2"]
 position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_u6yfu")
 
@@ -289,5 +289,5 @@ libraries = {
 "": SubResource("AnimationLibrary_pj3wy")
 }
 
-[node name="GroundRay" parent="." index="5"]
+[node name="GroundRay" parent="." index="6"]
 position = Vector2(-7, 0)

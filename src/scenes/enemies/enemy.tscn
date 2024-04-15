@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbej72vi5osrq"]
+[gd_scene load_steps=8 format=3 uid="uid://cbej72vi5osrq"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyl0u"]
+size = Vector2(12, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sem4h"]
 resource_local_to_scene = true
@@ -52,6 +55,15 @@ MOVEMENT_SPEED = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
+[node name="HitCollider" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_dyl0u")
+
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sem4h")
 
@@ -74,3 +86,5 @@ position = Vector2(-10, 0)
 
 [node name="ViewRay" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)
+
+[connection signal="body_entered" from="HitCollider" to="." method="_on_hit_collider_body_entered"]
