@@ -10,6 +10,7 @@ const rooms = [
 	preload("res://scenes/rooms/room-illuminati.tscn"),
 	preload("res://scenes/rooms/room-wheel.tscn"),
 	preload("res://scenes/rooms/room_4.tscn"),
+	preload("res://scenes/rooms/room-tunnel.tscn"),
 ]
 
 var room_idx: int = -1
