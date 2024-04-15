@@ -37,6 +37,7 @@ func new_room():
 func load_room(scene: PackedScene):
 	if room:
 		room.queue_free()
+		await room.tree_exited
 	room = scene.instantiate()
 	add_child(room)
 	check_room_cleared()
