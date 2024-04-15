@@ -4,7 +4,7 @@ const ROOMS_PER_DIFFICULTY := 1
 
 const door = preload("res://scenes/door.tscn")
 
-const main_room = preload("res://scenes/rooms/room_debug.tscn")
+const main_room = preload("res://scenes/rooms/room_main.tscn")
 const room_type := preload("res://scripts/room.gd")
 const rooms := {
 	room_type.difficulty.EASY: [preload("res://scenes/rooms/room3.tscn")],
