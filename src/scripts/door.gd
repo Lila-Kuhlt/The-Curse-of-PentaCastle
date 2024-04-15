@@ -9,6 +9,7 @@ func enable():
 	modulate *= 2
 
 func _on_body_entered(_body):
+	SfxAudio.play_sfx(SfxAudio.Sound.PORTAL)
 	var player = _body as Player
 	player.heal(player.HEAL_ON_ROOM_CHANGE)
 	var score = get_parent().score

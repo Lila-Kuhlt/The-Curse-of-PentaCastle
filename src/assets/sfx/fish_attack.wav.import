@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://4bfnl06nl8sq"
-path="res://.godot/imported/fish-attack.wav-7b2f90ec985ebb36ab303362d775dab8.sample"
+uid="uid://d0gtrytxv350n"
+path="res://.godot/imported/fish_attack.wav-a62d7a7c96b510c9c05cc99ed404dc6b.sample"
 
 [deps]
 
-source_file="res://assets/sfx/fish-attack.wav"
-dest_files=["res://.godot/imported/fish-attack.wav-7b2f90ec985ebb36ab303362d775dab8.sample"]
+source_file="res://assets/sfx/fish_attack.wav"
+dest_files=["res://.godot/imported/fish_attack.wav-a62d7a7c96b510c9c05cc99ed404dc6b.sample"]
 
 [params]
 

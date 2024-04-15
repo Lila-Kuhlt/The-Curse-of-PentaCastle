@@ -11,6 +11,8 @@ enum Sound {
 	UNICORN_CHARGE,
 	PUSH_BACK,
 	STOEHN,
+	PORTAL,
+	FISH
 }
 
 const SoundDict = {
@@ -23,7 +25,9 @@ const SoundDict = {
 	Sound.STEP: preload("res://assets/sfx/step_light.mp3"),
 	Sound.UNICORN_CHARGE: preload("res://assets/sfx/unicorn_charge.mp3"),
 	Sound.PUSH_BACK: preload("res://assets/sfx/wind_spell.mp3"),
-	Sound.STOEHN: preload("res://assets/sfx/stoehn.mp3")
+	Sound.STOEHN: preload("res://assets/sfx/stoehn.mp3"),
+	Sound.PORTAL: preload("res://assets/sfx/portal.wav"),
+	Sound.FISH: preload("res://assets/sfx/fish_attack.wav")
 }
 
 func _ready():
