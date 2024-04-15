@@ -3,6 +3,7 @@ class_name Enemy extends CharacterBody2D
 const SPIKE_DAMAGE_COOLDOWN = 0.7
 const SPIKE_DAMAGE := 10
 
+@export var score: int = 10
 @export var life := 50.0
 @export var MOVEMENT_SPEED := 10.0
 @export var ATTACK_DAMAGE := 10.0
@@ -76,7 +77,7 @@ func take_damage(dmg: int):
 
 func i_am_gonna_kill_myself():
 	var world = get_tree().get_first_node_in_group("world")
-	world.add_score(10)
+	world.add_score(score)
 	world.check_room_cleared()
 	queue_free()
 

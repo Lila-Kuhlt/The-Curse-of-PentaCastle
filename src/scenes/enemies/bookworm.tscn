@@ -422,6 +422,7 @@ size = Vector2(11, 13)
 
 [node name="Bookworm" instance=ExtResource("1_hki2g")]
 script = ExtResource("2_rc7d1")
+score = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmjvu")
