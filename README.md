@@ -3,9 +3,19 @@
 > Playable Web-Demo: https://ldjam55.isiko404.dev/ \
 > Downloads: https://downloads.isiko404.dev/ldjam/55/
 
-Embark on a mystical journey like no other in this innovative fusion of deckbuilder, dungeon crawler, and platformer, originally crafted for Ludum Dare 55. Assume the role of a wizard with a unique twist—you wield potent spells, but only through intricate rituals. To cast your magic and navigate the treacherous depths of Pantacastle, you must master the art of drawing the correct lines within the devil's pentagram.
+Embark on a mystical journey like no other in this innovative fusion of deckbuilder, dungeon crawler, and platformer, crafted for Ludum Dare 55. Assume the role of a wizard with a unique twist—you wield powerful spells, but only through intricate rituals. To cast your magic and navigate the treacherous depths of *Pantacastle*, you must master the art of drawing the correct lines within the devil's pentagram.
 
-# Controlls
+## Controls
 - WASD or Arrow Keys to move around
 - E to pick up chests (spells)
 - Hold click to draw pentagram (release to submit)
+
+## Gameplay
+- The red bar on the left top corner indicates your HP (0 HP = death)
+- You can pick up chest to get a new spell in your inventory (also left top corner)
+- If you hover over a spell you can see its description and cast combination
+- Hold click and draw the spell combination to cast the spell
+- If you kill every enemy and pick up all spells you can enter the portal to the next room
+- If you enter a new room, you get some HP back
+- The more rooms you pass the higher the chance for more powerful spells
+- The goal is to reach as much points as possible
