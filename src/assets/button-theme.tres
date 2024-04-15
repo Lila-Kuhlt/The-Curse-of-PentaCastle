@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dsm52s8wnxyxa"]
+
+[ext_resource type="Texture2D" uid="uid://cecnqc0t3s16s" path="res://assets/button-9patch.png" id="1_7yqtv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luwni"]
+texture = ExtResource("1_7yqtv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnn26"]
+texture = ExtResource("1_7yqtv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgik8"]
+texture = ExtResource("1_7yqtv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(1, 0.282353, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_810ke"]
+texture = ExtResource("1_7yqtv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbt8s"]
+texture = ExtResource("1_7yqtv")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(1, 0.27451, 0.219608, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_luwni")
+Button/styles/focus = SubResource("StyleBoxTexture_bnn26")
+Button/styles/hover = SubResource("StyleBoxTexture_pgik8")
+Button/styles/normal = SubResource("StyleBoxTexture_810ke")
+Button/styles/pressed = SubResource("StyleBoxTexture_vbt8s")
