@@ -7,7 +7,7 @@ const CLIP_ANGLE := 0.5
 @onready var image: TextureRect = $Pentagram
 @onready var multiline: Line2D = $Multiline
 
-@onready var clip_effect = preload("res://scenes/clip_particles_effect.tscn")
+const clip_effect = preload("res://scenes/clip_particles_effect.tscn")
 
 const PENTAGRAM_CORNERS: Array[Vector2] = [
 	Vector2(0.5, 0.885),

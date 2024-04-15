@@ -12,7 +12,7 @@ enum Sound {
 	PUSH_BACK
 }
 
-var SoundDict = {
+const SoundDict = {
 	Sound.CHEST: preload("res://assets/sfx/chest.mp3"),
 	Sound.DRAW: preload("res://assets/sfx/draw.mp3"),
 	Sound.DRAW_INVALID: preload("res://assets/sfx/draw_invalid_spell.mp3"),

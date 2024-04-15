@@ -19,7 +19,8 @@ var attack_target := Vector2(0, 0)
 @onready var shape: CollisionShape2D = $PhysicsCollider
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var map: TileMap = get_parent().find_child('Map')
-@onready var Spear = preload("res://scenes/projectiles/spearlike.tscn")
+
+const Spear = preload("res://scenes/projectiles/spearlike.tscn")
 
 func _ready() -> void:
 	super._ready()
