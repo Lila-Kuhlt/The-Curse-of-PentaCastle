@@ -209,6 +209,7 @@ func game_over():
 	layer.layer = 2
 	layer.add_child(gameover_screen)
 	world.add_child(layer)
+	SfxAudio.play_sfx(SfxAudio.Sound.STOEHN)
 
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)

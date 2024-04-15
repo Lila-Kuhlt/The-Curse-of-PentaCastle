@@ -9,7 +9,7 @@ const room_type := preload("res://scripts/room.gd")
 const rooms := {
 	room_type.difficulty.EASY: [
 		preload("res://scenes/rooms/room3.tscn"),
-		preload("res://scenes/rooms/room_line.tscn"),	
+		preload("res://scenes/rooms/room_line.tscn"),
 	],
 	room_type.difficulty.MEDIUM: [preload("res://scenes/rooms/room2.tscn")],
 	room_type.difficulty.HARD: [
