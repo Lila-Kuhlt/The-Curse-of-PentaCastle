@@ -12,7 +12,8 @@ func _ready():
 
 func _physics_process(delta: float):
 	velocity = direction * speed
-	var collision := move_and_collide(velocity * delta)
+	var collision := move_and_collide(velocity * delta, true)
+	position += velocity * delta
 	if collision:
 		var collider = collision.get_collider()
 		if collider is CharacterBody2D:
