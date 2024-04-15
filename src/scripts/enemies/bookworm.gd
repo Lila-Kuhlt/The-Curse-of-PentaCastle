@@ -53,6 +53,7 @@ func find_teleport_pos() -> Vector2:
 		coord = map.get_neighbor_cell(coord, TileSet.CELL_NEIGHBOR_TOP_SIDE)
 		var top_tile := map.get_cell_tile_data(0, coord)
 		if top_tile != null and top_tile.get_collision_polygons_count(0): continue
+		if map.get_cell_tile_data(1, coord) != null: continue # spawn blocker
 		coords.append(coord)
 	var coord := coords[randi_range(0, coords.size() - 1)]
 	return map.map_to_local(coord)
