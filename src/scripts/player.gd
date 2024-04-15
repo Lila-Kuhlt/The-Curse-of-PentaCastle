@@ -162,10 +162,13 @@ func _physics_process(delta):
 	velocity += knockback * delta
 	knockback *= KNOCKBACK_ENVELOPE
 
-	if direction:
-		sprite.animation = 'walk-attack' if attack_animation_t > 0.0 else 'walk'
+	if is_on_floor():
+		if direction:
+			sprite.animation = 'walk-attack' if attack_animation_t > 0.0 else 'walk'
+		else:
+			sprite.animation = 'attack' if attack_animation_t > 0.0 else 'idle'
 	else:
-		sprite.animation = 'attack' if attack_animation_t > 0.0 else 'idle'
+		sprite.animation = 'jump'
 	attack_animation_t = max(attack_animation_t - delta, 0.0)
 
 	var old_pos := position
