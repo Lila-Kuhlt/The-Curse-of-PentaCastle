@@ -13,6 +13,7 @@ const SPIKE_DAMAGE := 10
 const SPIKE_DAMAGE_COOLDOWN := 0.7
 var spike_damage_timer := 0.0
 var colliding_spike := false
+var shield_multiplier := 1.0
 
 # Movement
 var JUMP_VELOCITY := -300.0
@@ -109,7 +110,6 @@ func _physics_process(delta):
 		jump_buffer -= 1
 
 	# Get the input direction and handle the movement/deceleration.
-	var old_dir := direction
 	direction = Input.get_axis("left", "right")
 	if direction:
 		_set_flip(direction < 0)
@@ -170,7 +170,7 @@ func game_over():
 	get_tree().reload_current_scene()
 
 func take_damage(dmg: int):
-	life -= dmg
+	life -= dmg * shield_multiplier
 	get_tree().get_first_node_in_group('hp-bar').set_value(life)
 	hit_indicator.play('hit')
 
