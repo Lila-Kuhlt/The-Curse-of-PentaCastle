@@ -81,7 +81,3 @@ func _physics_process(delta):
 
 	do_physics(delta)
 	move_and_slide()
-
-
-func _on_hit_collider_body_entered(body):
-	hit_player(body)

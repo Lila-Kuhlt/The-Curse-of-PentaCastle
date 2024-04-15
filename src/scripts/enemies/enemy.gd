@@ -92,7 +92,7 @@ func i_am_gonna_kill_myself():
 
 
 func _on_hit_collider_body_entered(body):
-	pass # Replace with function body.
+	hit_player(body)
 
 func _on_spike_collider_body_entered(body: Node2D) -> void:
 	if body is TileMap: colliding_spike = true
