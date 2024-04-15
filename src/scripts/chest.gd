@@ -12,7 +12,7 @@ var active := true
 
 func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
-	spell_item.set_script(SpellBook.spell_item_scripts[spell])
+	spell_item.set_script(SpellBook.spell_item_script_types[spell])
 	spell_item.position.y -= 12
 	add_child(spell_item)
 	desc = spell_item.desc

@@ -56,7 +56,7 @@ func cast(spell: SpellBook.Spells, inventory_idx: int):
 	if active_spells[spell]: return
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.cast(self, get_tree().get_nodes_in_group('enemies'))
-	var spell_item_script = SpellBook.spell_item_scripts[spell].new()
+	var spell_item_script = SpellBook.spell_item_scripts[spell]
 	if spell_item_script.type == SpellBook.SpellType.PASSIVE:
 		add_ghost(spell, spell_item_script.duration, inventory_idx)
 		ui.mark_spell_item_panel(inventory_idx)

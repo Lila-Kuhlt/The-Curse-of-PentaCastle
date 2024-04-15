@@ -26,7 +26,7 @@ enum Spells {
 	FISH
 }
 
-const spell_item_scripts = [
+const spell_item_script_types = [
 	preload("res://scripts/spell_items/base.gd"),
 	preload("res://scripts/spell_items/speed.gd"),
 	preload("res://scripts/spell_items/slowdown.gd"),
@@ -40,6 +40,8 @@ const spell_item_scripts = [
 	preload("res://scripts/spell_items/rain_of_blood.gd"),
 	preload("res://scripts/spell_items/fish.gd"),
 ]
+
+var spell_item_scripts = spell_item_script_types.map(func (script): return script.new())
 
 var spell_scripts = [
 	preload("res://scripts/spells/base.gd").new(),
@@ -56,9 +58,12 @@ var spell_scripts = [
 	preload("res://scripts/spells/fish.gd").new(),
 ]
 
+func _init() -> void:
+	spell_item_scripts.make_read_only()
+	spell_scripts.make_read_only()
+
 func find_spell(combo: Array[int]) -> Spells:
-	for spell_item_script in spell_item_scripts:
-		var spell_item = spell_item_script.new()
+	for spell_item in spell_item_scripts:
 		var cast = spell_item.cast
 		if check_combo(combo, cast):
 			return spell_item.spell

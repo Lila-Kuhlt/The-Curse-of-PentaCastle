@@ -19,7 +19,7 @@ func add_spell_item_panel(spell: SpellBook.Spells):
 	panel.visible = true
 	spellsBox.add_child(panel)
 	var lst: Array[int] = []
-	var spell_item = SpellBook.spell_item_scripts[spell].new()
+	var spell_item = SpellBook.spell_item_scripts[spell]
 	for c in spell_item.cast:
 		lst.append(int(c))
 	var child = panel.get_child(0)
@@ -40,7 +40,7 @@ func unmark_spell_item_panel(idx: int):
 
 func replace_spell_item_panel(idx: int, new_spell: SpellBook.Spells):
 	var panel = spellsBox.get_child(idx + 1).get_child(0)
-	var spell_item = SpellBook.spell_item_scripts[new_spell].new()
+	var spell_item = SpellBook.spell_item_scripts[new_spell]
 	panel.set_texture(spell_item.sprite)
 
 func delete_spell_item_panel(idx: int):
