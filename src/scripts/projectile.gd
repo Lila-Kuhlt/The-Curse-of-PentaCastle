@@ -5,13 +5,20 @@ class_name Projectile extends CharacterBody2D
 @export var KNOCKBACK_STRENGTH := 10.0
 @export var REMOVE_AFTER := 10.0
 @export var PIERCING := false
+@export var IS_FISH := false
 var direction: Vector2 = Vector2(1, 0)
+var fish_timer := 0.0
+const FISH_FREQ := 12.0
+const FISH_AMP := 250.0
 
 func _ready():
 	_free_after_time(REMOVE_AFTER)
 
 func _physics_process(delta: float):
 	velocity = direction * speed
+	if IS_FISH:
+		velocity.y += cos(fish_timer * FISH_FREQ) * FISH_AMP
+		fish_timer += delta
 	var collision := move_and_collide(velocity * delta, true)
 	position += velocity * delta
 	if collision:
