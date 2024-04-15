@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cypgq8r854s52"]
+[gd_scene load_steps=6 format=3 uid="uid://cypgq8r854s52"]
 
 [ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_mb78y"]
 [ext_resource type="PackedScene" uid="uid://b1ja2yahh5jug" path="res://scenes/enemies/unicorn.tscn" id="2_nssim"]
 [ext_resource type="PackedScene" uid="uid://7fmfsh1da7t5" path="res://scenes/enemies/bookworm.tscn" id="3_tlvvn"]
+[ext_resource type="PackedScene" uid="uid://bi24d5plure2d" path="res://scenes/enemies/bat.tscn" id="4_6f3u0"]
+[ext_resource type="PackedScene" uid="uid://b5f5lmrpjngrp" path="res://scenes/enemies/firedevil.tscn" id="5_alnfr"]
 
 [node name="Room4" instance=ExtResource("1_mb78y")]
 score = 250
@@ -23,17 +25,17 @@ position = Vector2(-37, 83)
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_nssim")]
 position = Vector2(89, 145)
 
-[node name="Unicorn2" parent="." index="5" instance=ExtResource("2_nssim")]
-position = Vector2(255, 114)
-
-[node name="Bookworm" parent="." index="6" instance=ExtResource("3_tlvvn")]
+[node name="Bookworm" parent="." index="5" instance=ExtResource("3_tlvvn")]
 position = Vector2(170, 72)
 
-[node name="Bookworm2" parent="." index="7" instance=ExtResource("3_tlvvn")]
+[node name="Bookworm2" parent="." index="6" instance=ExtResource("3_tlvvn")]
 position = Vector2(74, -7)
 
-[node name="Unicorn3" parent="." index="8" instance=ExtResource("2_nssim")]
-position = Vector2(192, -14)
+[node name="Bat" parent="." index="7" instance=ExtResource("4_6f3u0")]
+position = Vector2(240, 118)
 
-[node name="Unicorn4" parent="." index="9" instance=ExtResource("2_nssim")]
-position = Vector2(-28, -45)
+[node name="Firedevil" parent="." index="8" instance=ExtResource("5_alnfr")]
+position = Vector2(195, -8)
+
+[node name="Bat2" parent="." index="9" instance=ExtResource("4_6f3u0")]
+position = Vector2(-41, -40)

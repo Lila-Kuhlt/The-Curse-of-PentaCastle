@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmiiacoi732wq"]
+[gd_scene load_steps=6 format=3 uid="uid://bmiiacoi732wq"]
 
 [ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_drosh"]
 [ext_resource type="PackedScene" uid="uid://b1ja2yahh5jug" path="res://scenes/enemies/unicorn.tscn" id="2_auqpb"]
 [ext_resource type="PackedScene" uid="uid://7fmfsh1da7t5" path="res://scenes/enemies/bookworm.tscn" id="3_s0cjm"]
+[ext_resource type="PackedScene" uid="uid://b5f5lmrpjngrp" path="res://scenes/enemies/firedevil.tscn" id="4_a0t8x"]
+[ext_resource type="PackedScene" uid="uid://bi24d5plure2d" path="res://scenes/enemies/bat.tscn" id="5_l10wr"]
 
 [node name="Room" instance=ExtResource("1_drosh")]
 MONSTERS = 6
@@ -20,17 +22,17 @@ position = Vector2(311, 3)
 [node name="PlayerMarker" parent="." index="3"]
 position = Vector2(10, 19)
 
-[node name="Unicorn" parent="." index="4" instance=ExtResource("2_auqpb")]
-position = Vector2(191, -30)
-
-[node name="Unicorn2" parent="." index="5" instance=ExtResource("2_auqpb")]
+[node name="Unicorn2" parent="." index="4" instance=ExtResource("2_auqpb")]
 position = Vector2(315, 34)
 
-[node name="Unicorn3" parent="." index="6" instance=ExtResource("2_auqpb")]
+[node name="Unicorn3" parent="." index="5" instance=ExtResource("2_auqpb")]
 position = Vector2(313, -78)
 
-[node name="Unicorn4" parent="." index="7" instance=ExtResource("2_auqpb")]
-position = Vector2(429, -29)
+[node name="Bookworm" parent="." index="6" instance=ExtResource("3_s0cjm")]
+position = Vector2(200, -23)
 
-[node name="Bookworm" parent="." index="8" instance=ExtResource("3_s0cjm")]
-position = Vector2(593, 8)
+[node name="Firedevil" parent="." index="7" instance=ExtResource("4_a0t8x")]
+position = Vector2(418, -23)
+
+[node name="Bat" parent="." index="8" instance=ExtResource("5_l10wr")]
+position = Vector2(555, 7)
