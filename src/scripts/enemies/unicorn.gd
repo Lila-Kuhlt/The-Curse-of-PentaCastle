@@ -63,6 +63,7 @@ func _physics_process(delta):
 			else:
 				mode_cooldown -= delta
 		UnicornMode.CHARGE_START:
+			velocity.x = 0
 			mode_cooldown -= delta
 			if mode_cooldown <= 0:
 				mode = UnicornMode.CHARGE
