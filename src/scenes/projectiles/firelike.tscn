@@ -72,7 +72,7 @@ animations = [{
 
 [node name="Firelike" instance=ExtResource("1_1lx00")]
 scale = Vector2(2, 2)
-collision_mask = 64
+collision_mask = 80
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-4, 1.5)
