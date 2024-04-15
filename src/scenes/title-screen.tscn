@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4nhecstcuara"]
+[gd_scene load_steps=8 format=3 uid="uid://c4nhecstcuara"]
 
 [ext_resource type="Script" path="res://scripts/title-screen.gd" id="1_w6h7c"]
 [ext_resource type="Texture2D" uid="uid://bnwff5l583gni" path="res://assets/logo.png" id="2_rclca"]
@@ -6,7 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://bp1h8svqu0cag" path="res://assets/ambient/amient_music.wav" id="16_ab3du"]
 
 [sub_resource type="Gradient" id="Gradient_3job6"]
-colors = PackedColorArray(0.146466, 0.136336, 0.151513, 1, 0.411765, 0.415686, 0.415686, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.26, 0.026, 0.0298999, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hmh8p"]
 gradient = SubResource("Gradient_3job6")
@@ -95,17 +96,17 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("15_ewjrv")
 text = "Start Game"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_ab3du")
-volume_db = -10.0
-autoplay = true
-
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("15_ewjrv")
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ab3du")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/StartGameButton" to="." method="on_start_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ExitGameButton" to="." method="on_exit_button_pressed"]
