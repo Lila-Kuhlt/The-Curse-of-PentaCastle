@@ -1,5 +1,11 @@
 extends Node2D
 
+enum difficulty {
+	EASY,
+	MEDIUM,
+	HARD
+}
+
 @export var MONSTERS := 1
 
 const Chest = preload("res://scenes/chest.tscn")
