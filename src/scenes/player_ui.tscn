@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c44q2u3nky1ek"]
+[gd_scene load_steps=15 format=3 uid="uid://c44q2u3nky1ek"]
 
 [ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
 [ext_resource type="Script" path="res://scripts/item-panel.gd" id="2_hsw3b"]
@@ -41,6 +41,9 @@ corner_radius_bottom_left = 16
 font_size = 20
 outline_size = 10
 outline_color = Color(0.341176, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hlery"]
+font_size = 20
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_qp3wb")
@@ -126,6 +129,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_kmvbg")
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar"]
+offset_left = 210.0
+offset_top = 16.0
+offset_right = 269.0
+offset_bottom = 48.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_hlery")
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 16.0
+offset_right = 321.0
+offset_bottom = 48.0
+text = "0"
+label_settings = SubResource("LabelSettings_hlery")
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" groups=["spell-description-label"]]

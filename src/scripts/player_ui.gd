@@ -2,9 +2,13 @@ extends CanvasLayer
 
 @onready var spellsBox = $MarginContainer/VBoxContainer/SpellsHBox
 @onready var inPanel = $MarginContainer/VBoxContainer/SpellsHBox/MarginContainer
+@onready var scoreLabel = $MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar/Score
 
 var dflt_box := StyleBoxFlat.new()
 var ovrride_box := StyleBoxFlat.new()
+
+func _update_score(score: int):
+	scoreLabel.text = str(score)
 
 func _ready() -> void:
 	dflt_box.bg_color = Color(0.3, 0.3, 0.3)
@@ -13,6 +17,7 @@ func _ready() -> void:
 	ovrride_box.border_color = Color(1.0, 0.4, 0.6)
 	for box in [dflt_box, ovrride_box]:
 		box.set_border_width_all(4.0)
+	get_tree().get_first_node_in_group("world").score_changed.connect(_update_score)
 
 func add_spell_item_panel(spell: SpellBook.Spells):
 	var panel: MarginContainer = inPanel.duplicate()

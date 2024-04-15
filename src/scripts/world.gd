@@ -38,6 +38,12 @@ var next_spell_idx := 0
 var next_difficulty := room_type.difficulty.EASY
 var count_until_next_difficulty := ROOMS_PER_DIFFICULTY
 
+var score: int = 0
+signal score_changed(score: int)
+func add_score(val: int):
+	score += val
+	score_changed.emit(val)
+
 func _update_difficulty():
 	count_until_next_difficulty -= 1
 	if count_until_next_difficulty == 0 and next_difficulty != room_type.difficulty.HARD:
