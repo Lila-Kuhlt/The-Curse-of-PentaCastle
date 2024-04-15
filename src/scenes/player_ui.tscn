@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c44q2u3nky1ek"]
+[gd_scene load_steps=17 format=3 uid="uid://c44q2u3nky1ek"]
 
 [ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
 [ext_resource type="Script" path="res://scripts/item-panel.gd" id="2_hsw3b"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://ppfy7kdqv1kv" path="res://assets/theme.tres" id="4_a7lk1"]
 [ext_resource type="Texture2D" uid="uid://bjd302kmn2k4g" path="res://assets/hp-bar-fill.png" id="5_ebsrq"]
 [ext_resource type="Script" path="res://scripts/hp-bar.gd" id="7_g87td"]
+[ext_resource type="Script" path="res://scripts/score-indicator.gd" id="8_7cki6"]
 
 [sub_resource type="Gradient" id="Gradient_ixkjo"]
 
@@ -44,6 +45,12 @@ outline_color = Color(0.341176, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hlery"]
 font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pfrw"]
+font_size = 18
+font_color = Color(0.364706, 0.721569, 0.215686, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_qp3wb")
@@ -150,6 +157,15 @@ offset_bottom = 48.0
 text = "0"
 label_settings = SubResource("LabelSettings_hlery")
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar/Score"]
+visible = false
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 23.0
+text = "+10"
+label_settings = SubResource("LabelSettings_1pfrw")
+script = ExtResource("8_7cki6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" groups=["spell-description-label"]]
 layout_mode = 2

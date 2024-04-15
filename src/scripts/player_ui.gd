@@ -8,7 +8,9 @@ var dflt_box := StyleBoxFlat.new()
 var ovrride_box := StyleBoxFlat.new()
 
 func _update_score(score: int):
+	var old_score := int(scoreLabel.text)
 	scoreLabel.text = str(score)
+	scoreLabel.get_child(0).start(score - old_score)
 
 func _ready() -> void:
 	dflt_box.bg_color = Color(0.3, 0.3, 0.3)
