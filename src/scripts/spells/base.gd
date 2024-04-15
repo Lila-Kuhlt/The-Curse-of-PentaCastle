@@ -6,13 +6,10 @@ func cast(_player: Player, _enemies: Array[Node]):
 func uncast(_player: Player, _enemies: Array[Node]):
 	pass
 
-func spawn_projectile(player: Player, projectile: Node2D):
-	if  player.sprite.flip_h:
-		projectile.direction = Vector2(-1, 0)
-		projectile.rotation = PI
-	else:
-		projectile.direction = Vector2(1, 0)
-		projectile.rotation = 0
+func spawn_projectile(player: Player, projectile: Projectile):
+	var flip: bool = player.sprite.flip_h
+	projectile.set_flipped(flip)
+	projectile.direction = Vector2(1,0) * (-1 if flip else 1)
 
 	projectile.position = player.position
 	player.get_parent().add_child(projectile)

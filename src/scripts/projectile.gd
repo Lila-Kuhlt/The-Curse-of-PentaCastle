@@ -14,6 +14,12 @@ const FISH_AMP := 250.0
 func _ready():
 	_free_after_time(REMOVE_AFTER)
 
+func set_flipped(val: bool) -> void:
+	$CollisionShape2D.scale.x = -1 if val else 1
+	if val:
+		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
+	$AnimatedSprite2D.flip_h = val
+
 func _physics_process(delta: float):
 	velocity = direction * speed
 	if IS_FISH:
