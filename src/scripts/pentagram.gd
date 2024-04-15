@@ -83,6 +83,7 @@ func _input(event: InputEvent) -> void:
 		for i in PENTAGRAM_CORNERS.size():
 			if combo and combo[-1] == i: continue
 			if hits_corner(event, i):
+				SfxAudio.play_sfx(SfxAudio.Sound.DRAW_SHORT)
 				for _i in range(multiline.points.size() - combo.size()):
 					multiline.remove_point(combo.size())
 

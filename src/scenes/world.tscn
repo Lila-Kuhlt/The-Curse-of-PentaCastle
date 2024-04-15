@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="1_spbyq"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="3_acnda"]
 [ext_resource type="Script" path="res://scripts/sfx_audio.gd" id="4_g7a0q"]
-[ext_resource type="Script" path="res://scripts/spell_book.gd" id="5_8bwl8"]
+[ext_resource type="AudioStream" uid="uid://bp1h8svqu0cag" path="res://assets/ambient/amient_music.wav" id="5_ms7dh"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_eby2c"]
 
@@ -15,11 +15,13 @@ script = ExtResource("1_177g5")
 
 [node name="PentagramLayer" parent="." instance=ExtResource("3_acnda")]
 
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="." groups=["audio_sfx"]]
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." groups=["audio_sfx"]]
 stream = SubResource("AudioStreamPolyphonic_eby2c")
 script = ExtResource("4_g7a0q")
 
-[node name="SpellBook" type="Node2D" parent="."]
-script = ExtResource("5_8bwl8")
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ms7dh")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]

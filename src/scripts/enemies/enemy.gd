@@ -80,6 +80,7 @@ func hit_player(player: CharacterBody2D):
 	player.take_damage(ATTACK_DAMAGE)
 
 func take_damage(dmg: int):
+	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
 	life -= dmg * damage_multiplier
 	health_bar.value = life
 	hit_indicator.play('hit')

@@ -70,6 +70,7 @@ func load_room(scene: PackedScene):
 	$Player.position = room.find_child("PlayerMarker").position
 
 func _ready():
+	SfxAudio.play_sfx(SfxAudio.Sound.STOEHN)
 	load_room(main_room)
 
 func check_room_cleared():

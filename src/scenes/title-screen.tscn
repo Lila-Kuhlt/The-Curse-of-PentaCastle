@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4nhecstcuara"]
+[gd_scene load_steps=32 format=3 uid="uid://c4nhecstcuara"]
 
 [ext_resource type="Script" path="res://scripts/title-screen.gd" id="1_w6h7c"]
 [ext_resource type="Texture2D" uid="uid://ytwuf5qyh06j" path="res://assets/bg-illuminati.png" id="2_h1hxg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://m731s13d1xpl" path="res://assets/bg-torch.png" id="13_7ik51"]
 [ext_resource type="Texture2D" uid="uid://glbsi3atxqjp" path="res://assets/bg-window.png" id="14_7s6mh"]
 [ext_resource type="Theme" uid="uid://cvd7d4s2gqghh" path="res://assets/button-theme.tres" id="15_ewjrv"]
+[ext_resource type="AudioStream" uid="uid://bp1h8svqu0cag" path="res://assets/ambient/amient_music.wav" id="16_ab3du"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c6af"]
 texture = ExtResource("2_h1hxg")
@@ -242,5 +243,10 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("15_ewjrv")
 text = "Start Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ab3du")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/StartGameButton" to="." method="on_start_game_button_pressed"]
