@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyqpiguafbprl"]
+[gd_scene load_steps=26 format=3 uid="uid://dyqpiguafbprl"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_s58pv"]
 [ext_resource type="Texture2D" uid="uid://u8udjt605pon" path="res://assets/fireball.png" id="2_ckgqm"]
 [ext_resource type="Texture2D" uid="uid://dmjuirat6goqd" path="res://assets/fish-sheet.png" id="3_cc8ek"]
 [ext_resource type="Texture2D" uid="uid://bh5aqvudb8idg" path="res://assets/lightning.png" id="4_s56qs"]
 [ext_resource type="Texture2D" uid="uid://d36grl02ydtdq" path="res://assets/boxing-glove.png" id="5_5x4rg"]
+[ext_resource type="Texture2D" uid="uid://dl0w501n8mfnr" path="res://assets/ugly-dagger.png" id="6_hon0c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbg23"]
 resource_local_to_scene = true
@@ -152,6 +153,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"pushback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hon0c")
+}],
+"loop": true,
+"name": &"strike",
 "speed": 5.0
 }]
 
