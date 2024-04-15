@@ -25,7 +25,7 @@ const SoundDict = {
 }
 
 func _ready():
-	max_polyphony = 3
+	max_polyphony = 6
 
 func play_sfx(sound: Sound):
 	stream = SoundDict.get(sound)

@@ -44,7 +44,10 @@ var knockback := Vector2(0, 0)
 var direction := 0.0
 var walk_vel := 0.0
 var lookahead := 0.0
+
+# SFX
 var movement_sfx_counter = 0
+var last_frame_in_air = false
 
 # Juice
 var frames_since_ground := 0
@@ -101,16 +104,19 @@ func _set_flip(val: bool):
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
+		last_frame_in_air = true
 		velocity.y += gravity * delta
 		if velocity.y >= 0.0:
 			velocity.y += ADDITIONAL_FALLING_GRAVITY * delta
 
 	if is_on_floor():
-		if frames_since_ground != 0:
+		if last_frame_in_air:
 			SfxAudio.play_sfx(SfxAudio.Sound.STEP_DROP)
+			last_frame_in_air = false
 		frames_since_ground = 0
 	else:
 		frames_since_ground += 1
+
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
@@ -140,6 +146,9 @@ func _physics_process(delta):
 			elif (direction > 0) == is_turned_right:
 				walk_vel = move_toward(walk_vel, MAX_SPEED * sign(direction),
 					delta * abs(direction) * ACCELERATION_SPEED)
+				if movement_sfx_counter == 0 and is_on_floor():
+					SfxAudio.play_sfx(SfxAudio.Sound.STEP)
+				movement_sfx_counter = (movement_sfx_counter + 1) % 60
 			else:
 				movement_phase = MovementPhase.TURNING
 		MovementPhase.DECELERATING:
