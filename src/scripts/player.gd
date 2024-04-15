@@ -63,6 +63,7 @@ var active_spells: Array[bool] = []
 signal life_changed(amount: int)
 
 func _ready():
+	floor_constant_speed = true
 	hit_indicator.play("RESET")
 	for i in SpellBook.Spells.values().size():
 		active_spells.append(false)
