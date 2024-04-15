@@ -47,7 +47,7 @@ outline_color = Color(0.341176, 0, 0, 1)
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pfrw"]
-font_size = 18
+font_size = 35
 font_color = Color(0.364706, 0.721569, 0.215686, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -161,8 +161,9 @@ vertical_alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar/Score"]
 visible = false
 layout_mode = 0
-offset_right = 28.0
-offset_bottom = 23.0
+offset_top = 31.0
+offset_right = 60.0
+offset_bottom = 80.0
 text = "+10"
 label_settings = SubResource("LabelSettings_1pfrw")
 script = ExtResource("8_7cki6")
