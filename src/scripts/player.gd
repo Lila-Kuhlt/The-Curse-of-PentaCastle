@@ -9,6 +9,10 @@ extends CharacterBody2D
 @onready var cam := $Camera2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life = 100
+const SPIKE_DAMAGE := 10
+const SPIKE_DAMAGE_COOLDOWN := 0.7
+var spike_damage_timer := 0.0
+var colliding_spike := false
 
 # Movement
 var JUMP_VELOCITY := -250.0
@@ -150,6 +154,10 @@ func _physics_process(delta):
 	move_and_slide()
 	for ghost in ghost_inventory.get_children():
 		ghost.position -= position - old_pos
+	spike_damage_timer = max(spike_damage_timer - delta, 0.0)
+	if colliding_spike and not spike_damage_timer:
+		take_damage(SPIKE_DAMAGE)
+		spike_damage_timer = SPIKE_DAMAGE_COOLDOWN
 
 	if global_position.y > 1000 or life <= 0:
 		game_over()
@@ -175,3 +183,9 @@ func _on_pentagram_layer_combo_done(combo: Array[int]):
 			return
 
 	# TODO: negative feedback
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is TileMap: colliding_spike = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is TileMap: colliding_spike = false
