@@ -36,6 +36,8 @@ func _physics_process(delta: float):
 		# about to fall down
 		_flip_direction()
 
+	# This ensures that knockback is applied correctly
+	velocity.x = 0
 	do_physics(delta)
 	move_and_slide()
 
