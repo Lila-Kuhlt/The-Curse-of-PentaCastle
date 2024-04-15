@@ -79,6 +79,7 @@ _data = {
 
 [node name="Firedevil" instance=ExtResource("1_ylqlj")]
 script = ExtResource("2_mcpaa")
+SHOOT_COOLDOWN = 5.0
 score = 50
 MOVEMENT_SPEED = 15.0
 

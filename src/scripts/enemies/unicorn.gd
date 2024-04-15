@@ -51,10 +51,7 @@ func _physics_process(delta):
 					goto_stand_mode()
 					flip_direction()
 			else:
-				print("cooldown: ", mode_cooldown)
-				print("subtracting ", delta)
 				mode_cooldown -= delta
-				print("new cooldown: ", mode_cooldown)
 		UnicornMode.WALK:
 			if is_on_wall():
 				is_facing_right = get_wall_normal().x > 0.0
