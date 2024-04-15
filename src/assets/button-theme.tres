@@ -1,47 +1,62 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvd7d4s2gqghh"]
 
-[ext_resource type="Texture2D" uid="uid://cecnqc0t3s16s" path="res://assets/button-9patch.png" id="1_7yqtv"]
+[ext_resource type="Texture2D" uid="uid://k3cpc1gkxm11" path="res://assets/erotischer-9patch.png" id="2_s0cvw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luwni"]
-texture = ExtResource("1_7yqtv")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmdhq"]
+texture = ExtResource("2_s0cvw")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnn26"]
-texture = ExtResource("1_7yqtv")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0c0k"]
+texture = ExtResource("2_s0cvw")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgik8"]
-texture = ExtResource("1_7yqtv")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1, 0.282353, 1, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_peydf"]
+texture = ExtResource("2_s0cvw")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.85098, 0.85098, 0.85098, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_810ke"]
-texture = ExtResource("1_7yqtv")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture = ExtResource("2_s0cvw")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbt8s"]
-texture = ExtResource("1_7yqtv")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(1, 0.27451, 0.219608, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_senlj"]
+texture = ExtResource("2_s0cvw")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.65098, 0.65098, 0.65098, 1)
 
 [resource]
-Button/styles/disabled = SubResource("StyleBoxTexture_luwni")
-Button/styles/focus = SubResource("StyleBoxTexture_bnn26")
-Button/styles/hover = SubResource("StyleBoxTexture_pgik8")
+Button/colors/font_color = Color(0.960784, 0.588235, 0.470588, 1)
+Button/colors/font_hover_color = Color(0.960784, 0.588235, 0.470588, 1)
+Button/colors/font_hover_pressed_color = Color(0.960784, 0.588235, 0.470588, 1)
+Button/colors/font_pressed_color = Color(0.960784, 0.588235, 0.470588, 1)
+Button/font_sizes/font_size = 55
+Button/styles/disabled = SubResource("StyleBoxTexture_gmdhq")
+Button/styles/focus = SubResource("StyleBoxTexture_x0c0k")
+Button/styles/hover = SubResource("StyleBoxTexture_peydf")
 Button/styles/normal = SubResource("StyleBoxTexture_810ke")
-Button/styles/pressed = SubResource("StyleBoxTexture_vbt8s")
+Button/styles/pressed = SubResource("StyleBoxTexture_senlj")
