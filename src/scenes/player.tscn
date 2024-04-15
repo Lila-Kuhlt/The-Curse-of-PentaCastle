@@ -137,8 +137,17 @@ _data = {
 }
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_uct1m"]
+noise_type = 3
+frequency = 0.008
+fractal_octaves = 3
+fractal_lacunarity = 2.48
+fractal_gain = -0.295
+fractal_weighted_strength = 0.1
+domain_warp_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eb6d2"]
+seamless = true
+seamless_blend_skirt = 0.8
 noise = SubResource("FastNoiseLite_uct1m")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2s7t"]
@@ -193,9 +202,9 @@ libraries = {
 speed_scale = 3.0
 
 [node name="Shield" type="Sprite2D" parent="."]
-visible = false
+texture_repeat = 3
 material = SubResource("ShaderMaterial_r2s7t")
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.85, 0.85)
 texture = SubResource("GradientTexture2D_pnvrp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
