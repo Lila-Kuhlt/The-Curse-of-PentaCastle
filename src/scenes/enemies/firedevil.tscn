@@ -81,7 +81,7 @@ _data = {
 script = ExtResource("2_mcpaa")
 SHOOT_COOLDOWN = 5.0
 score = 50
-MOVEMENT_SPEED = 15.0
+MOVEMENT_SPEED = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-1, 0)

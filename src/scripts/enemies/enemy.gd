@@ -35,6 +35,7 @@ func flip_direction():
 	is_facing_right = not is_facing_right
 
 func _ready():
+	floor_constant_speed = true
 	hit_indicator.play('RESET')
 	health_bar.max_value = life
 	health_bar.value = life

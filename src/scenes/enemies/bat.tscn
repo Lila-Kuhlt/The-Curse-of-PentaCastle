@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi24d5plure2d"]
+[gd_scene load_steps=18 format=3 uid="uid://bb67x4jolx0m1"]
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_d5tua"]
 [ext_resource type="Texture2D" uid="uid://8d3o2vpvukkb" path="res://assets/bat.png" id="2_nk861"]
@@ -104,7 +104,7 @@ resource_local_to_scene = true
 size = Vector2(16, 13.25)
 
 [node name="Bat" instance=ExtResource("1_d5tua")]
-MOVEMENT_SPEED = 10.0
+MOVEMENT_SPEED = 18.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_58jqc")
