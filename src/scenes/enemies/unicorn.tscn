@@ -165,10 +165,11 @@ _data = {
 resource_local_to_scene = true
 size = Vector2(22, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf6mm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhemx"]
+resource_local_to_scene = true
 size = Vector2(20, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsaax"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxsox"]
 resource_local_to_scene = true
 size = Vector2(20, 17)
 
@@ -187,16 +188,13 @@ libraries = {
 }
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(-15, 1)
+position = Vector2(-16, 1)
 shape = SubResource("RectangleShape2D_4inr5")
 
 [node name="PhysicsCollider" parent="." index="3"]
 position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_vf6mm")
+shape = SubResource("RectangleShape2D_dhemx")
 
-[node name="PhysicsCollider" parent="Area2D" index="0"]
+[node name="PhysicsCollider" parent="SpikeCollider" index="0"]
 position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_hsaax")
-
-[node name="GroundRay" parent="." index="7"]
-target_position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_qxsox")

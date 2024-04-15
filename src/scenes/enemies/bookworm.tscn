@@ -244,9 +244,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tqka"]
 resource_local_to_scene = true
-size = Vector2(12, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6yfu"]
 size = Vector2(11, 13)
 
 [sub_resource type="Animation" id="Animation_sqx65"]
@@ -416,7 +413,11 @@ _data = {
 "idle": SubResource("Animation_lubru")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi2dj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w31qn"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk3nf"]
 resource_local_to_scene = true
 size = Vector2(11, 13)
 
@@ -425,25 +426,23 @@ script = ExtResource("2_rc7d1")
 score = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(1.5, -0.5)
 sprite_frames = SubResource("SpriteFrames_jmjvu")
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
 shape = SubResource("RectangleShape2D_3tqka")
 
-[node name="PhysicsCollider" parent="." index="2"]
-position = Vector2(-1.5, 0.5)
-shape = SubResource("RectangleShape2D_u6yfu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_pj3wy")
 }
 
-[node name="PhysicsCollider" parent="Area2D" index="0"]
-position = Vector2(-1.5, 0.5)
-shape = SubResource("RectangleShape2D_oi2dj")
+[node name="PhysicsCollider" parent="." index="3"]
+shape = SubResource("RectangleShape2D_w31qn")
+
+[node name="PhysicsCollider" parent="SpikeCollider" index="0"]
+shape = SubResource("RectangleShape2D_xk3nf")
 
 [node name="GroundRay" parent="." index="7"]
-position = Vector2(-7, 0)
-target_position = Vector2(0, 9)
+position = Vector2(-5.5, 0)

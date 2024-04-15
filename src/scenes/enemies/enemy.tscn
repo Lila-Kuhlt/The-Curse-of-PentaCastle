@@ -4,7 +4,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyl0u"]
 resource_local_to_scene = true
-size = Vector2(12, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sem4h"]
 resource_local_to_scene = true
@@ -57,22 +56,20 @@ MOVEMENT_SPEED = 0.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="HitCollider" type="Area2D" parent="."]
-position = Vector2(-1, 0)
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider"]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_dyl0u")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sem4h")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SpikeCollider" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 128
 
-[node name="PhysicsCollider" type="CollisionShape2D" parent="Area2D"]
+[node name="PhysicsCollider" type="CollisionShape2D" parent="SpikeCollider"]
 shape = SubResource("RectangleShape2D_sem4h")
 
 [node name="HitIndicatorAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -91,11 +88,10 @@ show_percentage = false
 
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(-10, 0)
-target_position = Vector2(0, 11)
 
 [node name="ViewRay" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)
 
 [connection signal="body_entered" from="HitCollider" to="." method="_on_hit_collider_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="SpikeCollider" to="." method="_on_spike_collider_body_entered"]
+[connection signal="body_exited" from="SpikeCollider" to="." method="_on_spike_collider_body_exited"]

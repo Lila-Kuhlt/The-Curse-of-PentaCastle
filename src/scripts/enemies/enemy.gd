@@ -21,17 +21,18 @@ var colliding_spike := false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_facing_right := false:
-	get:
-		return sprite.flip_h
 	set(value):
-		if sprite.flip_h != value:
+		if is_facing_right != value:
 			_flip_direction()
+			is_facing_right = value
 
 func _flip_direction():
-	sprite.flip_h = not sprite.flip_h
-	$PhysicsCollider.scale.x *= -1
-	$GroundRay.position.x *= -1
-	$ViewRay.target_position.x *= -1
+	for node in [sprite, $HitCollider, $SpikeCollider, $GroundRay, $ViewRay]:
+		node.scale.x *= -1
+		node.position.x *= -1
+
+func flip_direction():
+	is_facing_right = not is_facing_right
 
 func _ready():
 	hit_indicator.play('RESET')
@@ -39,10 +40,7 @@ func _ready():
 	health_bar.value = life
 
 func _physics_process(delta: float):
-	if is_on_floor() and !$GroundRay.is_colliding():
-		# about to fall down
-		_flip_direction()
-
+	on_obstacle(flip_direction)
 	if is_on_wall():
 		is_facing_right = get_wall_normal().x > 0.0
 	velocity.x = MOVEMENT_SPEED
@@ -51,6 +49,17 @@ func _physics_process(delta: float):
 
 	do_physics(delta)
 	move_and_slide()
+
+func on_obstacle(callback: Callable):
+	var collider = $GroundRay.get_collider()
+	if is_on_floor() and not collider:
+		# about to fall down
+		callback.call()
+	elif collider is TileMap:
+		var cell = collider.local_to_map($GroundRay.get_collision_point())
+		if collider.get_cell_tile_data(0, cell).get_custom_data("name") == "spike":
+			# about to fall into spikes
+			callback.call()
 
 func do_physics(delta: float):
 	if life <= 0:
@@ -84,7 +93,9 @@ func i_am_gonna_kill_myself():
 
 func _on_hit_collider_body_entered(body):
 	pass # Replace with function body.
-func _on_area_2d_body_entered(body: Node2D) -> void:
+
+func _on_spike_collider_body_entered(body: Node2D) -> void:
 	if body is TileMap: colliding_spike = true
-func _on_area_2d_body_exited(body: Node2D) -> void:
+
+func _on_spike_collider_body_exited(body: Node2D) -> void:
 	if body is TileMap: colliding_spike = false

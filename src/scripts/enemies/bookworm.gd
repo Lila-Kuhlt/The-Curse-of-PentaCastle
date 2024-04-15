@@ -92,4 +92,4 @@ func _physics_process(delta: float) -> void:
 				goto_hide_mode()
 	if mode != BookwormMode.HIDING:
 		super._physics_process(delta)
-	sprite.flip_h = position.x < player.position.x
+	is_facing_right = position.x < player.position.x

@@ -44,11 +44,11 @@ animations = [{
 resource_local_to_scene = true
 size = Vector2(12, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cef4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvgel"]
 resource_local_to_scene = true
 size = Vector2(12, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4we2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlpk"]
 resource_local_to_scene = true
 size = Vector2(12, 15)
 
@@ -83,31 +83,27 @@ score = 50
 MOVEMENT_SPEED = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(1, 0)
+position = Vector2(-1, 0)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_le66y")
 frame = 1
 
-[node name="HitCollider" parent="." index="1"]
-position = Vector2(0, 0)
-
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(2, 0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_uxyyb")
 
 [node name="PhysicsCollider" parent="." index="2"]
-position = Vector2(2, 0.5)
-shape = SubResource("RectangleShape2D_1cef4")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mvgel")
 
-[node name="PhysicsCollider" parent="Area2D" index="0"]
-position = Vector2(2, 0.5)
-shape = SubResource("RectangleShape2D_l4we2")
+[node name="PhysicsCollider" parent="SpikeCollider" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_gnlpk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_mouxu")
 }
 
 [node name="GroundRay" parent="." index="7"]
-position = Vector2(-4, 0)
-target_position = Vector2(0, 9)
+position = Vector2(-6, 0)

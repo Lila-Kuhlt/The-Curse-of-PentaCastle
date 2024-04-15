@@ -26,7 +26,7 @@ func goto_stand_mode():
 func goto_walk_mode(toggle: bool):
 	mode = UnicornMode.WALK
 	if toggle or (randi() & 1):
-		_flip_direction()
+		flip_direction()
 	anim.play('walk')
 	mode_cooldown = randi_range(MIN_WALK_COOLDOWN, MAX_WALK_COOLDOWN)
 
@@ -39,9 +39,7 @@ func _physics_process(delta):
 			mode_cooldown = CHARGE_COOLDOWN
 			anim.play('charge')
 
-	if is_on_floor() and !$GroundRay.is_colliding():
-		# about to fall down
-		goto_walk_mode(true)
+	on_obstacle(func(): goto_walk_mode(true))
 
 	match mode:
 		UnicornMode.STAND:
@@ -51,7 +49,7 @@ func _physics_process(delta):
 					goto_walk_mode(false)
 				else:
 					goto_stand_mode()
-					_flip_direction()
+					flip_direction()
 			else:
 				mode_cooldown -= delta
 		UnicornMode.WALK:
