@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5m3cny323qvf"]
+
+[ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_c2brd"]
+[ext_resource type="PackedScene" uid="uid://b1ja2yahh5jug" path="res://scenes/enemies/unicorn.tscn" id="2_idadc"]
+[ext_resource type="PackedScene" uid="uid://ccyv5pco4rcmb" path="res://scenes/chest.tscn" id="3_5y7kb"]
+[ext_resource type="PackedScene" uid="uid://7fmfsh1da7t5" path="res://scenes/enemies/bookworm.tscn" id="4_bf5w7"]
+
+[node name="RoomDebug" instance=ExtResource("1_c2brd")]
+
+[node name="Map" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(262142, 65537, 2, 262143, 65537, 2, 196608, 65537, 2, 196609, 65537, 2, 196610, 65537, 2, 196611, 65537, 2, 196612, 65537, 2, 196613, 65537, 2, 196614, 65537, 2, 196615, 65537, 1, 262141, 65537, 2, 262140, 65537, 2, 262139, 65537, 2, 262138, 65537, 2, 262137, 65537, 2, 262136, 65537, 2, 262135, 65537, 2, 262134, 65537, 2, 262133, 65537, 2, 262132, 65537, 2, 262131, 65537, 2, 262130, 65537, 2, 262129, 65537, 2, 262128, 65537, 2, 262127, 65537, 2, 262126, 65537, 2, 262125, 65537, 2, 262124, 1, 2, 196588, 1, 1, 131052, 1, 1, 65516, 1, 1, -65556, 1, 1, -131092, 1, 1, -196628, 1, 1, -262164, 1, 1, -327700, 1, 1, -393236, 1, 1, -458772, 1, 1, -524308, 1, 1, -17, 65537, 0, -16, 65537, 0, -15, 65537, 0, -14, 65537, 0, -13, 131073, 0, 65523, 131073, 1, 131059, 131073, 1, 131060, 65537, 1, -20, 65537, 1, 131053, 65537, 1, 196616, 65537, 1, 196617, 65537, 1, 196618, 65537, 1, 196619, 65537, 1, 196620, 65537, 1, 196621, 65537, 1, 131085, 65537, 1, 65549, 65537, 1, 13, 65537, 1, -65523, 65537, 1, -131059, 65537, 1, -196595, 65537, 1, -262131, 65537, 1, -327667, 65537, 1, 65543, 65537, 1, 65544, 65537, 1, 8, 65537, 1, -65528, 65537, 1, -65527, 65537, 1, -65526, 65537, 1, -65525, 65537, 1, 65548, 65537, 1)
+layer_1/tile_data = PackedInt32Array(196595, 3, 0, 196596, 3, 0, 196597, 3, 0, 196598, 3, 0, 196599, 3, 0, 196600, 3, 0, 196601, 3, 0, 196602, 3, 0, 196603, 3, 0, 196604, 3, 0, 196605, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 7, 3, 0, -131064, 3, 0, -131063, 3, 0, -131062, 3, 0, -131061, 3, 0, 12, 3, 0, 131084, 3, 0, -393203, 3, 0, -589844, 3, 0, -65553, 3, 0, -65552, 3, 0, -65551, 3, 0, -65550, 3, 0, -65549, 3, 0, 65524, 3, 0, 65517, 3, 0, 196589, 3, 0, 196590, 3, 0, 196591, 3, 0, 196592, 3, 0, 196593, 3, 0, 196594, 3, 0)
+
+[node name="Door" parent="." index="2"]
+position = Vector2(-184, 0)
+
+[node name="Unicorn" parent="." index="4" instance=ExtResource("2_idadc")]
+position = Vector2(-248, 33)
+
+[node name="Chest" parent="." index="5" instance=ExtResource("3_5y7kb")]
+position = Vector2(-83, 41)
+spell = 1
+
+[node name="Chest2" parent="." index="6" instance=ExtResource("3_5y7kb")]
+position = Vector2(-99, 41)
+spell = 4
+
+[node name="Chest3" parent="." index="7" instance=ExtResource("3_5y7kb")]
+position = Vector2(-67, 41)
+spell = 2
+
+[node name="Chest4" parent="." index="8" instance=ExtResource("3_5y7kb")]
+position = Vector2(-51, 41)
+spell = 3
+
+[node name="Chest5" parent="." index="9" instance=ExtResource("3_5y7kb")]
+position = Vector2(-35, 41)
+spell = 5
+
+[node name="Chest6" parent="." index="10" instance=ExtResource("3_5y7kb")]
+position = Vector2(-20, 41)
+spell = 6
+
+[node name="Chest7" parent="." index="11" instance=ExtResource("3_5y7kb")]
+position = Vector2(-4, 41)
+spell = 7
+
+[node name="Chest8" parent="." index="12" instance=ExtResource("3_5y7kb")]
+position = Vector2(28, 41)
+spell = 8
+
+[node name="Chest9" parent="." index="13" instance=ExtResource("3_5y7kb")]
+position = Vector2(12, 41)
+spell = 9
+
+[node name="Chest10" parent="." index="14" instance=ExtResource("3_5y7kb")]
+position = Vector2(43, 41)
+spell = 10
+
+[node name="Chest11" parent="." index="15" instance=ExtResource("3_5y7kb")]
+position = Vector2(59, 41)
+spell = 11
+
+[node name="Bookworm" parent="." index="16" instance=ExtResource("4_bf5w7")]
+position = Vector2(170, 38)
