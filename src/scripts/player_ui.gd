@@ -17,7 +17,9 @@ func _ready() -> void:
 	ovrride_box.border_color = Color(1.0, 0.4, 0.6)
 	for box in [dflt_box, ovrride_box]:
 		box.set_border_width_all(4.0)
-	get_tree().get_first_node_in_group("world").score_changed.connect(_update_score)
+
+	var world = get_tree().get_first_node_in_group("world")
+	world.score_changed.connect(_update_score)
 
 func add_spell_item_panel(spell: SpellBook.Spells):
 	var panel: MarginContainer = inPanel.duplicate()

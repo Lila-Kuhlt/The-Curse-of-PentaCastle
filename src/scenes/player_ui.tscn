@@ -132,6 +132,7 @@ label_settings = SubResource("LabelSettings_kmvbg")
 vertical_alignment = 1
 
 [node name="ScoreText" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HPBar"]
+layout_mode = 0
 offset_left = 210.0
 offset_top = 16.0
 offset_right = 269.0

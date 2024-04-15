@@ -2,19 +2,31 @@ class_name Player
 
 extends CharacterBody2D
 
+const SPIKE_DAMAGE := 10
+const SPIKE_DAMAGE_COOLDOWN := 0.7
+const ATTACK_ANIMATION_LENGTH := 1.0
+const KNOCKBACK_ENVELOPE: float = 0.86
+const LOOK_AHEAD_MAX := 20.0
+const LOOK_AHEAD_SPEED := 60.0
+const MAX_LIFE: float = 100
+const HEAL_ON_ROOM_CHANGE: float = MAX_LIFE / 2
+
+# Ghosts
+const Ghost = preload("res://scenes/ghost.tscn")
+
+enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
+
 @onready var sprite := $Sprite
 @onready var ui := $Camera2D/PlayerUI
 @onready var hit_indicator := $HitIndicationAnimationPlayer
 @onready var ghost_inventory := $GhostInventory
 @onready var cam := $Camera2D
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var life = 100
-const SPIKE_DAMAGE := 10
-const SPIKE_DAMAGE_COOLDOWN := 0.7
+var life := MAX_LIFE
 var spike_damage_timer := 0.0
 var colliding_spike := false
 var shield_multiplier := 1.0
-const ATTACK_ANIMATION_LENGTH := 1.0
 var attack_animation_t := 0.0
 
 # Movement
@@ -27,10 +39,6 @@ var DECELERATION_SPEED := 550.0
 var TURNING_SPEED := 1500.0
 var MAX_SPEED := 100.0
 var EPSILON := 0.001
-const KNOCKBACK_ENVELOPE: float = 0.86
-const LOOK_AHEAD_MAX := 20.0
-const LOOK_AHEAD_SPEED := 60.0
-enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 var movement_phase := MovementPhase.STANDING
 var knockback := Vector2(0, 0)
 var direction := 0.0
@@ -47,8 +55,7 @@ var jump_buffer := 0
 var spell_inventory: Array[SpellBook.Spells] = []
 var active_spells: Array[bool] = []
 
-# Ghosts
-const Ghost = preload("res://scenes/ghost.tscn")
+signal life_changed(amount: int)
 
 func _ready():
 	hit_indicator.play("RESET")
@@ -184,8 +191,13 @@ func game_over():
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
 	life -= dmg * shield_multiplier
-	get_tree().get_first_node_in_group('hp-bar').set_value(life)
+	life_changed.emit(life)
 	hit_indicator.play('hit')
+
+func heal(amount: int):
+	life += amount
+	life = min(life, MAX_LIFE)
+	life_changed.emit(life)
 
 func enable_shield(strength: float):
 	shield_multiplier = strength

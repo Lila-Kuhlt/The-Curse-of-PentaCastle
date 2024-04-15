@@ -12,4 +12,6 @@ func set_value(val: int) -> void:
 	label.text = "    " + str(val)
 
 func _ready() -> void:
-	set_value(max_value)
+	var player = get_tree().get_first_node_in_group("player")
+	player.life_changed.connect(set_value)
+	set_value(player.life)
