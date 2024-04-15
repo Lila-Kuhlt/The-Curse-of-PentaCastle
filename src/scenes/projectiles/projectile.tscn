@@ -106,7 +106,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fireball",
-"speed": 5.0
+"speed": 35.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,5 +157,5 @@ shape = SubResource("CircleShape2D_lbg23")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7xxmc")
-animation = &"lightning"
+animation = &"fireball"
 autoplay = "default"
