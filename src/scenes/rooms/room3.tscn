@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc8tlo75hg8fx"]
+[gd_scene load_steps=4 format=3 uid="uid://bmiiacoi732wq"]
 
 [ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_drosh"]
 [ext_resource type="PackedScene" uid="uid://b1ja2yahh5jug" path="res://scenes/enemies/unicorn.tscn" id="2_auqpb"]
@@ -13,23 +13,23 @@ layer_0/tile_data = PackedInt32Array(196608, 65537, 2, 196609, 65537, 2, 196610,
 [node name="Door" parent="." index="2"]
 position = Vector2(311, 3)
 
-[node name="Player" parent="." index="3"]
+[node name="PlayerMarker" parent="." index="3"]
 position = Vector2(13, 32)
 
-[node name="Unicorn" parent="." index="5" instance=ExtResource("2_auqpb")]
+[node name="Unicorn" parent="." index="4" instance=ExtResource("2_auqpb")]
 position = Vector2(191, -30)
 
-[node name="Unicorn2" parent="." index="6" instance=ExtResource("2_auqpb")]
+[node name="Unicorn2" parent="." index="5" instance=ExtResource("2_auqpb")]
 position = Vector2(315, 34)
 
-[node name="Unicorn3" parent="." index="7" instance=ExtResource("2_auqpb")]
+[node name="Unicorn3" parent="." index="6" instance=ExtResource("2_auqpb")]
 position = Vector2(313, -78)
 
-[node name="Unicorn4" parent="." index="8" instance=ExtResource("2_auqpb")]
+[node name="Unicorn4" parent="." index="7" instance=ExtResource("2_auqpb")]
 position = Vector2(429, -29)
 
-[node name="Bookworm" parent="." index="9" instance=ExtResource("3_s0cjm")]
+[node name="Bookworm" parent="." index="8" instance=ExtResource("3_s0cjm")]
 position = Vector2(577, 40)
 
-[node name="Bookworm2" parent="." index="10" instance=ExtResource("3_s0cjm")]
+[node name="Bookworm2" parent="." index="9" instance=ExtResource("3_s0cjm")]
 position = Vector2(89, 39)

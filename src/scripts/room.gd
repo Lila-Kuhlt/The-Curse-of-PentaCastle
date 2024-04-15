@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var CHESTS := 1
 @export var MONSTERS := 1
 
 const Chest = preload("res://scenes/chest.tscn")
 
 func _ready():
+	$Door/CollisionShape2D.disabled = true
 	var cells: Array[Vector2i] = $Map.get_used_cells(0)
 	var chests: Array[Vector2i] = []
 	var monsters: Array[Vector2i] = []
@@ -21,10 +21,12 @@ func _ready():
 		$Map.set_cell(0, cell)
 
 	# chest spawning
-	chests.shuffle()
-	chests = chests.slice(0, CHESTS)
-	for cell in chests:
+	var spell = get_tree().get_first_node_in_group("world").get_next_spell()
+	if spell != -1 and not chests.is_empty():
+		chests.shuffle()
+		var cell = chests.pick_random()
 		var chest := Chest.instantiate()
+		chest.spell = spell
 		chest.position = $Map.map_to_local(cell)
 		add_child(chest)
 
@@ -33,3 +35,5 @@ func _ready():
 	monsters.slice(0, MONSTERS)
 	# TODO
 
+func all_enemies_dead():
+	$Door/CollisionShape2D.disabled = false

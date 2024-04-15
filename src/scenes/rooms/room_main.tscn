@@ -18,5 +18,5 @@ spell = 4
 [node name="Door" parent="." index="3"]
 position = Vector2(392, 0)
 
-[node name="Player" parent="." index="4"]
+[node name="PlayerMarker" parent="." index="4"]
 position = Vector2(25, 0)

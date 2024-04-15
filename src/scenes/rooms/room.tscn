@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bovx5nd0v6ut1" path="res://assets/chest.png" id="2_srol8"]
 [ext_resource type="Texture2D" uid="uid://jojnp00jek3n" path="res://assets/bg-brick-flower.png" id="2_xxpf4"]
 [ext_resource type="Texture2D" uid="uid://dcykp7m0umbro" path="res://assets/bg-brick-moos.png" id="3_4ffb8"]
-[ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="3_v55sc"]
 [ext_resource type="Texture2D" uid="uid://b5v7xfffn77xs" path="res://assets/bg-creepy.png" id="4_8jq5b"]
 [ext_resource type="Texture2D" uid="uid://cu4wqx7lj4y6f" path="res://assets/spike-links.png" id="4_gg7ut"]
 [ext_resource type="Texture2D" uid="uid://drlule714j4m2" path="res://assets/gras_tilemap.png" id="4_k1mjy"]
@@ -15,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c3jip4j07l64c" path="res://scenes/door.tscn" id="6_3bgge"]
 [ext_resource type="Texture2D" uid="uid://iyy2mfjw8gpb" path="res://assets/bg-shelf1.png" id="6_msxp4"]
 [ext_resource type="Texture2D" uid="uid://cxpijhnhcyji2" path="res://assets/bg-shelf2.png" id="7_fptd2"]
-[ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="7_wbye2"]
 [ext_resource type="Texture2D" uid="uid://5llk6vkqaa1v" path="res://assets/bg-simple.png" id="8_tlqcu"]
 [ext_resource type="Texture2D" uid="uid://m731s13d1xpl" path="res://assets/bg-torch.png" id="9_82wxt"]
 [ext_resource type="Texture2D" uid="uid://glbsi3atxqjp" path="res://assets/bg-window.png" id="10_583q5"]
@@ -336,6 +334,9 @@ sources/4 = SubResource("TileSetAtlasSource_vlvid")
 sources/5 = SubResource("TileSetAtlasSource_8k7cr")
 sources/6 = SubResource("TileSetAtlasSource_mcf5w")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tv1"]
+size = Vector2(12, 28)
+
 [node name="Room" type="Node2D"]
 script = ExtResource("1_76usc")
 
@@ -364,10 +365,13 @@ format = 2
 
 [node name="Door" parent="." instance=ExtResource("6_3bgge")]
 
-[node name="Player" parent="." instance=ExtResource("3_v55sc")]
-position = Vector2(14, 23.4)
+[node name="PlayerMarker" type="Marker2D" parent="."]
+position = Vector2(14, 23)
 
-[node name="PentagramLayer" parent="." instance=ExtResource("7_wbye2")]
+[node name="Area2D" type="Area2D" parent="PlayerMarker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMarker/Area2D"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_m4tv1")
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
-[connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]

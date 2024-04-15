@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8qp23qje00ue"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_177g5"]
+[ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="1_spbyq"]
+[ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="3_acnda"]
+
+[node name="World" type="Node2D" groups=["world"]]
+script = ExtResource("1_177g5")
+
+[node name="Player" parent="." instance=ExtResource("1_spbyq")]
+
+[node name="PentagramLayer" parent="." instance=ExtResource("3_acnda")]
+
+[connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]
