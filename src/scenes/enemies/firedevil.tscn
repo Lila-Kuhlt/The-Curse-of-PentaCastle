@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5f5lmrpjngrp"]
+[gd_scene load_steps=15 format=3 uid="uid://b5f5lmrpjngrp"]
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_ylqlj"]
-[ext_resource type="Texture2D" uid="uid://cb7pd2huloiib" path="res://assets/fire-demon.png" id="2_cna0v"]
+[ext_resource type="Texture2D" uid="uid://beiqouigaecec" path="res://assets/fire-demon.png" id="2_cna0v"]
 [ext_resource type="Script" path="res://scripts/enemies/firedevil.gd" id="2_mcpaa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_useh6"]
@@ -40,9 +40,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxyyb"]
+resource_local_to_scene = true
+size = Vector2(12, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cef4"]
 resource_local_to_scene = true
 size = Vector2(12, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4we2"]
+resource_local_to_scene = true
+size = Vector2(12, 15)
+
+[sub_resource type="Animation" id="Animation_sbhqd"]
+resource_name = "charge"
 
 [sub_resource type="Animation" id="Animation_5wxf2"]
 resource_name = "Walk"
@@ -59,9 +70,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-
-[sub_resource type="Animation" id="Animation_sbhqd"]
-resource_name = "charge"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mouxu"]
 _data = {
@@ -84,15 +92,21 @@ position = Vector2(0, 0)
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
 position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_uxyyb")
 
 [node name="PhysicsCollider" parent="." index="2"]
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_1cef4")
 
-[node name="GroundRay" parent="." index="5"]
-position = Vector2(-5, 0)
+[node name="PhysicsCollider" parent="Area2D" index="0"]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_l4we2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
 "": SubResource("AnimationLibrary_mouxu")
 }
+
+[node name="GroundRay" parent="." index="7"]
+position = Vector2(-4, 0)
+target_position = Vector2(0, 9)

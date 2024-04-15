@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://7fmfsh1da7t5"]
+[gd_scene load_steps=33 format=3 uid="uid://7fmfsh1da7t5"]
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_hki2g"]
 [ext_resource type="Texture2D" uid="uid://b2nvadcssvfq" path="res://assets/bookworm-attack.png" id="2_2qmpn"]
@@ -152,6 +152,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tqka"]
+resource_local_to_scene = true
+size = Vector2(12, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6yfu"]
 size = Vector2(11, 13)
 
@@ -284,6 +288,9 @@ script = ExtResource("2_rc7d1")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmjvu")
 
+[node name="CollisionShape2D" parent="HitCollider" index="0"]
+shape = SubResource("RectangleShape2D_3tqka")
+
 [node name="PhysicsCollider" parent="." index="2"]
 position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_u6yfu")
@@ -299,3 +306,4 @@ shape = SubResource("RectangleShape2D_oi2dj")
 
 [node name="GroundRay" parent="." index="7"]
 position = Vector2(-7, 0)
+target_position = Vector2(0, 9)

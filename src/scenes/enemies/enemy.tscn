@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyl0u"]
+resource_local_to_scene = true
 size = Vector2(12, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sem4h"]
@@ -90,6 +91,7 @@ show_percentage = false
 
 [node name="GroundRay" type="RayCast2D" parent="."]
 position = Vector2(-10, 0)
+target_position = Vector2(0, 11)
 
 [node name="ViewRay" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)
