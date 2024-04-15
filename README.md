@@ -20,5 +20,5 @@ Embark on a mystical journey like no other in this innovative fusion of deckbuil
 - If you kill every enemy and pick up all spells you can enter the portal to the next room
 - If you enter a new room, you get some HP back
 - The more rooms you pass the higher the chance for more powerful spells
-- You get 100 points for entering a portal and 10 points for killing an enemy
+- You get about 100 points for entering a portal and 10 points for killing an enemy
 - The goal is to reach as much points as possible
