@@ -1,10 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3jip4j07l64c"]
+[gd_scene load_steps=15 format=3 uid="uid://c3jip4j07l64c"]
 
 [ext_resource type="Texture2D" uid="uid://clg1r84s3p2s3" path="res://assets/portal.png" id="1_fhev2"]
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_o3b0r"]
+[ext_resource type="Texture2D" uid="uid://ddif83w6y12ps" path="res://assets/dust.png" id="3_trpe4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q2dr"]
 size = Vector2(14, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0ib8"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdinq"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2ba"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u82bx"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kbe2"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66rxk"]
+atlas = ExtResource("1_fhev2")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0vwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0ib8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdinq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u82bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kbe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66rxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_07tsj"]
+colors = PackedColorArray(0.197145, 0.1209, 0.39, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8yu38"]
+gradient = SubResource("Gradient_07tsj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fn4q6"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.81
+angle_min = -720.0
+angle_max = 720.0
+spread = 85.615
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -19.49
+linear_accel_max = 31.79
+scale_min = 0.4
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_8yu38")
+turbulence_enabled = true
+turbulence_noise_strength = 18.41
+turbulence_noise_speed = Vector3(0.72, 1.3, 0.285)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
@@ -14,7 +88,13 @@ script = ExtResource("1_o3b0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8q2dr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fhev2")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k0vwg")
+autoplay = "default"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_fn4q6")
+texture = ExtResource("3_trpe4")
+lifetime = 1.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
