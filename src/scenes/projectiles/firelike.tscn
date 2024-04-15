@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cxklgqt46ms17"]
+
+[ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_1lx00"]
+[ext_resource type="Texture2D" uid="uid://u8udjt605pon" path="res://assets/fireball.png" id="3_7k5d0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jf7y8"]
+radius = 3.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv43n"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykk1t"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwjjc"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lepxl"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jniwo"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj2y2"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxtex"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhdlf"]
+atlas = ExtResource("3_7k5d0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbbgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv43n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykk1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lepxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jniwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj2y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxtex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhdlf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Firelike" instance=ExtResource("1_1lx00")]
+scale = Vector2(2, 2)
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-4, 1.5)
+shape = SubResource("CircleShape2D_jf7y8")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-0.5, -5.5)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_pbbgu")
+animation = &"default"
+autoplay = ""
+centered = false
+flip_h = true
