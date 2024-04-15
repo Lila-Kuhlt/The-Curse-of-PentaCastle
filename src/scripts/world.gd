@@ -2,13 +2,14 @@ extends Node2D
 
 const door = preload("res://scenes/door.tscn")
 
-const main_room = preload("res://scenes/rooms/room_debug.tscn")
+const main_room = preload("res://scenes/rooms/room_4.tscn")
 const rooms = [
 	preload("res://scenes/rooms/room1.tscn"),
 	preload("res://scenes/rooms/room2.tscn"),
 	preload("res://scenes/rooms/room3.tscn"),
 	preload("res://scenes/rooms/room-illuminati.tscn"),
 	preload("res://scenes/rooms/room-wheel.tscn"),
+	preload("res://scenes/rooms/room_4.tscn"),
 ]
 
 var room_idx: int = -1
