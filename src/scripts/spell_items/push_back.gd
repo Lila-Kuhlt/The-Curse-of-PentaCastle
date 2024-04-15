@@ -5,7 +5,7 @@ func _init():
 	type = SpellBook.SpellType.ACTIVE
 	rank = SpellBook.SpellRank.COMMON
 	title = "PushBack"
-	desc = "Knockbacks enemies"
+	desc = "Attack Spell: High knockback, but no damage projectile"
 	cast = [1, 3]
 	duration = 0.0
 	sprite = preload("res://assets/spell_items/push_back.png")

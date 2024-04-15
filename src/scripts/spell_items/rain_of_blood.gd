@@ -5,7 +5,7 @@ func _init():
 	type = SpellBook.SpellType.PASSIVE
 	rank = SpellBook.SpellRank.RARE
 	title = "Rain of Blood"
-	desc = "Enemy gets 2 damage 7s long"
+	desc = "Passive: All enemies obtain constant damage over 7 seconds"
 	cast = [2, 3, 0]
 	duration = 7.0
 	sprite = preload("res://assets/spell_items/rain_of_blood.png")
