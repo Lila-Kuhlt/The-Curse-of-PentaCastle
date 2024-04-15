@@ -79,7 +79,7 @@ _data = {
 
 [node name="Firedevil" instance=ExtResource("1_ylqlj")]
 script = ExtResource("2_mcpaa")
-MOVEMENT_SPEED = 10.0
+MOVEMENT_SPEED = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(1, 0)
