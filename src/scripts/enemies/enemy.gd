@@ -5,9 +5,10 @@ class_name Enemy extends CharacterBody2D
 @export var ATTACK_DAMAGE := 10.0
 @export var KNOCKBACK_STRENGTH := 800.0
 const KNOCKBACK_VELOCITY_SCALING := 0.4
-@export var KNOCKBACK_ENVELOPE: float = 0.86
+@export var KNOCKBACK_ENVELOPE: float = 0.977
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
+var damage_multiplier = 1.0
 
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
@@ -44,8 +45,7 @@ func _physics_process(delta: float):
 func do_physics(delta: float):
 	if life <= 0:
 		i_am_gonna_kill_myself()
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	velocity.y += gravity * delta
 	velocity += knockback
 	knockback *= KNOCKBACK_ENVELOPE
 
@@ -56,7 +56,7 @@ func hit_player(player: CharacterBody2D):
 	player.take_damage(ATTACK_DAMAGE)
 
 func take_damage(dmg: int):
-	life -= dmg
+	life -= dmg * damage_multiplier
 	health_bar.value = life
 	hit_indicator.play('hit')
 

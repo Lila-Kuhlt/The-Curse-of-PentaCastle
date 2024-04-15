@@ -2,7 +2,7 @@ extends Node2D
 
 const door = preload("res://scenes/door.tscn")
 
-const main_room = preload("res://scenes/rooms/room_debug.tscn")
+const main_room = preload("res://scenes/rooms/room_main.tscn")
 const rooms = [
 	preload("res://scenes/rooms/room1.tscn"),
 	preload("res://scenes/rooms/room2.tscn"),

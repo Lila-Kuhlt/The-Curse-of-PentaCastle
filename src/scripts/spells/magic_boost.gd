@@ -1,8 +1,10 @@
 extends SpellBase
 
-func cast(_player: Player, _enemies: Array[Node]):
-	pass
+func cast(_player: Player, enemies: Array[Node]):
+	for enemy in enemies:
+		enemy.damage_multiplier *= 1.5
 
-func uncast(_player: Player, _enemies: Array[Node]):
-	pass
+func uncast(_player: Player, enemies: Array[Node]):
+	for enemy in enemies:
+		enemy.damage_multiplier /= 1.5
 

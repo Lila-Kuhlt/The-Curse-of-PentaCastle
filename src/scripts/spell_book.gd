@@ -23,7 +23,7 @@ enum Spells {
 	STRIKE,
 	LIGHTNING,
 	RAIN_OF_BLOOD,
-	FISH
+	FISH,
 }
 
 const spell_item_script_types = [

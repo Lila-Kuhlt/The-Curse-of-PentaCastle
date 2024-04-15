@@ -174,6 +174,14 @@ func take_damage(dmg: int):
 	get_tree().get_first_node_in_group('hp-bar').set_value(life)
 	hit_indicator.play('hit')
 
+func enable_shield(strength: float):
+	shield_multiplier = strength
+	$Shield.visible = true
+
+func disable_shield():
+	shield_multiplier = 1.0
+	$Shield.visible = false
+
 func _on_pentagram_layer_combo_done(combo: Array[int]):
 	var spell = SpellBook.find_spell(combo)
 	if spell > 0:
