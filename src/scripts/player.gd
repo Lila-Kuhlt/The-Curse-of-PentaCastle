@@ -151,7 +151,7 @@ func _physics_process(delta):
 	for ghost in ghost_inventory.get_children():
 		ghost.position -= position - old_pos
 
-	if global_position.y > 200 or life <= 0:
+	if global_position.y > 1000 or life <= 0:
 		game_over()
 
 func give_spell_item(spell: SpellBook.Spells):
