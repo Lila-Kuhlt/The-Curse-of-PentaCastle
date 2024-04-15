@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfa18tc8snad3"]
+[gd_scene load_steps=3 format=3 uid="uid://cjybjhriu4jvf"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_gf3ie"]
 
@@ -7,7 +7,8 @@ resource_local_to_scene = true
 radius = 3.0
 
 [node name="Strike" instance=ExtResource("1_gf3ie")]
-ATTACK_DAMAGE = 5.0
+ATTACK_DAMAGE = 20.0
+KNOCKBACK_STRENGTH = 25.0
 REMOVE_AFTER = 0.3
 
 [node name="CollisionShape2D" parent="." index="0"]
