@@ -14,6 +14,8 @@ const SPIKE_DAMAGE_COOLDOWN := 0.7
 var spike_damage_timer := 0.0
 var colliding_spike := false
 var shield_multiplier := 1.0
+const ATTACK_ANIMATION_LENGTH := 1.0
+var attack_animation_t := 0.0
 
 # Movement
 var JUMP_VELOCITY := -300.0
@@ -54,6 +56,7 @@ func _ready():
 
 func cast(spell: SpellBook.Spells, inventory_idx: int):
 	if active_spells[spell]: return
+	attack_animation_t = ATTACK_ANIMATION_LENGTH
 	var spell_script = SpellBook.spell_scripts[spell]
 	spell_script.cast(self, get_tree().get_nodes_in_group('enemies'))
 	var spell_item_script = SpellBook.spell_item_scripts[spell]
@@ -148,6 +151,12 @@ func _physics_process(delta):
 
 	velocity += knockback * delta
 	knockback *= KNOCKBACK_ENVELOPE
+	
+	if direction:
+		sprite.animation = 'walk-attack' if attack_animation_t > 0.0 else 'walk'
+	else:
+		sprite.animation = 'attack' if attack_animation_t > 0.0 else 'idle'
+	attack_animation_t = max(attack_animation_t - delta, 0.0)
 
 	var old_pos := position
 
