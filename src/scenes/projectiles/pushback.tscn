@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://mfjeatm4dwu1"]
+[gd_scene load_steps=5 format=3 uid="uid://mfjeatm4dwu1"]
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_c2ba0"]
 
@@ -6,10 +6,44 @@
 resource_local_to_scene = true
 radius = 3.0
 
+[sub_resource type="Animation" id="Animation_bxbwp"]
+resource_name = "default"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwhoe"]
+_data = {
+"default": SubResource("Animation_bxbwp")
+}
+
 [node name="Pushback" instance=ExtResource("1_c2ba0")]
+speed = 150.0
 ATTACK_DAMAGE = 0.0
 KNOCKBACK_STRENGTH = 1000.0
 REMOVE_AFTER = 1.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_bdgte")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+rotation = 6.19875
+scale = Vector2(-1, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_kwhoe")
+}
+autoplay = "default"
+speed_scale = 2.5
