@@ -1,7 +1,9 @@
 # The Curse of PentaCastle
 
 > Playable Web-Demo: https://ldjam55.isiko404.dev/ \
-> Downloads: https://downloads.isiko404.dev/ldjam/55/
+> Downloads: https://downloads.isiko404.dev/ldjam/55/ \
+> Itch.io: https://lila-pause.itch.io/the-curse-of-pentacastle/ \
+> LudumDare: https://ldjam.com/events/ludum-dare/55/the-curse-of-pentacastle/
 
 Embark on a mystical journey like no other in this innovative fusion of deckbuilder, dungeon crawler, and platformer, crafted for Ludum Dare 55. Assume the role of a wizard with a unique twist—you wield powerful spells, but only through intricate rituals. To cast your magic and navigate the treacherous depths of *Pantacastle*, you must master the art of drawing the correct lines within the devil's pentagram.
 
