@@ -59,5 +59,5 @@ func take_damage(dmg: int):
 	hit_indicator.play('hit')
 
 func i_am_gonna_kill_myself():
-	get_tree().get_first_node_in_group("world").check_enemies()
+	get_tree().get_first_node_in_group("world").check_room_cleared()
 	queue_free()

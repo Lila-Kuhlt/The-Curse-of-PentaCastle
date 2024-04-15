@@ -8,6 +8,8 @@ var is_player_entered: bool = false
 var player_entered: CharacterBody2D
 var desc: String
 
+var active := true
+
 func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
 	spell_item.set_script(SpellBook.spell_item_scripts[spell])
@@ -22,7 +24,9 @@ func _process(_delta):
 
 
 func use_chest():
+	active = false
 	player_entered.give_spell_item(spell)
+	get_tree().get_first_node_in_group("world").check_room_cleared()
 	queue_free()
 
 

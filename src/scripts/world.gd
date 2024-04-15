@@ -27,14 +27,17 @@ func load_room(scene: PackedScene):
 		room.queue_free()
 	room = scene.instantiate()
 	add_child(room)
+	check_room_cleared()
 	$Player.position = room.find_child("PlayerMarker").position
 
 func _ready():
 	load_room(main_room)
 
-func check_enemies():
-	if get_tree().get_nodes_in_group("enemies").is_empty():
-		room.all_enemies_dead()
+func check_room_cleared():
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var chests = get_tree().get_nodes_in_group("chests")
+	if enemies.all(func(enemy): return enemy.life <= 0) and chests.all(func(chest): return not chest.active):
+		room.room_cleared()
 
 func get_next_spell() -> Spells:
 	# TODO

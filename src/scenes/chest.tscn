@@ -13,7 +13,7 @@ outline_size = 1
 outline_color = Color(1, 0, 0.109804, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Chest" type="Area2D"]
+[node name="Chest" type="Area2D" groups=["chests"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_lkl5v")

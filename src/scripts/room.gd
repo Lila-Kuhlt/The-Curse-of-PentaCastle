@@ -35,5 +35,5 @@ func _ready():
 	monsters.slice(0, MONSTERS)
 	# TODO
 
-func all_enemies_dead():
+func room_cleared():
 	$Door/CollisionShape2D.disabled = false
