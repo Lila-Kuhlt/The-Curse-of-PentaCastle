@@ -4,13 +4,16 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kv7fu"]
 resource_local_to_scene = true
-radius = 3.0
+radius = 5.0
 
 [node name="Fish" instance=ExtResource("1_hvx3w")]
 speed = 150.0
-REMOVE_AFTER = 0.2
+ATTACK_DAMAGE = 29.0
+KNOCKBACK_STRENGTH = 25.0
+REMOVE_AFTER = 0.4
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_kv7fu")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
