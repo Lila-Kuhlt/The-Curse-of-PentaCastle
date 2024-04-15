@@ -42,7 +42,7 @@ var score: int = 0
 signal score_changed(score: int)
 func add_score(val: int):
 	score += val
-	score_changed.emit(val)
+	score_changed.emit(score)
 
 func _update_difficulty():
 	count_until_next_difficulty -= 1
