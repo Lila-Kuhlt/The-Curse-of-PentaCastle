@@ -5,7 +5,7 @@ func _init():
 	type = SpellBook.SpellType.PASSIVE
 	rank = SpellBook.SpellRank.COMMON
 	title = "Macic Boost"
-	desc = "Passive: Increased damage of attacks for 5s"
+	desc = "Passive: Increased damage of attacks for 10s"
 	cast = [2, 0, 3]
-	duration = 5.0
+	duration = 10.0
 	sprite = preload("res://assets/spell_items/magic_boost.png")
