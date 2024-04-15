@@ -1,8 +1,8 @@
 extends SpellBase
 
 func cast(player: Player, _enemies: Array[Node]):
-	player.shield_multiplier *= 0.5
+	player.enable_shield(0.5)
 
 func uncast(player: Player, _enemies: Array[Node]):
-	player.shield_multiplier *= 2.0
+	player.disable_shield()
 
