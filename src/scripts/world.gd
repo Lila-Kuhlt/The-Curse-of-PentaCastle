@@ -25,17 +25,7 @@ var room_scene: PackedScene
 var room: Node2D
 
 const Spell = SpellBook.Spells
-const spell_order = [
-	Spell.SPEED,
-	Spell.FISH,
-	Spell.SLOWDOWN,
-	Spell.PUSH_BACK,
-	Spell.MAGIC_BOOST,
-	Spell.STRIKE,
-	Spell.SHIELD,
-	Spell.LIGHTNING,
-	Spell.RAIN_OF_BLOOD,
-]
+var spell_order := []
 var next_spell_idx := 0
 
 var next_difficulty := room_type.difficulty.EASY
@@ -73,6 +63,24 @@ func load_room(scene: PackedScene):
 	$Player.position = room.find_child("PlayerMarker").position
 
 func _ready():
+	var common := []
+	var rare := []
+	var ultra := []
+	for spell_item in SpellBook.spell_item_scripts:
+		if spell_item.spell == Spell.PLACEHOLDER:
+			continue
+		match spell_item.rank:
+			SpellBook.SpellRank.COMMON:
+				common.append(spell_item.spell)
+			SpellBook.SpellRank.RARE:
+				rare.append(spell_item.spell)
+			SpellBook.SpellRank.ULTRA:
+				ultra.append(spell_item.spell)
+	common.shuffle()
+	rare.shuffle()
+	ultra.shuffle()
+	spell_order = common + rare + ultra
+
 	SfxAudio.play_sfx(SfxAudio.Sound.STOEHN)
 	load_room(main_room)
 
