@@ -13,9 +13,11 @@ ATTACK_DAMAGE = 18.0
 KNOCKBACK_STRENGTH = 30.0
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_dlco6")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-5, 1)
 animation = &"fireball"
 autoplay = "fireball"
 frame_progress = 0.855749

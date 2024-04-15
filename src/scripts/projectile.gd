@@ -16,9 +16,10 @@ func _ready():
 
 func set_flipped(val: bool) -> void:
 	$CollisionShape2D.scale.x = -1 if val else 1
-	if val:
-		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
 	$AnimatedSprite2D.flip_h = val
+	if val:
+		$CollisionShape2D.position.x *= -1
+		$AnimatedSprite2D.position.x *= -1
 
 func _physics_process(delta: float):
 	velocity = direction * speed
