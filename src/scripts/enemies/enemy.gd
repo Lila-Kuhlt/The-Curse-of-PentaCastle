@@ -1,5 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
+const SPIKE_DAMAGE_COOLDOWN = 0.7
+const SPIKE_DAMAGE := 10
+
 @export var life := 50.0
 @export var MOVEMENT_SPEED := 10.0
 @export var ATTACK_DAMAGE := 10.0
@@ -9,6 +12,8 @@ const KNOCKBACK_VELOCITY_SCALING := 0.4
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
 var damage_multiplier = 1.0
+var spike_damage_timer: float = 0
+var colliding_spike := false
 
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
@@ -49,6 +54,11 @@ func do_physics(delta: float):
 	velocity += knockback
 	knockback *= KNOCKBACK_ENVELOPE
 
+	spike_damage_timer = max(spike_damage_timer - delta, 0.0)
+	if colliding_spike and not spike_damage_timer:
+		take_damage(SPIKE_DAMAGE)
+		spike_damage_timer = SPIKE_DAMAGE_COOLDOWN
+
 func hit_player(player: CharacterBody2D):
 	var direction = velocity
 	direction = direction.normalized() + direction * KNOCKBACK_VELOCITY_SCALING
@@ -67,3 +77,7 @@ func i_am_gonna_kill_myself():
 
 func _on_hit_collider_body_entered(body):
 	pass # Replace with function body.
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is TileMap: colliding_spike = true
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is TileMap: colliding_spike = false
