@@ -7,6 +7,7 @@ enum difficulty {
 }
 
 @export var MONSTERS := 1
+@export var score: int = 100
 
 const Chest = preload("res://scenes/chest.tscn")
 

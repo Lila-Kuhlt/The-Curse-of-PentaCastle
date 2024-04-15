@@ -418,5 +418,3 @@ position = Vector2(14, 23)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMarker/Area2D"]
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_m4tv1")
-
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

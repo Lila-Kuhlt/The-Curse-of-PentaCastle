@@ -9,4 +9,7 @@ func enable():
 	modulate *= 2
 
 func _on_body_entered(_body):
-	get_tree().get_first_node_in_group("world").new_room()
+	var score = get_parent().score
+	var world = get_tree().get_first_node_in_group("world")
+	world.add_score(score)
+	world.new_room()
