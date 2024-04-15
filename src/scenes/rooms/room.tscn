@@ -280,11 +280,11 @@ texture = ExtResource("1_kb4yy")
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_numti"]
 texture = ExtResource("2_srol8")
@@ -337,7 +337,7 @@ sources/6 = SubResource("TileSetAtlasSource_mcf5w")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tv1"]
 size = Vector2(13, 28)
 
-[node name="Room" type="Node2D"]
+[node name="Room2" type="Node2D"]
 script = ExtResource("1_76usc")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -369,8 +369,6 @@ format = 2
 position = Vector2(14, 23)
 
 [node name="Area2D" type="Area2D" parent="PlayerMarker"]
-collision_layer = 0
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMarker/Area2D"]
 position = Vector2(-1, 2)
