@@ -1,8 +1,8 @@
 extends Enemy
 
 const VIEW_DISTANCE := 70.0
-const IDLE_COOLDOWN_MIN := 1.5
-const IDLE_COOLDOWN_MAX := 4.0
+const IDLE_COOLDOWN_MIN := 4.0
+const IDLE_COOLDOWN_MAX := 8.0
 const HIDE_COOLDOWN_MIN := 1
 const HIDE_COOLDOWN_MAX := 3
 const ATTACK_COOLDOWN := 2
@@ -10,7 +10,7 @@ const ATTACK_COOLDOWN := 2
 enum BookwormMode { IDLE, ATTACK, HIDING }
 
 var mode: BookwormMode = BookwormMode.IDLE
-var mode_cooldown := 0.0
+var mode_cooldown := 3.0
 var attack_target := Vector2(0, 0)
 
 @onready var player = get_tree().get_first_node_in_group('player')

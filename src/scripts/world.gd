@@ -7,6 +7,7 @@ const rooms = [
 	preload("res://scenes/rooms/room1.tscn"),
 	preload("res://scenes/rooms/room2.tscn"),
 	preload("res://scenes/rooms/room3.tscn"),
+	preload("res://scenes/rooms/room-illuminati.tscn"),
 ]
 
 var room_idx: int = -1
