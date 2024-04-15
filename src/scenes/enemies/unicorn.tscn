@@ -175,6 +175,7 @@ size = Vector2(20, 17)
 
 [node name="Unicorn" instance=ExtResource("1_0f2vi")]
 script = ExtResource("2_68sav")
+score = 20
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-4, 0)
