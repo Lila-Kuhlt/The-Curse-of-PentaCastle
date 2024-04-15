@@ -57,7 +57,8 @@ func on_obstacle(callback: Callable):
 		callback.call()
 	elif collider is TileMap:
 		var cell = collider.local_to_map($GroundRay.get_collision_point())
-		if collider.get_cell_tile_data(0, cell).get_custom_data("name") == "spike":
+		var tile = collider.get_cell_tile_data(0, cell)
+		if tile != null and tile.get_custom_data("name") == "spike":
 			# about to fall into spikes
 			callback.call()
 
