@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/item-panel.gd" id="2_hsw3b"]
 [ext_resource type="Texture2D" uid="uid://dhkhn1pyjanh8" path="res://assets/spell_items/placeholder.png" id="2_lbgva"]
 [ext_resource type="Shader" path="res://shaders/hp-bar.gdshader" id="4_8ulmv"]
-[ext_resource type="Theme" uid="uid://bojb73eb2ihfo" path="res://assets/theme.tres" id="4_a7lk1"]
+[ext_resource type="Theme" uid="uid://ppfy7kdqv1kv" path="res://assets/theme.tres" id="4_a7lk1"]
 [ext_resource type="Texture2D" uid="uid://bjd302kmn2k4g" path="res://assets/hp-bar-fill.png" id="5_ebsrq"]
 [ext_resource type="Script" path="res://scripts/hp-bar.gd" id="7_g87td"]
 

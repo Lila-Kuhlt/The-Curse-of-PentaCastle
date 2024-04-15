@@ -19,10 +19,12 @@ func add_spell_item_panel(spell: SpellBook.Spells):
 	panel.visible = true
 	spellsBox.add_child(panel)
 	var lst: Array[int] = []
-	for c in SpellBook.spell_item_scripts[spell].new().cast:
+	var spell_item = SpellBook.spell_item_scripts[spell].new()
+	for c in spell_item.cast:
 		lst.append(int(c))
 	var child = panel.get_child(0)
 	child.init_lines(lst)
+	child.set_desc(spell_item.desc)
 	child.add_theme_stylebox_override('panel', dflt_box)
 	child.set_texture(SpellBook.spell_item_sprites[spell])
 

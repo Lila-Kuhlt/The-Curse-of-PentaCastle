@@ -20,6 +20,9 @@ func init_lines(line: Array[int]):
 	for i in line:
 		fg.add_point(PENTAGRAM_CORNERS[i] * SCALE + OFFSET)
 
+func set_desc(desc: String) -> void:
+	tooltip_text = desc
+
 func _on_mouse_entered() -> void:
 	fg.visible = true
 	bg.visible = true
