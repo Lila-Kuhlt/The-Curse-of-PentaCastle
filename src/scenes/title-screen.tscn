@@ -220,8 +220,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "Insert Game Title here lol
-insert dummen Witz hier"
+text = "The Curse of PentaCastle"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

@@ -154,7 +154,7 @@ func _physics_process(delta):
 
 	velocity += knockback * delta
 	knockback *= KNOCKBACK_ENVELOPE
-	
+
 	if direction:
 		sprite.animation = 'walk-attack' if attack_animation_t > 0.0 else 'walk'
 	else:
