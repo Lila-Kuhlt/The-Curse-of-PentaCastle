@@ -8,3 +8,4 @@ func _init():
 	desc = "Half damage for 10s"
 	cast = [0, 1, 2, 3, 4, 0]
 	duration = 10.0
+	sprite = preload("res://assets/spell_items/shield.png")

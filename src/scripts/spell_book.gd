@@ -41,21 +41,6 @@ const spell_item_scripts = [
 	preload("res://scripts/spell_items/fish.gd"),
 ]
 
-const spell_item_sprites = [
-	preload("res://assets/spell_items/placeholder.png"),
-	preload("res://assets/spell_items/speed.png"),
-	preload("res://assets/spell_items/slowdown.png"),
-	preload("res://assets/spell_items/push_back.png"),
-	preload("res://assets/spell_items/fireball.png"),
-	preload("res://assets/spell_items/ultimate.png"),
-	preload("res://assets/spell_items/shield.png"),
-	preload("res://assets/spell_items/magic_boost.png"),
-	preload("res://assets/spell_items/strike.png"),
-	preload("res://assets/spell_items/lightning.png"),
-	preload("res://assets/spell_items/rain_of_blood.png"),
-	preload("res://assets/spell_items/fish.png"),
-]
-
 var spell_scripts = [
 	preload("res://scripts/spells/base.gd").new(),
 	preload("res://scripts/spells/speed.gd").new(),

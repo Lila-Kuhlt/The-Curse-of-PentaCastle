@@ -8,3 +8,4 @@ func _init():
 	desc = "Medium lightning damage"
 	cast = [3, 1, 4, 0]
 	duration = 0.0
+	sprite = preload("res://assets/spell_items/lightning.png")

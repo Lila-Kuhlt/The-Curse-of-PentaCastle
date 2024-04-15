@@ -8,3 +8,4 @@ func _init():
 	desc = "Increased damage of attacks for 5s"
 	cast = [2, 0, 3]
 	duration = 5.0
+	sprite = preload("res://assets/spell_items/magic_boost.png")

@@ -8,3 +8,4 @@ func _init():
 	desc = "Knockbacks enemies"
 	cast = [1, 3]
 	duration = 0.0
+	sprite = preload("res://assets/spell_items/push_back.png")

@@ -8,3 +8,4 @@ func _init():
 	desc = "Enemy gets 2 damage 7s long"
 	cast = [2, 3, 0]
 	duration = 7.0
+	sprite = preload("res://assets/spell_items/rain_of_blood.png")

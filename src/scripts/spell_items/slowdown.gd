@@ -8,3 +8,4 @@ func _init():
 	desc = "Enemy slowdown for 5s"
 	cast = [2, 4, 1, 3, 2]
 	duration = 5
+	sprite = preload("res://assets/spell_items/slowdown.png")

@@ -8,3 +8,4 @@ func _init():
 	desc = "Small attack"
 	cast = [1, 4]
 	duration = 0.0
+	sprite = preload("res://assets/spell_items/strike.png")

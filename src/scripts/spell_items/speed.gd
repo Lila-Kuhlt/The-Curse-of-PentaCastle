@@ -8,3 +8,4 @@ func _init():
 	desc = "Double speed for 10s"
 	cast = [1, 4, 0, 1]
 	duration = 10
+	sprite = preload("res://assets/spell_items/speed.png")

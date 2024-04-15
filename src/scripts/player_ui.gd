@@ -26,7 +26,7 @@ func add_spell_item_panel(spell: SpellBook.Spells):
 	child.init_lines(lst)
 	child.set_desc(spell_item.desc)
 	child.add_theme_stylebox_override('panel', dflt_box)
-	child.set_texture(SpellBook.spell_item_sprites[spell])
+	child.set_texture(spell_item.sprite)
 
 func mark_spell_item_panel(idx: int):
 	var panel: Panel = spellsBox.get_child(idx + 1).get_child(0)
@@ -40,7 +40,8 @@ func unmark_spell_item_panel(idx: int):
 
 func replace_spell_item_panel(idx: int, new_spell: SpellBook.Spells):
 	var panel = spellsBox.get_child(idx + 1).get_child(0)
-	panel.set_texture(SpellBook.spell_item_sprites[new_spell])
+	var spell_item = SpellBook.spell_item_scripts[new_spell].new()
+	panel.set_texture(spell_item.sprite)
 
 func delete_spell_item_panel(idx: int):
 	var item_panel = spellsBox.get_child(idx + 1)

@@ -8,3 +8,4 @@ func _init():
 	desc = "Medium fish attack"
 	cast = [3, 0, 2, 4]
 	duration = 30.0
+	sprite = preload("res://assets/spell_items/fish.png")

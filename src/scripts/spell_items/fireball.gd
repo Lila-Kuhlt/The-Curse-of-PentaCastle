@@ -8,3 +8,4 @@ func _init():
 	desc = "High fire damage"
 	cast = [1, 2, 0, 3, 4]
 	duration = 0.0
+	sprite = preload("res://assets/spell_items/fireball.png")
