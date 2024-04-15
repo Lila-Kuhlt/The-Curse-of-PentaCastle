@@ -7,6 +7,7 @@ size = Vector2(7, 14)
 
 [sub_resource type="Animation" id="Animation_4lstb"]
 resource_name = "rot"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,7 +29,7 @@ _data = {
 [node name="Strike" instance=ExtResource("1_gf3ie")]
 ATTACK_DAMAGE = 20.0
 KNOCKBACK_STRENGTH = 25.0
-REMOVE_AFTER = 0.5
+REMOVE_AFTER = 1.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.5, 0)
