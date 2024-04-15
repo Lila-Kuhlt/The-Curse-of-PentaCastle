@@ -12,7 +12,19 @@ const rooms = [
 var room_idx: int = -1
 var room: Node2D
 
-const Spells = SpellBook.Spells
+const Spell = SpellBook.Spells
+const spell_order = [
+	Spell.SPEED,
+	Spell.FISH,
+	Spell.SLOWDOWN,
+	Spell.PUSH_BACK,
+	Spell.MAGIC_BOOST,
+	Spell.STRIKE,
+	Spell.SHIELD,
+	Spell.LIGHTNING,
+	Spell.RAIN_OF_BLOOD,
+]
+var next_spell_idx := 0
 
 ## Spawn a new room.
 func new_room():
@@ -39,6 +51,9 @@ func check_room_cleared():
 	if enemies.all(func(enemy): return enemy.life <= 0) and chests.all(func(chest): return not chest.active):
 		room.room_cleared()
 
-func get_next_spell() -> Spells:
-	# TODO
-	return Spells.ULTIMATE
+func get_next_spell() -> Spell:
+	if next_spell_idx == -1:
+		return Spell.PLACEHOLDER
+	var spell = spell_order[next_spell_idx]
+	next_spell_idx += 1
+	return spell

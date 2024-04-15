@@ -5,7 +5,7 @@ extends Node2D
 const Chest = preload("res://scenes/chest.tscn")
 
 func _ready():
-	$Door/CollisionShape2D.disabled = true
+	$Door.disable()
 	var cells: Array[Vector2i] = $Map.get_used_cells(0)
 	var chests: Array[Vector2i] = []
 	var monsters: Array[Vector2i] = []
@@ -22,7 +22,7 @@ func _ready():
 
 	# chest spawning
 	var spell = get_tree().get_first_node_in_group("world").get_next_spell()
-	if spell != -1 and not chests.is_empty():
+	if spell != SpellBook.Spells.PLACEHOLDER and not chests.is_empty():
 		chests.shuffle()
 		var cell = chests.pick_random()
 		var chest := Chest.instantiate()
@@ -36,4 +36,4 @@ func _ready():
 	# TODO
 
 func room_cleared():
-	$Door/CollisionShape2D.disabled = false
+	$Door.enable()
