@@ -69,6 +69,8 @@ func _physics_process(delta):
 			if mode_cooldown <= 0:
 				mode = UnicornMode.CHARGE
 				anim.play('walk')
+				SfxAudio.play_sfx(SfxAudio.Sound.UNICORN_CHARGE)
+
 		UnicornMode.CHARGE:
 			if is_on_wall() and (get_wall_normal().x > 0.0) != is_facing_right:
 				was_on_wall_cooldown = 100.0

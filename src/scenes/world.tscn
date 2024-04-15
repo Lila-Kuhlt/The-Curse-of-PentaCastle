@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2wc3es2u1pww"]
+[gd_scene load_steps=7 format=3 uid="uid://b2wc3es2u1pww"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_177g5"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="1_spbyq"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="3_acnda"]
+[ext_resource type="Script" path="res://scripts/sfx_audio.gd" id="4_g7a0q"]
+[ext_resource type="Script" path="res://scripts/spell_book.gd" id="5_8bwl8"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_eby2c"]
 
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1_177g5")
@@ -10,5 +14,12 @@ script = ExtResource("1_177g5")
 [node name="Player" parent="." instance=ExtResource("1_spbyq")]
 
 [node name="PentagramLayer" parent="." instance=ExtResource("3_acnda")]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." groups=["audio_sfx"]]
+stream = SubResource("AudioStreamPolyphonic_eby2c")
+script = ExtResource("4_g7a0q")
+
+[node name="SpellBook" type="Node2D" parent="."]
+script = ExtResource("5_8bwl8")
 
 [connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]

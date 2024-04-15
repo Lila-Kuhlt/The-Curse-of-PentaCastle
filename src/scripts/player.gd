@@ -36,6 +36,7 @@ var knockback := Vector2(0, 0)
 var direction := 0.0
 var walk_vel := 0.0
 var lookahead := 0.0
+var movement_sfx_counter = 0
 
 # Juice
 var frames_since_ground := 0
@@ -98,6 +99,8 @@ func _physics_process(delta):
 			velocity.y += ADDITIONAL_FALLING_GRAVITY * delta
 
 	if is_on_floor():
+		if frames_since_ground != 0:
+			SfxAudio.play_sfx(SfxAudio.Sound.STEP_DROP)
 		frames_since_ground = 0
 	else:
 		frames_since_ground += 1
@@ -179,6 +182,7 @@ func game_over():
 	get_tree().reload_current_scene()
 
 func take_damage(dmg: int):
+	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
 	life -= dmg * shield_multiplier
 	get_tree().get_first_node_in_group('hp-bar').set_value(life)
 	hit_indicator.play('hit')
@@ -199,7 +203,7 @@ func _on_pentagram_layer_combo_done(combo: Array[int]):
 			cast(spell, idx)
 			return
 
-	# TODO: negative feedback
+	SfxAudio.play_sfx(SfxAudio.Sound.DRAW_INVALID)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is TileMap: colliding_spike = true

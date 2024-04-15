@@ -7,8 +7,10 @@ const spell_item_scene = preload("res://scenes/spell_item.tscn")
 var is_player_entered: bool = false
 var player_entered: CharacterBody2D
 var desc: String
-
 var active := true
+
+@onready var world: Node2D = get_tree().get_first_node_in_group("world")
+@onready var desc_node: RichTextLabel = get_tree().get_first_node_in_group('spell-description-label')
 
 func _ready():
 	var spell_item: Node2D = spell_item_scene.instantiate()
@@ -26,7 +28,8 @@ func _process(_delta):
 func use_chest():
 	active = false
 	player_entered.give_spell_item(spell)
-	get_tree().get_first_node_in_group("world").check_room_cleared()
+	world.check_room_cleared()
+	SfxAudio.play_sfx(SfxAudio.Sound.CHEST)
 	queue_free()
 
 
@@ -35,7 +38,6 @@ func _on_body_entered(body):
 		is_player_entered = true
 		show_use_label()
 		player_entered = body
-		var desc_node: RichTextLabel = get_tree().get_first_node_in_group('spell-description-label')
 		desc_node.clear()
 		desc_node.add_text(desc)
 
@@ -45,7 +47,6 @@ func _on_body_exited(body):
 		is_player_entered = false
 		hide_use_label()
 		player_entered = null
-		var desc_node: RichTextLabel = get_tree().get_first_node_in_group('spell-description-label')
 		desc_node.clear()
 
 func show_use_label():
