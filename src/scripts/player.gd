@@ -14,6 +14,7 @@ const ENEMY_DIE_HEAL_AMOUNT = 10
 
 # Ghosts
 const Ghost = preload("res://scenes/ghost.tscn")
+const GAMEOVER_SCREEN = preload("res://scenes/gameover-screen.tscn")
 
 enum MovementPhase { STANDING = 0, ACCELERATING = 1, DECELERATING = 2, TURNING = 3 }
 
@@ -199,7 +200,15 @@ func give_spell_item(spell: SpellBook.Spells):
 	ui.add_spell_item_panel(spell)
 
 func game_over():
-	get_tree().reload_current_scene()
+	var tree = get_tree()
+	tree.paused = true
+	var world = tree.get_first_node_in_group("world")
+	var gameover_screen = GAMEOVER_SCREEN.instantiate()
+	gameover_screen.score = world.score
+	var layer = CanvasLayer.new()
+	layer.layer = 2
+	layer.add_child(gameover_screen)
+	world.add_child(layer)
 
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
