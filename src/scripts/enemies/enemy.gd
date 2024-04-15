@@ -8,6 +8,7 @@ const KNOCKBACK_VELOCITY_SCALING := 0.4
 @export var KNOCKBACK_ENVELOPE: float = 0.977
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
+var damage_multiplier = 1.0
 
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
@@ -55,7 +56,7 @@ func hit_player(player: CharacterBody2D):
 	player.take_damage(ATTACK_DAMAGE)
 
 func take_damage(dmg: int):
-	life -= dmg
+	life -= dmg * damage_multiplier
 	health_bar.value = life
 	hit_indicator.play('hit')
 
