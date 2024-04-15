@@ -3,7 +3,7 @@ extends Node2D
 enum difficulty {
 	EASY,
 	MEDIUM,
-	HARD
+	HARD,
 }
 
 @export var MONSTERS := 1

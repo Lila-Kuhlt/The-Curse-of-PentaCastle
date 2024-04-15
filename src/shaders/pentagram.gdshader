@@ -1,4 +1,4 @@
-	shader_type canvas_item;
+shader_type canvas_item;
 
 uniform float line_length;
 uniform sampler2D noise;
