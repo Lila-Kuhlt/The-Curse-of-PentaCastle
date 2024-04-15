@@ -7,6 +7,7 @@ resource_local_to_scene = true
 radius = 3.0
 
 [node name="Fireball" instance=ExtResource("1_bb8xt")]
+scale = Vector2(2, 2)
 speed = 140.0
 ATTACK_DAMAGE = 18.0
 KNOCKBACK_STRENGTH = 30.0

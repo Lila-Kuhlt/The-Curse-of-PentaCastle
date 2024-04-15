@@ -5,9 +5,10 @@ const IDLE_COOLDOWN_MIN := 4.0
 const IDLE_COOLDOWN_MAX := 8.0
 const HIDE_COOLDOWN_MIN := 1
 const HIDE_COOLDOWN_MAX := 3
+const PRE_ATTACK_COOLDOWN := 1.0
 const ATTACK_COOLDOWN := 2
 
-enum BookwormMode { IDLE, ATTACK, HIDING }
+enum BookwormMode { IDLE, PRE_ATTACK, ATTACK, HIDING }
 
 var mode: BookwormMode = BookwormMode.IDLE
 var mode_cooldown := 3.0
@@ -21,6 +22,10 @@ var attack_target := Vector2(0, 0)
 
 func _ready() -> void:
 	super._ready()
+
+func goto_pre_attack_mode():
+	mode = BookwormMode.PRE_ATTACK
+	mode_cooldown = PRE_ATTACK_COOLDOWN
 
 func goto_attack_mode():
 	mode = BookwormMode.ATTACK
@@ -62,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	match mode:
 		BookwormMode.IDLE:
 			if player.position.distance_to(position) < VIEW_DISTANCE:
-				goto_attack_mode()
+				goto_pre_attack_mode()
 			else:
 				mode_cooldown -= delta
 				if mode_cooldown < 0:
@@ -70,6 +75,10 @@ func _physics_process(delta: float) -> void:
 		BookwormMode.HIDING:
 			if mode_cooldown <= 0:
 				goto_idle_mode()
+			else: mode_cooldown -= delta
+		BookwormMode.PRE_ATTACK:
+			if mode_cooldown <= 0:
+				goto_attack_mode()
 			else: mode_cooldown -= delta
 		BookwormMode.ATTACK:
 			mode_cooldown -= delta
