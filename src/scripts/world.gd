@@ -80,8 +80,6 @@ func _ready():
 	rare.shuffle()
 	ultra.shuffle()
 	spell_order = common + rare + ultra
-
-	SfxAudio.play_sfx(SfxAudio.Sound.STOEHN)
 	load_room(main_room)
 
 func check_room_cleared():

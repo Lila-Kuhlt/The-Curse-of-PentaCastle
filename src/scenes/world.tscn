@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2wc3es2u1pww"]
+[gd_scene load_steps=8 format=3 uid="uid://b2wc3es2u1pww"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_177g5"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="1_spbyq"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="3_acnda"]
 [ext_resource type="Script" path="res://scripts/sfx_audio.gd" id="4_g7a0q"]
 [ext_resource type="AudioStream" uid="uid://bp1h8svqu0cag" path="res://assets/ambient/amient_music.wav" id="5_ms7dh"]
+[ext_resource type="AudioStream" uid="uid://bpfat0p3cwxbe" path="res://assets/ambient/game_over.mp3" id="6_su7nh"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_eby2c"]
 
@@ -23,5 +24,8 @@ script = ExtResource("4_g7a0q")
 stream = ExtResource("5_ms7dh")
 volume_db = -10.0
 autoplay = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." groups=["audio_game_over"]]
+stream = ExtResource("6_su7nh")
 
 [connection signal="combo_done" from="PentagramLayer" to="Player" method="_on_pentagram_layer_combo_done"]

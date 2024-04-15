@@ -47,9 +47,10 @@ var direction := 0.0
 var walk_vel := 0.0
 var lookahead := 0.0
 
-# SFX
+# Music
 var movement_sfx_counter = 0
 var last_frame_in_air = false
+@onready var audio_game_over = get_tree().get_first_node_in_group("audio_game_over")
 
 # Juice
 var frames_since_ground := 0
@@ -211,6 +212,7 @@ func game_over():
 	layer.add_child(gameover_screen)
 	world.add_child(layer)
 	SfxAudio.play_sfx(SfxAudio.Sound.STOEHN)
+	audio_game_over.play()
 
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
