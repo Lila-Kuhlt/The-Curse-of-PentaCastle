@@ -17,6 +17,6 @@ layer_1/tile_data = PackedInt32Array(851944, 3, 0, 851945, 3, 0, 851946, 3, 0, 8
 position = Vector2(30, -94)
 
 [node name="PlayerMarker" parent="." index="3"]
-position = Vector2(121, 143)
+position = Vector2(121, 147)
 
 [node name="Bookworm" parent="." index="4" instance=ExtResource("2_k1tg7")]

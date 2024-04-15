@@ -19,4 +19,4 @@ position = Vector2(510, 34)
 position = Vector2(234, 218)
 
 [node name="PlayerMarker" parent="." index="4"]
-position = Vector2(98, 48)
+position = Vector2(98, 51)

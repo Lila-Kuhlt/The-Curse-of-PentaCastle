@@ -18,10 +18,7 @@ layer_1/tile_data = PackedInt32Array(-4521985, 3, 0, -4587520, 3, 0, -4587519, 3
 position = Vector2(311, 3)
 
 [node name="PlayerMarker" parent="." index="3"]
-position = Vector2(10, 17)
-
-[node name="CollisionShape2D" parent="PlayerMarker/Area2D" index="0"]
-position = Vector2(0, 0)
+position = Vector2(10, 19)
 
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_auqpb")]
 position = Vector2(191, -30)

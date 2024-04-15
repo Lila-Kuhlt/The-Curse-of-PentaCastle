@@ -23,7 +23,7 @@ layer_0/tile_data = PackedInt32Array(-327663, 1, 0, -327664, 65537, 2, -327665, 
 position = Vector2(-1574, -79)
 
 [node name="PlayerMarker" parent="." index="3"]
-position = Vector2(269, -102)
+position = Vector2(269, -93)
 
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_jtr1x")]
 position = Vector2(94, -94)

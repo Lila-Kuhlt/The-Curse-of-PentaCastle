@@ -378,12 +378,13 @@ sources/3 = SubResource("TileSetAtlasSource_7fk5a")
 tile_proxies/coords_level = [[3, Vector2i(0, 0)], [7, Vector2i(0, 0)], [4, Vector2i(0, 0)], [7, Vector2i(1, 0)], [5, Vector2i(0, 0)], [7, Vector2i(2, 0)], [6, Vector2i(0, 0)], [7, Vector2i(3, 0)]]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tv1"]
-size = Vector2(13, 28)
+size = Vector2(9, 26)
 
-[node name="Room2" type="Node2D"]
+[node name="Room" type="Node2D"]
 script = ExtResource("1_76usc")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(604.066, 323.405)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.8, 1)
@@ -416,5 +417,4 @@ position = Vector2(14, 23)
 [node name="Area2D" type="Area2D" parent="PlayerMarker"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMarker/Area2D"]
-position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_m4tv1")
