@@ -20,7 +20,7 @@ layer_1/tile_data = PackedInt32Array(-65532, 3, 0)
 
 [node name="Chest" parent="." index="2" instance=ExtResource("3_avhg6")]
 position = Vector2(207, -24)
-spell = 11
+spell = 8
 
 [node name="Door" parent="." index="3"]
 position = Vector2(392, 0)
