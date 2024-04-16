@@ -47,7 +47,7 @@ var spell_scripts = [
 	preload("res://scripts/spells/base.gd").new(),
 	preload("res://scripts/spells/speed.gd").new(),
 	preload("res://scripts/spells/slowdown.gd").new(),
-	load("res://scripts/spells/push_back.gd").new(),
+	preload("res://scripts/spells/push_back.gd").new(),
 	preload("res://scripts/spells/fireball.gd").new(),
 	preload("res://scripts/spells/ultimate.gd").new(),
 	preload("res://scripts/spells/shield.gd").new(),

@@ -13,7 +13,8 @@ func cast(player: Player, enemies: Array[Node]):
 
 func _time_out(enemies: Array[Node]):
 	for enemy in enemies:
-		enemy.take_damage(DAMAGE_PER_SECOND)
+		if enemy != null:
+			enemy.take_damage(DAMAGE_PER_SECOND)
 
 func uncast(_player: Player, _enemies: Array[Node]):
 	timer.queue_free()
