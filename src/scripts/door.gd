@@ -5,8 +5,9 @@ func disable():
 	modulate *= 0.5
 
 func enable():
-	$CollisionShape2D.disabled = false
-	modulate *= 2
+	if $CollisionShape2D.disabled:
+		$CollisionShape2D.disabled = false
+		modulate *= 2
 
 func _on_body_entered(_body):
 	SfxAudio.play_sfx(SfxAudio.Sound.PORTAL)
