@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b5f5lmrpjngrp" path="res://scenes/enemies/firedevil.tscn" id="4_a8h0y"]
 
 [node name="Room2" instance=ExtResource("1_r5y2l")]
-position = Vector2(-121, -2)
 score = 150
 
 [node name="ParallaxLayer2" parent="ParallaxBackground" index="0"]
