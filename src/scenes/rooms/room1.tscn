@@ -29,12 +29,15 @@ position = Vector2(-1, -222)
 
 [node name="Bookworm" parent="." index="6" instance=ExtResource("4_ae0jt")]
 position = Vector2(-17, -119)
+ATTACK_DAMAGE = 10
 
 [node name="Unicorn3" parent="." index="7" instance=ExtResource("3_oi2kq")]
 position = Vector2(-21, -63)
 
 [node name="Bookworm2" parent="." index="8" instance=ExtResource("4_ae0jt")]
 position = Vector2(-41, 9)
+ATTACK_DAMAGE = 10
 
 [node name="Bookworm3" parent="." index="9" instance=ExtResource("4_ae0jt")]
 position = Vector2(66, -23)
+ATTACK_DAMAGE = 10

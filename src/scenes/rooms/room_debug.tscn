@@ -68,6 +68,7 @@ spell = 11
 
 [node name="Bookworm" parent="." index="16" instance=ExtResource("4_bf5w7")]
 position = Vector2(170, 38)
+ATTACK_DAMAGE = 10
 
 [node name="Firedevil" parent="." index="17" instance=ExtResource("5_fqody")]
 position = Vector2(-147, 41)
