@@ -104,6 +104,7 @@ resource_local_to_scene = true
 size = Vector2(16, 13.25)
 
 [node name="Bat" instance=ExtResource("1_d5tua")]
+life = 30.0
 MOVEMENT_SPEED = 18.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]

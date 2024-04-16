@@ -14,6 +14,7 @@ const rooms := {
 	room_type.difficulty.MEDIUM: [
 		preload("res://scenes/rooms/room2.tscn"),
 		preload("res://scenes/rooms/room_stairs.tscn"),
+		preload("res://scenes/rooms/room-tower.tscn")
 	],
 	room_type.difficulty.HARD: [
 		preload("res://scenes/rooms/room1.tscn"),

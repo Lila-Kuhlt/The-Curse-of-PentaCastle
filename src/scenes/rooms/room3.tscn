@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ja2yahh5jug" path="res://scenes/enemies/unicorn.tscn" id="2_auqpb"]
 [ext_resource type="PackedScene" uid="uid://7fmfsh1da7t5" path="res://scenes/enemies/bookworm.tscn" id="3_s0cjm"]
 [ext_resource type="PackedScene" uid="uid://b5f5lmrpjngrp" path="res://scenes/enemies/firedevil.tscn" id="4_a0t8x"]
-[ext_resource type="PackedScene" uid="uid://bi24d5plure2d" path="res://scenes/enemies/bat.tscn" id="5_l10wr"]
+[ext_resource type="PackedScene" uid="uid://bb67x4jolx0m1" path="res://scenes/enemies/bat.tscn" id="5_l10wr"]
 
 [node name="Room" instance=ExtResource("1_drosh")]
 MONSTERS = 6
