@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b5f5lmrpjngrp"]
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_ylqlj"]
-[ext_resource type="Texture2D" uid="uid://cb7pd2huloiib" path="res://assets/fire-demon.png" id="2_cna0v"]
+[ext_resource type="Texture2D" uid="uid://beiqouigaecec" path="res://assets/fire-demon.png" id="2_cna0v"]
 [ext_resource type="Script" path="res://scripts/enemies/firedevil.gd" id="2_mcpaa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_useh6"]
@@ -88,6 +88,7 @@ MOVEMENT_SPEED = 20.0
 position = Vector2(-1, 0)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_le66y")
+autoplay = "default"
 frame = 1
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
