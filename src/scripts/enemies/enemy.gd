@@ -3,13 +3,11 @@ class_name Enemy extends CharacterBody2D
 const SPIKE_DAMAGE_COOLDOWN = 0.7
 const SPIKE_DAMAGE := 10
 
-const AURA_COOLDOWN = 1.0
-
 @export var score: int = 10
 @export var life := 50.0
 @export var MOVEMENT_SPEED := 10.0
 @export var ATTACK_DAMAGE := 10
-@export var KNOCKBACK_STRENGTH := 400.0
+@export var KNOCKBACK_STRENGTH := 800.0
 const KNOCKBACK_VELOCITY_SCALING := 0.4
 @export var KNOCKBACK_ENVELOPE: float = 0.977
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,8 +15,6 @@ var knockback = Vector2(0, 0)
 var damage_multiplier = 1.0
 var spike_damage_timer := 0.0
 var colliding_spike := false
-var aura_timer := 0.0
-var colliding_player := false
 
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
@@ -75,21 +71,12 @@ func do_physics(delta: float):
 	velocity += knockback
 	knockback *= KNOCKBACK_ENVELOPE
 
-	if colliding_spike:
-		if spike_damage_timer <= 0.0:
-			take_damage(SPIKE_DAMAGE)
-			spike_damage_timer = SPIKE_DAMAGE_COOLDOWN
-		else:
-			spike_damage_timer -= delta
+	spike_damage_timer = max(spike_damage_timer - delta, 0.0)
+	if colliding_spike and not spike_damage_timer:
+		take_damage(SPIKE_DAMAGE)
+		spike_damage_timer = SPIKE_DAMAGE_COOLDOWN
 
-	if colliding_player:
-		if aura_timer <= 0.0:
-			hit_player()
-			aura_timer = AURA_COOLDOWN
-		else:
-			aura_timer -= delta
-
-func hit_player():
+func hit_player(player: CharacterBody2D):
 	var direction = velocity
 	direction = direction.normalized() + direction * KNOCKBACK_VELOCITY_SCALING
 	player.knockback = direction * KNOCKBACK_STRENGTH
@@ -105,22 +92,15 @@ func i_am_gonna_kill_myself():
 	var world = get_tree().get_first_node_in_group("world")
 	world.add_score(score)
 	world.check_room_cleared()
-	player.heal_enemy_die()
+	get_tree().get_first_node_in_group('player').heal_enemy_die()
 	queue_free()
 
 
-func _on_hit_collider_body_entered(_body):
-	colliding_player = true
-	aura_timer = 0.0
-
-func _on_hit_collider_body_exited(_body):
-	colliding_player = false
+func _on_hit_collider_body_entered(body):
+	hit_player(body)
 
 func _on_spike_collider_body_entered(body: Node2D) -> void:
-	if body is TileMap:
-		colliding_spike = true
-		spike_damage_timer = 0.0
+	if body is TileMap: colliding_spike = true
 
 func _on_spike_collider_body_exited(body: Node2D) -> void:
-	if body is TileMap:
-		colliding_spike = false
+	if body is TileMap: colliding_spike = false
