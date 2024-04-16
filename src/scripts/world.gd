@@ -11,7 +11,10 @@ const rooms := {
 		preload("res://scenes/rooms/room3.tscn"),
 		preload("res://scenes/rooms/room_line.tscn"),
 	],
-	room_type.difficulty.MEDIUM: [preload("res://scenes/rooms/room2.tscn")],
+	room_type.difficulty.MEDIUM: [
+		preload("res://scenes/rooms/room2.tscn"),
+		preload("res://scenes/rooms/room_stairs.tscn"),
+	],
 	room_type.difficulty.HARD: [
 		preload("res://scenes/rooms/room1.tscn"),
 		preload("res://scenes/rooms/room-illuminati.tscn"),
