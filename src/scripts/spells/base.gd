@@ -12,4 +12,4 @@ func spawn_projectile(player: Player, projectile: Projectile):
 	projectile.direction = Vector2(1,0) * (-1 if flip else 1)
 	projectile.position = player.position + Vector2(0, 4)
 
-	player.get_parent().add_child(projectile)
+	player.get_parent().room.add_child(projectile)
