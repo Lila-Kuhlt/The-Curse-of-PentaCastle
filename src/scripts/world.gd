@@ -93,7 +93,7 @@ func check_room_cleared():
 		room.room_cleared()
 
 func get_next_spell() -> Spell:
-	if next_spell_idx == -1 or next_spell_idx >= spell_order.size():
+	if next_spell_idx == -1 or next_spell_idx >= spell_order.size() or next_spell_idx == Spell.STRIKE:
 		return Spell.PLACEHOLDER
 	var spell = spell_order[next_spell_idx]
 	next_spell_idx += 1
