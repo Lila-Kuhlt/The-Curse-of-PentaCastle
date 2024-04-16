@@ -198,6 +198,8 @@ func _physics_process(delta):
 		game_over()
 
 func give_spell_item(spell: SpellBook.Spells):
+	if spell in spell_inventory:
+		return
 	spell_inventory.append(spell)
 	ui.add_spell_item_panel(spell)
 
