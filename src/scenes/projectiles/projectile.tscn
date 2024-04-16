@@ -7,10 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://d36grl02ydtdq" path="res://assets/boxing-glove.png" id="5_5x4rg"]
 [ext_resource type="Texture2D" uid="uid://dl0w501n8mfnr" path="res://assets/ugly-dagger.png" id="6_hon0c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lbg23"]
-resource_local_to_scene = true
-radius = 3.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6lrc"]
 atlas = ExtResource("2_ckgqm")
 region = Rect2(0, 0, 16, 16)
@@ -164,16 +160,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ProjectileBase" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_46dli"]
+resource_local_to_scene = true
+radius = 3.0
+
+[node name="ProjectileBase" type="Area2D"]
 collision_layer = 0
 collision_mask = 48
 script = ExtResource("1_s58pv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -1)
-shape = SubResource("CircleShape2D_lbg23")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7xxmc")
-animation = &"pushback"
+animation = &"fish"
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46dli")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

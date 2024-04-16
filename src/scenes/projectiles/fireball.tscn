@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_bb8xt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dlco6"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ss7tq"]
 resource_local_to_scene = true
 radius = 3.0
 
@@ -12,12 +12,11 @@ speed = 140.0
 ATTACK_DAMAGE = 18.0
 KNOCKBACK_STRENGTH = 30.0
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 0)
-shape = SubResource("CircleShape2D_dlco6")
-
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(-5, 1)
 animation = &"fireball"
 autoplay = "fireball"
 frame_progress = 0.855749
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_ss7tq")

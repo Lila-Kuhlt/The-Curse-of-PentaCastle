@@ -7,9 +7,9 @@ func uncast(_player: Player, _enemies: Array[Node]):
 	pass
 
 func spawn_projectile(player: Player, projectile: Projectile):
-	var flip: bool = player.sprite.flip_h
-	projectile.set_flipped(flip)
-	projectile.direction = Vector2(1,0) * (-1 if flip else 1)
+	if player.sprite.flip_h:
+		projectile.flip()
+		projectile.direction *= -1
 	projectile.position = player.position + Vector2(0, 4)
 
 	player.get_parent().room.add_child(projectile)

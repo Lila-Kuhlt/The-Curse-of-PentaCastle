@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_c2ba0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bdgte"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx4mi"]
 resource_local_to_scene = true
-radius = 3.0
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_bxbwp"]
 resource_name = "default"
@@ -34,12 +34,13 @@ ATTACK_DAMAGE = 0.0
 KNOCKBACK_STRENGTH = 1000.0
 REMOVE_AFTER = 1.0
 
-[node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CircleShape2D_bdgte")
-
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 rotation = 6.19875
 scale = Vector2(-1, -1)
+animation = &"pushback"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_bx4mi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {

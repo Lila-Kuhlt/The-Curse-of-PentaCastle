@@ -10,9 +10,10 @@ func _physics_process(delta: float):
 	var collider = $ViewRay.get_collider()
 	if collider == player and cooldown <= 0:
 		var fire = Fire.instantiate()
+		if not is_facing_right:
+			fire.direction *= -1
+			fire.flip()
 		fire.position = position
-		fire.direction = Vector2(1, 0) if is_facing_right else Vector2(-1, 0)
-		fire.set_flipped(not is_facing_right)
 		get_parent().add_child(fire)
 		cooldown = SHOOT_COOLDOWN
 

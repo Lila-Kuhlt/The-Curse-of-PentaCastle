@@ -76,11 +76,11 @@ func do_physics(delta: float):
 		take_damage(SPIKE_DAMAGE)
 		spike_damage_timer = SPIKE_DAMAGE_COOLDOWN
 
-func hit_player(player: CharacterBody2D):
+func hit_player(body: CharacterBody2D):
 	var direction = velocity
 	direction = direction.normalized() + direction * KNOCKBACK_VELOCITY_SCALING
-	player.knockback = direction * KNOCKBACK_STRENGTH
-	player.take_damage(ATTACK_DAMAGE)
+	body.knockback = direction * KNOCKBACK_STRENGTH
+	body.take_damage(ATTACK_DAMAGE)
 
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)

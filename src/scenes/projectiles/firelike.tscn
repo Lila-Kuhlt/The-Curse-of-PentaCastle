@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_1lx00"]
 [ext_resource type="Texture2D" uid="uid://u8udjt605pon" path="res://assets/fireball.png" id="3_7k5d0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jf7y8"]
-radius = 3.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv43n"]
 atlas = ExtResource("3_7k5d0")
 region = Rect2(0, 0, 16, 16)
@@ -70,18 +67,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbsl1"]
+resource_local_to_scene = true
+radius = 3.0
+
 [node name="Firelike" instance=ExtResource("1_1lx00")]
 scale = Vector2(2, 2)
 collision_mask = 80
 speed = 50.0
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, 0)
-shape = SubResource("CircleShape2D_jf7y8")
-
-[node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(-13, -7)
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-5, 1)
 sprite_frames = SubResource("SpriteFrames_pbbgu")
 animation = &"default"
 autoplay = ""
-centered = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_jbsl1")
