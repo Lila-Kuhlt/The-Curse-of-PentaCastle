@@ -217,6 +217,7 @@ func game_over():
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
 	life -= dmg * shield_multiplier
+	life = max(life, 0)
 	life_changed.emit(life)
 	hit_indicator.play('hit')
 
