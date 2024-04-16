@@ -12,7 +12,6 @@ const CHARGE_MULT := 7.0
 const VIEW_RAY_WIDTH := 10.0
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 var mode := UnicornMode.STAND
 var mode_cooldown := 1.0

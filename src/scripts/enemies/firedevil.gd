@@ -4,8 +4,6 @@ extends Enemy
 
 const Fire = preload("res://scenes/projectiles/firelike.tscn")
 
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-
 var cooldown := SHOOT_COOLDOWN
 
 func _physics_process(delta: float):
