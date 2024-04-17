@@ -29,13 +29,12 @@ func activate_combo() -> void:
 	combo_done.emit(combo)
 	combo = []
 
-func calculate_center_position(event: InputEvent):
-	return event.position if "position" in event else get_viewport().get_visible_rect().size / 2
+func center_position() -> Vector2:
+	return get_viewport().get_visible_rect().size / 2
 
-func show_pentagram(center_pos):
+func show_pentagram():
 	visible = true
-	image.position = center_pos - image.size * image.scale * 0.5
-	multiline.add_point(center_pos)
+	image.position = center_position() - image.size * image.scale * 0.5
 
 func hide_pentagram():
 	visible = false
@@ -73,7 +72,9 @@ func get_position_of_event(event: InputEvent):
 func _input(event: InputEvent) -> void:
 	if event.is_action("summon") and event.is_pressed() != is_active:
 		if event.is_pressed():
-			show_pentagram(calculate_center_position(event))
+			show_pentagram()
+			var start_pos = event.position if "position" in event else center_position()
+			multiline.add_point(start_pos)
 		else:
 			hide_pentagram()
 
