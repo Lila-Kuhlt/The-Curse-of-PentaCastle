@@ -29,6 +29,7 @@ var room_scene: PackedScene
 var room: Node2D
 
 const Spell = SpellBook.Spells
+@export var STARTING_SPELL := Spell.STRIKE
 var spell_order := []
 var next_spell_idx := 0
 
@@ -71,7 +72,7 @@ func _ready():
 	var rare := []
 	var ultra := []
 	for spell_item in SpellBook.spell_item_scripts:
-		if spell_item.spell == Spell.PLACEHOLDER:
+		if spell_item.spell == Spell.PLACEHOLDER or spell_item.spell == STARTING_SPELL:
 			continue
 		match spell_item.rank:
 			SpellBook.SpellRank.COMMON:
@@ -83,7 +84,7 @@ func _ready():
 	common.shuffle()
 	rare.shuffle()
 	ultra.shuffle()
-	spell_order = common + rare + ultra
+	spell_order = [STARTING_SPELL] + common + rare + ultra
 	load_room(main_room)
 
 func check_room_cleared():
@@ -95,8 +96,6 @@ func check_room_cleared():
 func get_next_spell() -> Spell:
 	if next_spell_idx == -1 or next_spell_idx >= spell_order.size():
 		return Spell.PLACEHOLDER
-	if spell_order[next_spell_idx] == Spell.STRIKE:
-		next_spell_idx += 1
 	var spell = spell_order[next_spell_idx]
 	next_spell_idx += 1
 	return spell
