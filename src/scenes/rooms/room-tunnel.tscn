@@ -36,14 +36,14 @@ position = Vector2(-64, -62)
 scale = Vector2(-1, 1)
 
 [node name="Unicorn3" parent="." index="6" instance=ExtResource("2_jtr1x")]
-position = Vector2(-1287, -79)
+position = Vector2(-1259, -78)
 scale = Vector2(-1, 1)
 
 [node name="Unicorn4" parent="." index="7" instance=ExtResource("2_jtr1x")]
 position = Vector2(-1356, -45)
 
 [node name="Bat" parent="." index="8" instance=ExtResource("3_jt7ak")]
-position = Vector2(-969, -26)
+position = Vector2(-969, -25)
 
 [node name="Firedevil" parent="." index="9" instance=ExtResource("4_a8h0y")]
 position = Vector2(-746, -24)

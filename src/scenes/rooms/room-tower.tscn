@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://coi4ud5h4ixkm"]
+[gd_scene load_steps=4 format=3 uid="uid://coi4ud5h4ixkm"]
 
 [ext_resource type="PackedScene" uid="uid://d4ipwilu8782j" path="res://scenes/rooms/room.tscn" id="1_rblm7"]
+[ext_resource type="PackedScene" uid="uid://b5f5lmrpjngrp" path="res://scenes/enemies/firedevil.tscn" id="3_37w71"]
 [ext_resource type="PackedScene" uid="uid://7fmfsh1da7t5" path="res://scenes/enemies/bookworm.tscn" id="3_efgga"]
 
 [node name="RoomTower" instance=ExtResource("1_rblm7")]
@@ -17,20 +18,19 @@ layer_1/tile_data = PackedInt32Array(-2293798, 3, 0, -2293797, 3, 0, -2293796, 3
 position = Vector2(152, -207)
 
 [node name="PlayerMarker" parent="." index="3"]
-position = Vector2(26, 34)
+position = Vector2(26, 35)
 
-[node name="Bookworm" parent="." index="4" instance=ExtResource("3_efgga")]
-position = Vector2(87, 24)
+[node name="Bookworm2" parent="." index="4" instance=ExtResource("3_efgga")]
+position = Vector2(151, -7)
 ATTACK_DAMAGE = 10
 
-[node name="Bookworm2" parent="." index="5" instance=ExtResource("3_efgga")]
-position = Vector2(151, -9)
-ATTACK_DAMAGE = 10
-
-[node name="Bookworm3" parent="." index="6" instance=ExtResource("3_efgga")]
+[node name="Bookworm3" parent="." index="5" instance=ExtResource("3_efgga")]
 position = Vector2(89, -103)
 ATTACK_DAMAGE = 10
 
-[node name="Bookworm4" parent="." index="7" instance=ExtResource("3_efgga")]
-position = Vector2(149, -134)
+[node name="Bookworm4" parent="." index="6" instance=ExtResource("3_efgga")]
+position = Vector2(149, -135)
 ATTACK_DAMAGE = 10
+
+[node name="Firedevil" parent="." index="7" instance=ExtResource("3_37w71")]
+position = Vector2(90, 24)

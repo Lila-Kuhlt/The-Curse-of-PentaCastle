@@ -28,7 +28,7 @@ var is_facing_right := false:
 			is_facing_right = value
 
 func _flip_direction():
-	for node in [sprite, $HitCollider, $SpikeCollider, $GroundRay, $ViewRay]:
+	for node in [sprite, $PhysicsCollider, $HitCollider, $SpikeCollider, $GroundRay, $ViewRay]:
 		node.scale.x *= -1
 		node.position.x *= -1
 
@@ -37,6 +37,10 @@ func flip_direction():
 
 func _ready():
 	floor_constant_speed = true
+	if scale.x < 0:
+		# hack to allow flipped enemies in the 2D editor
+		scale.x *= -1
+		flip_direction()
 	hit_indicator.play('RESET')
 	health_bar.max_value = life
 	health_bar.value = life

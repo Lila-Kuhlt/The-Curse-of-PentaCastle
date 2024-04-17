@@ -33,7 +33,7 @@ position = Vector2(200, -23)
 ATTACK_DAMAGE = 10
 
 [node name="Firedevil" parent="." index="7" instance=ExtResource("4_a0t8x")]
-position = Vector2(418, -23)
+position = Vector2(418, -24)
 
 [node name="Bat" parent="." index="8" instance=ExtResource("5_l10wr")]
 position = Vector2(555, 7)

@@ -97,11 +97,11 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fogy"]
 resource_local_to_scene = true
-size = Vector2(16, 11)
+size = Vector2(16, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gges"]
 resource_local_to_scene = true
-size = Vector2(16, 13.25)
+size = Vector2(16, 12)
 
 [node name="Bat" instance=ExtResource("1_d5tua")]
 life = 30.0
@@ -112,15 +112,18 @@ sprite_frames = SubResource("SpriteFrames_58jqc")
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
-position = Vector2(0, 2.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_0fogy")
 
 [node name="PhysicsCollider" parent="." index="2"]
-position = Vector2(-0.25, 1.375)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_3gges")
 
+[node name="SpikeCollider" parent="." index="3"]
+position = Vector2(0, 2)
+
 [node name="PhysicsCollider" parent="SpikeCollider" index="0"]
-position = Vector2(0, 2.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_3gges")
 
 [node name="GroundRay" parent="." index="6"]

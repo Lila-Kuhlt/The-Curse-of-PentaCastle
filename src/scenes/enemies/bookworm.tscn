@@ -425,15 +425,16 @@ size = Vector2(11, 13)
 script = ExtResource("2_rc7d1")
 score = 30
 life = 35.0
-ATTACK_DAMAGE = 0.0
 MOVEMENT_SPEED = 0.0
+ATTACK_DAMAGE = 0.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(1.5, -0.5)
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_jmjvu")
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_3tqka")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -442,9 +443,11 @@ libraries = {
 }
 
 [node name="PhysicsCollider" parent="." index="3"]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_w31qn")
 
 [node name="PhysicsCollider" parent="SpikeCollider" index="0"]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_xk3nf")
 
 [node name="GroundRay" parent="." index="7"]

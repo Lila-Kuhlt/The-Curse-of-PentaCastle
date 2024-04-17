@@ -20,13 +20,13 @@ layer_1/tile_data = PackedInt32Array(65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 6553
 position = Vector2(-71, -47)
 
 [node name="PlayerMarker" parent="." index="3"]
-position = Vector2(-83, 98)
+position = Vector2(-83, 99)
 
 [node name="Unicorn" parent="." index="4" instance=ExtResource("2_nssim")]
 position = Vector2(89, 145)
 
 [node name="Bookworm" parent="." index="5" instance=ExtResource("3_tlvvn")]
-position = Vector2(170, 72)
+position = Vector2(170, 73)
 ATTACK_DAMAGE = 10
 
 [node name="Bookworm2" parent="." index="6" instance=ExtResource("3_tlvvn")]
