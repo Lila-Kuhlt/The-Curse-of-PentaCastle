@@ -70,26 +70,30 @@ func find_teleport_pos() -> Vector2:
 	return map.map_to_local(coord)
 
 func _physics_process(delta: float) -> void:
-	match mode:
-		BookwormMode.IDLE:
-			if player.position.distance_to(position) < VIEW_DISTANCE:
-				goto_pre_attack_mode()
-			else:
+	if not stunned:
+		match mode:
+			BookwormMode.IDLE:
+				if player.position.distance_to(position) < VIEW_DISTANCE:
+					goto_pre_attack_mode()
+				else:
+					mode_cooldown -= delta
+					if mode_cooldown < 0:
+						goto_hide_mode()
+			BookwormMode.HIDING:
+				if mode_cooldown <= 0:
+					goto_idle_mode()
+				else: mode_cooldown -= delta
+			BookwormMode.PRE_ATTACK:
+				if mode_cooldown <= 0:
+					goto_attack_mode()
+				else: mode_cooldown -= delta
+			BookwormMode.ATTACK:
 				mode_cooldown -= delta
 				if mode_cooldown < 0:
 					goto_hide_mode()
-		BookwormMode.HIDING:
-			if mode_cooldown <= 0:
-				goto_idle_mode()
-			else: mode_cooldown -= delta
-		BookwormMode.PRE_ATTACK:
-			if mode_cooldown <= 0:
-				goto_attack_mode()
-			else: mode_cooldown -= delta
-		BookwormMode.ATTACK:
-			mode_cooldown -= delta
-			if mode_cooldown < 0:
-				goto_hide_mode()
-	if mode != BookwormMode.HIDING:
-		super._physics_process(delta)
-	is_facing_right = position.x < player.position.x
+		if mode != BookwormMode.HIDING:
+			super._physics_process(delta)
+		is_facing_right = position.x < player.position.x
+	else:
+		if mode != BookwormMode.HIDING:
+			super._physics_process(delta)

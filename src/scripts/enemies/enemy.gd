@@ -16,6 +16,11 @@ var damage_multiplier = 1.0
 var spike_damage_timer := 0.0
 var colliding_spike := false
 
+var _stun_counter := 0
+var stunned: bool:
+	get:
+		return _stun_counter > 0
+
 @onready var hit_indicator: AnimationPlayer = $HitIndicatorAnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -35,6 +40,12 @@ func _flip_direction():
 func flip_direction():
 	is_facing_right = not is_facing_right
 
+func stun():
+	_stun_counter += 1
+
+func unstun():
+	_stun_counter -= 1
+
 func _ready():
 	floor_constant_speed = true
 	if scale.x < 0:
@@ -46,12 +57,15 @@ func _ready():
 	health_bar.value = life
 
 func _physics_process(delta: float):
-	on_obstacle(flip_direction)
-	if is_on_wall():
-		is_facing_right = get_wall_normal().x > 0.0
-	velocity.x = MOVEMENT_SPEED
-	if not is_facing_right:
-		velocity.x = -velocity.x
+	if not stunned:
+		on_obstacle(flip_direction)
+		if is_on_wall():
+			is_facing_right = get_wall_normal().x > 0.0
+		velocity.x = MOVEMENT_SPEED
+		if not is_facing_right:
+			velocity.x = -velocity.x
+	else:
+		velocity.x = 0.0
 
 	do_physics(delta)
 	move_and_slide()

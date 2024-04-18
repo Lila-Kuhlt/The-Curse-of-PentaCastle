@@ -7,6 +7,8 @@ size = Vector2(12, 7)
 
 [node name="Lightning" instance=ExtResource("1_w1h7g")]
 speed = 180.0
+KNOCKBACK_STRENGTH = 0.0
+STUNNING = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"lightning"

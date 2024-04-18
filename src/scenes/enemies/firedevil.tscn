@@ -89,7 +89,6 @@ position = Vector2(-1, 0)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_le66y")
 autoplay = "default"
-frame = 1
 
 [node name="CollisionShape2D" parent="HitCollider" index="0"]
 position = Vector2(0, 0.5)
