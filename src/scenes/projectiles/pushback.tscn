@@ -31,7 +31,7 @@ _data = {
 [node name="Pushback" instance=ExtResource("1_c2ba0")]
 speed = 150.0
 ATTACK_DAMAGE = 0.0
-KNOCKBACK_STRENGTH = 1000.0
+KNOCKBACK_STRENGTH = 300.0
 REMOVE_AFTER = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
