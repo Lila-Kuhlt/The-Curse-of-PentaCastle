@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dyqpiguafbprl" path="res://scenes/projectiles/projectile.tscn" id="1_w1h7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuls"]
-size = Vector2(12, 8)
+size = Vector2(12, 7)
 
 [node name="Lightning" instance=ExtResource("1_w1h7g")]
-speed = 150.0
-ATTACK_DAMAGE = 8.0
+speed = 180.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"lightning"
 autoplay = "lightning"
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_mtuls")
