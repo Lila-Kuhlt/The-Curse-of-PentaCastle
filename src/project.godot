@@ -92,6 +92,16 @@ summon_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Chests"
+2d_physics/layer_3="Doors"
+2d_physics/layer_4="Damage"
+2d_physics/layer_5="Ground"
+2d_physics/layer_6="Projectiles hitting enemies"
+2d_physics/layer_7="Projectiles hitting player"
+2d_physics/layer_8="Spikes"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
