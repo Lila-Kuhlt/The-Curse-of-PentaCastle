@@ -413,6 +413,7 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="PlayerMarker" type="Marker2D" parent="."]
 position = Vector2(14, 23)
+metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="PlayerMarker"]
 
