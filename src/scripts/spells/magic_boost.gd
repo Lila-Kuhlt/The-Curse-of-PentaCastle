@@ -1,14 +1,9 @@
 extends SpellBase
 
-var multiplier_diff
+const DAMAGE_MULTIPLIER := 1.5
 
-func cast(_player: Player, enemies: Array[Node]):
-	for enemy in enemies:
-		multiplier_diff = enemy.damage_multiplier
-		enemy.damage_multiplier *= 1.5
-		multiplier_diff = enemy.damage_multiplier - multiplier_diff
+func cast(player: Player, _enemies: Array[Node]):
+	player.damage_multiplier *= DAMAGE_MULTIPLIER
 
-func uncast(_player: Player, enemies: Array[Node]):
-	for enemy in enemies:
-		enemy.damage_multiplier -= multiplier_diff
-
+func uncast(player: Player, _enemies: Array[Node]):
+	player.damage_multiplier /= DAMAGE_MULTIPLIER

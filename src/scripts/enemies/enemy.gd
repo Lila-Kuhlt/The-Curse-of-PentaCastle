@@ -12,7 +12,6 @@ const KNOCKBACK_VELOCITY_SCALING := 0.4
 @export var KNOCKBACK_ENVELOPE: float = 0.977
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback = Vector2(0, 0)
-var damage_multiplier = 1.0
 var spike_damage_timer := 0.0
 var colliding_spike := false
 
@@ -102,7 +101,7 @@ func hit_player(body: CharacterBody2D):
 
 func take_damage(dmg: int):
 	SfxAudio.play_sfx(SfxAudio.Sound.HIT)
-	life -= dmg * damage_multiplier
+	life -= dmg
 	health_bar.value = life
 	hit_indicator.play('hit')
 

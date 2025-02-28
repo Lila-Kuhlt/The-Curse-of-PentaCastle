@@ -11,5 +11,6 @@ func spawn_projectile(player: Player, projectile: Projectile):
 		projectile.flip()
 		projectile.direction *= -1
 	projectile.position = player.position + Vector2(0, 4)
+	projectile.ATTACK_DAMAGE *= player.damage_multiplier
 
 	player.get_parent().room.add_child(projectile)

@@ -28,6 +28,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var life := MAX_LIFE
 var spike_damage_timer := 0.0
 var colliding_spike := false
+var damage_multiplier := 1.0
 var shield_multiplier := 1.0
 var attack_animation_t := 0.0
 
