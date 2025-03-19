@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2wc3es2u1pww"]
 
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_177g5"]
+[ext_resource type="Script" uid="uid://cnjkx1boa7j7d" path="res://scripts/world.gd" id="1_177g5"]
 [ext_resource type="PackedScene" uid="uid://cvjqv326igmk0" path="res://scenes/player.tscn" id="1_spbyq"]
 [ext_resource type="PackedScene" uid="uid://b8prldrgvch2u" path="res://scenes/pentagram.tscn" id="3_acnda"]
-[ext_resource type="Script" path="res://scripts/sfx_audio.gd" id="4_g7a0q"]
+[ext_resource type="Script" uid="uid://m4mgl1hmcocd" path="res://scripts/sfx_audio.gd" id="4_g7a0q"]
 [ext_resource type="AudioStream" uid="uid://bp1h8svqu0cag" path="res://assets/ambient/amient_music.wav" id="5_ms7dh"]
 [ext_resource type="AudioStream" uid="uid://bpfat0p3cwxbe" path="res://assets/ambient/game_over.mp3" id="6_su7nh"]
 

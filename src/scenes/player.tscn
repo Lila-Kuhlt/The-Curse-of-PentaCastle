@@ -1,15 +1,15 @@
 [gd_scene load_steps=77 format=3 uid="uid://cvjqv326igmk0"]
 
-[ext_resource type="Shader" path="res://shaders/hit-indicator.gdshader" id="1_4eijp"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_8i3nd"]
+[ext_resource type="Shader" uid="uid://bjvj06ua8cemq" path="res://shaders/hit-indicator.gdshader" id="1_4eijp"]
+[ext_resource type="Script" uid="uid://b28px6v36quwm" path="res://scripts/player.gd" id="1_8i3nd"]
 [ext_resource type="Texture2D" uid="uid://s8kxx0tvktsq" path="res://assets/player-idle.png" id="3_tmw0k"]
 [ext_resource type="Texture2D" uid="uid://d1xycnd2dtkmv" path="res://assets/player-attack.png" id="3_uo3rx"]
 [ext_resource type="Texture2D" uid="uid://c6jyjl5yn1stk" path="res://assets/player-walking.png" id="5_gv2ji"]
 [ext_resource type="PackedScene" uid="uid://c44q2u3nky1ek" path="res://scenes/player_ui.tscn" id="5_w4gtq"]
 [ext_resource type="Texture2D" uid="uid://crm3gfp6b38rr" path="res://assets/player-jump.png" id="5_yp14q"]
-[ext_resource type="Script" path="res://scripts/ghost_inventory.gd" id="6_4ximd"]
+[ext_resource type="Script" uid="uid://c78y4t65s6f4q" path="res://scripts/ghost_inventory.gd" id="6_4ximd"]
 [ext_resource type="Texture2D" uid="uid://bbhde8lbjildy" path="res://assets/player-walking-attack.png" id="6_awbyk"]
-[ext_resource type="Shader" path="res://shaders/shield.gdshader" id="6_lxgy7"]
+[ext_resource type="Shader" uid="uid://bs886qv57y5wp" path="res://shaders/shield.gdshader" id="6_lxgy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26xo2"]
 size = Vector2(9, 26)
@@ -464,8 +464,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8mlmo"]
 _data = {
-"RESET": SubResource("Animation_1qkdn"),
-"hit": SubResource("Animation_lpfv2")
+&"RESET": SubResource("Animation_1qkdn"),
+&"hit": SubResource("Animation_lpfv2")
 }
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_uct1m"]
@@ -530,7 +530,7 @@ drag_vertical_enabled = true
 
 [node name="HitIndicationAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8mlmo")
+&"": SubResource("AnimationLibrary_8mlmo")
 }
 speed_scale = 3.0
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_hki2g"]
 [ext_resource type="Texture2D" uid="uid://b2nvadcssvfq" path="res://assets/bookworm-attack.png" id="2_2qmpn"]
-[ext_resource type="Script" path="res://scripts/enemies/bookworm.gd" id="2_rc7d1"]
+[ext_resource type="Script" uid="uid://daqffm0yarmgd" path="res://scripts/enemies/bookworm.gd" id="2_rc7d1"]
 [ext_resource type="Texture2D" uid="uid://crc6m3sxunlbo" path="res://assets/bookworm-teleport-away.png" id="4_ejge6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vhgw"]
@@ -407,10 +407,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pj3wy"]
 _data = {
-"RESET": SubResource("Animation_sqx65"),
-"attack": SubResource("Animation_vvyf3"),
-"hide": SubResource("Animation_1c1om"),
-"idle": SubResource("Animation_lubru")
+&"RESET": SubResource("Animation_sqx65"),
+&"attack": SubResource("Animation_vvyf3"),
+&"hide": SubResource("Animation_1c1om"),
+&"idle": SubResource("Animation_lubru")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w31qn"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dyqpiguafbprl"]
 
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_s58pv"]
+[ext_resource type="Script" uid="uid://uv1ffoh3c32n" path="res://scripts/projectile.gd" id="1_s58pv"]
 [ext_resource type="Texture2D" uid="uid://u8udjt605pon" path="res://assets/fireball.png" id="2_ckgqm"]
 [ext_resource type="Texture2D" uid="uid://dmjuirat6goqd" path="res://assets/fish-sheet.png" id="3_cc8ek"]
 [ext_resource type="Texture2D" uid="uid://bh5aqvudb8idg" path="res://assets/lightning.png" id="4_s56qs"]

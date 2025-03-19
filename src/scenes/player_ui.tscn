@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://c44q2u3nky1ek"]
 
-[ext_resource type="Script" path="res://scripts/player_ui.gd" id="1_qp3wb"]
-[ext_resource type="Script" path="res://scripts/item-panel.gd" id="2_hsw3b"]
+[ext_resource type="Script" uid="uid://d1v2s83bfxwho" path="res://scripts/player_ui.gd" id="1_qp3wb"]
+[ext_resource type="Script" uid="uid://by6bqojyjrdhr" path="res://scripts/item-panel.gd" id="2_hsw3b"]
 [ext_resource type="Texture2D" uid="uid://dhkhn1pyjanh8" path="res://assets/spell_items/placeholder.png" id="2_lbgva"]
-[ext_resource type="Shader" path="res://shaders/hp-bar.gdshader" id="4_8ulmv"]
+[ext_resource type="Shader" uid="uid://2trfkh1gwi1g" path="res://shaders/hp-bar.gdshader" id="4_8ulmv"]
 [ext_resource type="Theme" uid="uid://ppfy7kdqv1kv" path="res://assets/theme.tres" id="4_a7lk1"]
 [ext_resource type="Texture2D" uid="uid://bjd302kmn2k4g" path="res://assets/hp-bar-fill.png" id="5_ebsrq"]
-[ext_resource type="Script" path="res://scripts/hp-bar.gd" id="7_g87td"]
-[ext_resource type="Script" path="res://scripts/score-indicator.gd" id="8_7cki6"]
+[ext_resource type="Script" uid="uid://bassefno0bsh6" path="res://scripts/hp-bar.gd" id="7_g87td"]
+[ext_resource type="Script" uid="uid://dspekthc0gp1m" path="res://scripts/score-indicator.gd" id="8_7cki6"]
 
 [sub_resource type="Gradient" id="Gradient_ixkjo"]
 
@@ -22,9 +22,9 @@ noise = SubResource("FastNoiseLite_rnfhh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eyyp3"]
 shader = ExtResource("4_8ulmv")
-shader_parameter/value = 100.0
 shader_parameter/tex = ExtResource("5_ebsrq")
 shader_parameter/noise = SubResource("NoiseTexture3D_ydtq4")
+shader_parameter/value = 100.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xu2f"]
 bg_color = Color(0, 0, 0, 1)

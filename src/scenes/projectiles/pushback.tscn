@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kwhoe"]
 _data = {
-"default": SubResource("Animation_bxbwp")
+&"default": SubResource("Animation_bxbwp")
 }
 
 [node name="Pushback" instance=ExtResource("1_c2ba0")]

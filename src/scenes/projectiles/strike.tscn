@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdptt"]
 _data = {
-"rot": SubResource("Animation_4lstb")
+&"rot": SubResource("Animation_4lstb")
 }
 
 [node name="Strike" instance=ExtResource("1_gf3ie")]

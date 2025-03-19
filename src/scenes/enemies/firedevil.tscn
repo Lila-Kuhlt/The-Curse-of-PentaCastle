@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_ylqlj"]
 [ext_resource type="Texture2D" uid="uid://beiqouigaecec" path="res://assets/fire-demon.png" id="2_cna0v"]
-[ext_resource type="Script" path="res://scripts/enemies/firedevil.gd" id="2_mcpaa"]
+[ext_resource type="Script" uid="uid://bqq13rqh1kltr" path="res://scripts/enemies/firedevil.gd" id="2_mcpaa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_useh6"]
 atlas = ExtResource("2_cna0v")
@@ -73,8 +73,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mouxu"]
 _data = {
-"charge": SubResource("Animation_sbhqd"),
-"walk": SubResource("Animation_5wxf2")
+&"charge": SubResource("Animation_sbhqd"),
+&"walk": SubResource("Animation_5wxf2")
 }
 
 [node name="Firedevil" instance=ExtResource("1_ylqlj")]

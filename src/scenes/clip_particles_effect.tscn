@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://wm8nndmsi6if"]
 
 [ext_resource type="Texture2D" uid="uid://ddif83w6y12ps" path="res://assets/dust.png" id="1_3c8s6"]
-[ext_resource type="Script" path="res://scripts/clip_particles_effect.gd" id="2_f7ln0"]
+[ext_resource type="Script" uid="uid://bq51ty73biqnl" path="res://scripts/clip_particles_effect.gd" id="2_f7ln0"]
 
 [sub_resource type="Gradient" id="Gradient_kal6i"]
 offsets = PackedFloat32Array(0, 0.70028, 0.885154, 1)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8prldrgvch2u"]
 
-[ext_resource type="Script" path="res://scripts/pentagram.gd" id="1_8g2uc"]
+[ext_resource type="Script" uid="uid://blpj568ht170h" path="res://scripts/pentagram.gd" id="1_8g2uc"]
 [ext_resource type="Texture2D" uid="uid://bafju2xmbjbyj" path="res://assets/pentagram.svg" id="2_leh25"]
-[ext_resource type="Shader" path="res://shaders/pentagram.gdshader" id="3_b0qdf"]
+[ext_resource type="Shader" uid="uid://mx72hjimgdcv" path="res://shaders/pentagram.gdshader" id="3_b0qdf"]
 
 [sub_resource type="Gradient" id="Gradient_cjuh7"]
 

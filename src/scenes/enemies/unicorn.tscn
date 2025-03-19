@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://b1ja2yahh5jug"]
 
 [ext_resource type="PackedScene" uid="uid://cbej72vi5osrq" path="res://scenes/enemies/enemy.tscn" id="1_0f2vi"]
-[ext_resource type="Script" path="res://scripts/enemies/unicorn.gd" id="2_68sav"]
+[ext_resource type="Script" uid="uid://bkbwo0srdq7b5" path="res://scripts/enemies/unicorn.gd" id="2_68sav"]
 [ext_resource type="Texture2D" uid="uid://cqpdvqo52krf6" path="res://assets/unicorn-idle.png" id="3_loo3r"]
 [ext_resource type="Texture2D" uid="uid://b1xvv3scd4ve2" path="res://assets/unicorn-running.png" id="4_da15a"]
 
@@ -156,9 +156,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fc3oy"]
 _data = {
-"charge": SubResource("Animation_xrf0f"),
-"idle": SubResource("Animation_75tmj"),
-"walk": SubResource("Animation_0i3sn")
+&"charge": SubResource("Animation_xrf0f"),
+&"idle": SubResource("Animation_75tmj"),
+&"walk": SubResource("Animation_0i3sn")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4inr5"]

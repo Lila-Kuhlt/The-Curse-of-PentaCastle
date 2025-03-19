@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dak6y0mw43aj6"]
 
-[ext_resource type="Script" path="res://scripts/ghost_inventory.gd" id="1_qvwxt"]
+[ext_resource type="Script" uid="uid://c78y4t65s6f4q" path="res://scripts/ghost_inventory.gd" id="1_qvwxt"]
 
 [node name="GhostInventory" type="Node2D"]
 script = ExtResource("1_qvwxt")

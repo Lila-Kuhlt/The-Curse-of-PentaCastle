@@ -12,10 +12,10 @@ config_version=5
 
 config/name="The Curse of PentaCastle"
 run/main_scene="res://scenes/title-screen.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.364706, 0, 0.0588235, 1)
-boot_splash/image="res://assets/logo.png"
 boot_splash/use_filter=false
+boot_splash/image="res://assets/logo.png"
 config/icon="res://icon.svg"
 
 [audio]

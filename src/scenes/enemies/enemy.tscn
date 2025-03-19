@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbej72vi5osrq"]
 
-[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
+[ext_resource type="Script" uid="uid://4mfb0mow8bns" path="res://scripts/enemies/enemy.gd" id="1_4befo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyl0u"]
 resource_local_to_scene = true
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bg74g"]
 _data = {
-"RESET": SubResource("Animation_kopw6"),
-"hit": SubResource("Animation_mnwau")
+&"RESET": SubResource("Animation_kopw6"),
+&"hit": SubResource("Animation_mnwau")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg5kl"]
@@ -73,7 +73,7 @@ shape = SubResource("RectangleShape2D_sem4h")
 
 [node name="HitIndicatorAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bg74g")
+&"": SubResource("AnimationLibrary_bg74g")
 }
 speed_scale = 3.0
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfr66q0tcy8xf"]
 
-[ext_resource type="Script" path="res://scripts/gameover-screen.gd" id="1_2l7eu"]
+[ext_resource type="Script" uid="uid://cypy1r53rn4us" path="res://scripts/gameover-screen.gd" id="1_2l7eu"]
 [ext_resource type="Texture2D" uid="uid://k3cpc1gkxm11" path="res://assets/erotischer-9patch.png" id="1_rn1m4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0khw1"]

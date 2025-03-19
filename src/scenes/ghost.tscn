@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://baikad74my2xc"]
 
-[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_0mrnm"]
+[ext_resource type="Script" uid="uid://b1tmx0atipkd3" path="res://scripts/ghost.gd" id="1_0mrnm"]
 [ext_resource type="Texture2D" uid="uid://dxot4j2smfrbe" path="res://assets/geister.png" id="2_20a8m"]
 
 [sub_resource type="Curve" id="Curve_l66ae"]
